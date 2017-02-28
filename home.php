@@ -12,7 +12,7 @@ include "templates/header.php"
                         <li><a data-toggle="tab" href="#recent">Mais recentes</a></li>
                     </ul>
                 </div>
-                <div class="row">
+                <div class="tab-content">
                     <div id="featured" class="vertical-align tab-pane fade in active">
                         <div style="padding: 0" class="col-md-1 topic-status">
                             0
@@ -58,7 +58,7 @@ include "templates/header.php"
                         </div>
                         <div class="col-md-3">
                             <p>Postado por: João Varvosa</p>
-                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

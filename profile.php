@@ -15,15 +15,17 @@ include "templates/header.php"
                 <div class="text-center">
                     Estudante
                 </div>
-                <div class="col-md-12 list-group">
-                    <a href="#" class="list-group-item active">
-                        <i class="glyphicon glyphicon-home"></i>
-                        Profile
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="glyphicon glyphicon-user"></i>
-                        Account Settings
-                    </a>
+                <div class="col-md-12">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Profile
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="glyphicon glyphicon-user"></i>
+                            Account Settings
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

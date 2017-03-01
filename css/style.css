@@ -414,3 +414,8 @@ img {
     -ms-filter: alpha(opacity=60);
     filter: alpha(opacity=60);
 }
+
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}

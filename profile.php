@@ -30,6 +30,7 @@ include "templates/header.php"
         <div class="col-md-8 col-md-offset-1 main">
             <div class="row">
                 <div class="col-md-10">
+<<<<<<< HEAD
                     <div class="row section">
                         <h3>Atividade</h3>
                         <div class="timeline-centered">

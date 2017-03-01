@@ -13,19 +13,22 @@ include "templates/header.php"
                     <li class="list-group-item">
                         Título
                         <div class="material-switch pull-right">
-                            <input name="search_option" type="checkbox" checked="checked"/>
+                            <input id="search_title" name="search_option" type="checkbox" checked="checked"/>
+                            <label for="search_title" class="label-primary"></label>
                         </div>
                     </li>
                     <li class="list-group-item">
                         Tags
                         <div class="material-switch pull-right">
-                            <input name="search_option" type="checkbox" checked="checked"/>
+                            <input id="search_tags" name="search_tags" type="checkbox" checked="checked"/>
+                            <label for="search_tags" class="label-primary"></label>
                         </div>
                     </li>
                     <li class="list-group-item">
                         Utilizadores
                         <div class="material-switch pull-right">
-                            <input name="search_option" type="checkbox" checked="checked"/>
+                            <input id="search_users" name="search_option" type="checkbox" checked="checked"/>
+                            <label for="search_users" class="label-primary"></label>
                         </div>
                     </li>
                 </ul>

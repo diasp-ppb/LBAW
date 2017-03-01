@@ -26,13 +26,15 @@ include 'templates/userElem.php';
             </div>
             <div class="col-md-8 main">
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1 list-group">
-                        <?php
-                        userElem('Whiskas Saquetas');
-                        userElem('João Varvosa');
-                        userElem('Pedro Dias que não está preso');
-                        userElem('Pedro Dias que está preso');
-                        ?>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="list-group">
+                            <?php
+                            userElem('Whiskas Saquetas');
+                            userElem('João Varvosa');
+                            userElem('Pedro Dias que não está preso');
+                            userElem('Pedro Dias que está preso');
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

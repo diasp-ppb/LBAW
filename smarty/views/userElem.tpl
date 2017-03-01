@@ -1,7 +1,7 @@
 <li id="{"$username"}" class="list-group-item">
     <div class="container"
         <div class="row">
-            <div class="col-md-10 col-offset-1">
+            <div class="col-md-9 col-offset-1">
                 {"$username"}
             </div>
             <div class="col-md-2">

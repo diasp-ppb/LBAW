@@ -1,8 +1,12 @@
 <?php
 include "templates/header.php"
-
-
 ?>
+
+<script src="js/bootstrap-markdown.js"></script>
+<script src="js/markdown.min.js"></script>
+<script src="js/marked.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap-markdown.min.css">
+
 <div class="col-md-2" style="background-color:#dee2e8; height:100%;">
 
 
@@ -30,7 +34,7 @@ include "templates/header.php"
 
 
     <div class=" form-group">
-             <textarea class="form-control" id="content" style="min-height: 9% " value="" placeholder="Pergunta aqui "></textarea>
+     <textarea name="content" data-provide="markdown" rows="10"></textarea>
     </div>
 
     

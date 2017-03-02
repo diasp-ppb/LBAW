@@ -7,12 +7,12 @@ include 'templates/userElem.php';
             <div class="col-md-2 col-md-offset-1 additional">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <div class=" list-group">
-                            <a href="#user" class="text-center list-group-item active">
+                        <div class="list-group">
+                            <a href="#userlist" class="text-center list-group-item active">
                                 <i class="glyphicon glyphicon-user"></i>
                                 User List
                             </a>
-                            <a href="#stat" class="text-center list-group-item">
+                            <a href="#statistics" class="text-center list-group-item">
                                 <i class="glyphicon glyphicon-dashboard"></i>
                                 Statistics
                             </a>
@@ -27,14 +27,37 @@ include 'templates/userElem.php';
             <div class="col-md-8 main">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <div class="list-group">
-                            <?php
-                            userElem('Whiskas Saquetas');
-                            userElem('João Varvosa');
-                            userElem('Pedro Dias que não está preso');
-                            userElem('Pedro Dias que está preso');
-                            ?>
-                        </div>
+                        <section id="userlist">
+                            <div class="page-header">
+                                <h1>User List</h1>
+                            </div>
+                            <div class="list-group">
+                                <?php
+                                userElem('Whiskas Saquetas');
+                                userElem('João Varvosa');
+                                userElem('Pedro Dias que não está preso');
+                                userElem('Pedro Dias que está preso');
+                                ?>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <section id="statistics">
+                            <div class="page-header">
+                                <h1>Statistics</h1>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <section id="backup">
+                            <div class="page-header">
+                                <h1>Backups</h1>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

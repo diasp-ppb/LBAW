@@ -41,7 +41,7 @@ a.title {
     align-items: center;
 }
 
-.attach {
+div.attach {
     background-color: gray;
     text-align: center;
 }
@@ -54,22 +54,15 @@ a.title {
     flex-wrap: wrap;
 }
 
-.topic-main {
-    padding: 0;
-    margin: 0;
+div.topic-main, div.comment-main {
+    border-bottom: 1px solid black;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .row > [class*='col-'] {
     display: flex;
     flex-direction: column;
-}
-
-.topic-footer, .comment {
-    border-bottom: 1px solid black;
-}
-
-.comment {
-    display: block;
 }
 
 .author {

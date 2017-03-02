@@ -412,3 +412,23 @@ img {
     background: inherit;
     left: 20px;
 }
+
+.statistic {
+    text-align: center;
+}
+
+.statistic .glyphicon {
+    font-size: 4em;
+}
+
+.glyphicon.blue {
+    color: #3EA6CE;
+}
+
+.glyphicon.green {
+    color: #42A129;
+}
+
+.glyphicon.orange {
+    color: #FF6701;
+}

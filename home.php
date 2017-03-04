@@ -31,13 +31,23 @@ include "templates/header.php"
             </ul>
           </div>
           <div class="tab-content">
+            <div id= "featured"  class="vertical-align tab-pane fade in active">
             <?php
                 include 'templates/topicPresentation.php';
-                topicPresentation('featured','Xauxixinhas','Varvosinha','99','99','0');
+                topicPresentation('Null Pointer em LibGDx','Joana','99','99','9');
+                topicPresentation('Excepçoes em Java','Dioguinho','10','25','6');
             ?>
+
+            </div>
+            <div id= "recent"  class="vertical-align tab-pane fade in ">
+
+
             <?php
-                topicPresentation('recent','Mineiro, picadinho, francesinha, giro, lindo , teuxugo, manga, ananas,kiwi','Varvosinha','99','99','0');
+                topicPresentation('Como fazer matrizes em Matlab???','Varvosinha','99','99','0');
             ?>
+
+            <div>
+
           </div>
         </div>
       </div>

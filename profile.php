@@ -31,7 +31,9 @@ include "templates/header.php"
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-3">
                     <div class="row">
-                        <h3>Atividade</h3>
+                        <div class="page-header">
+                            <h2>Atividade</h2>
+                        </div>
                         <div class="timeline-centered">
                             <article class="timeline-entry">
 
@@ -51,7 +53,9 @@ include "templates/header.php"
                         </div>
                     </div>
                     <div class="row">
-                        <h3>As minhas estatísticas</h3>
+                        <div class="page-header">
+                            <h2>As minhas estatísticas</h2>
+                        </div>
                         <div class="col col-md-5">
                             <h4>Respostas aceites:</h4>
                             <span class="tag">Java</span>
@@ -93,7 +97,9 @@ include "templates/header.php"
                         </div>
                     </div>
                     <div class="row">
-                        <h3>Os meus tópicos</h3>
+                        <div class="page-header">
+                            <h2>Os meus tópicos</h2>
+                        </div>
                         <a class="title" href="#">Porque é que o Diogo é bicha e feio, mas mesmo assim gostava de o afiambrar? Não entendo esta minha vida meu deus meu deus nossa senhora</a>
                         <div class="tags">
                             <span class="tag">Java</span> <span class="tag">Homossexualidade</span>

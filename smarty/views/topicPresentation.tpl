@@ -1,17 +1,17 @@
 <div id="topic">
-     <div style="padding: 0" class="col-md-1 topic-status">
+     <div class="col-md-1 topic-status">
         {$votes}
         <div>Votos</div>
      </div>
 
-    <div style="padding: 0" class="col-md-1 topic-status">
+    <div class="col-md-1 topic-status">
 
       {$answers}
 
         <div>Respostas</div>
     </div>
     
-    <div style="padding: 0" class="col-md-1 topic-status">
+    <div class="col-md-1 topic-status">
 
       {$visua}
 
@@ -34,5 +34,4 @@
         {$author}
       </p>
     </div>
-  
 </div>

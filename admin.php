@@ -24,7 +24,7 @@ include 'templates/userElem.php';
                         <div class="row">
                             <div id="userlist" class="row">
                                 <div class="page-header">
-                                    <h1>Lista de Utilizadores</h1>
+                                    <h2>Lista de Utilizadores</h2>
                                 </div>
                                 <div class="list-group">
                                     <?php
@@ -37,7 +37,7 @@ include 'templates/userElem.php';
                             </div>
                             <div id="statistics" class="row">
                                 <div class="page-header">
-                                    <h1>Estatísticas</h1>
+                                    <h2>Estatísticas</h2>
                                 </div>
                                 <div class="row">
                                     <ul class="list-inline text-center">

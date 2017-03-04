@@ -1,9 +1,15 @@
+html, body {
+    background: #F6F6F6;
+    margin: 0;
+    padding: 0;
+}
+
 body.home .row {
     margin-top: 3em;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-body.topic div.container {
+body.topic div.container-fluid {
     margin-top: 5em !important;
 }
 
@@ -482,7 +488,7 @@ img {
 }
 
 
-#logo{
+#logo {
     float: left;
     background-image: url('../resources/images/logo_askabit.png');
     position: relative;
@@ -499,22 +505,22 @@ img {
     margin-left: -100px;
 }
 
-div.container-fluid, html, body {
-    background-color: #F6F6ED;
+
+.home .main .row:first-child {
+    margin-top: 0;
 }
 
-#title-tags{
-    font-size: 1.6em;
-    color: #10354b;
+#title-tags, #title-tags h2 {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 #explore-tags{
-    border-bottom: solid 1px #10354b;
     margin-left: -15px;
     margin-right: -15px;
 }
 
-#explore-tags a{
+#explore-tags a {
     display: inline-block;
     font-size: 1em;
     border-width: 1px;
@@ -555,7 +561,10 @@ div.container-fluid, html, body {
     color: #FF6701;
 }
 
-
 ul.list-group > li > a {
     color: inherit;
+}
+
+div#topic {
+    display: flex;
 }

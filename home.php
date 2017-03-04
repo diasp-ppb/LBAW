@@ -8,20 +8,25 @@ include "templates/header.php"
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2 main">
-            <div id="title-tags">
-                Explore as nossas questões
-            </div>
-            <div id="explore-tags">
-                <a href="#" class="home-tag" title="" rel="tag">PHP</a>
-                <a href="#" class="home-tag" title="" rel="tag">Quimica</a>
-                <a href="#" class="home-tag" title="" rel="tag">Newton</a>
-                <a href="#" class="home-tag" title="" rel="tag">jQuery</a>
-                <a href="#" class="home-tag" title="" rel="tag">AutoCad</a>
-                <a href="#" class="home-tag" title="" rel="tag">VisualStudio</a>
-                <a href="#" class="home-tag" title="" rel="tag">Maxima</a>
-                <a href="#" class="home-tag" title="" rel="tag">web</a>
-                <a href="#" class="home-tag" title="" rel="tag">Hidrogénio</a>
-                <a href="#" class="home-tag" title="" rel="tag">Amizade</a>
+            <div class="row">
+                <div class="col-md-12 col-md-offset-0">
+                    <div id="title-tags" class="page-header text-center">
+                        <h2>Explore as nossas questões</h2>
+                        <div id="explore-tags">
+                            <a href="#" class="home-tag" title="" rel="tag">PHP</a>
+                            <a href="#" class="home-tag" title="" rel="tag">Quimica</a>
+                            <a href="#" class="home-tag" title="" rel="tag">Newton</a>
+                            <a href="#" class="home-tag" title="" rel="tag">jQuery</a>
+                            <a href="#" class="home-tag" title="" rel="tag">AutoCad</a>
+                            <a href="#" class="home-tag" title="" rel="tag">VisualStudio</a>
+                            <a href="#" class="home-tag" title="" rel="tag">Maxima</a>
+                            <a href="#" class="home-tag" title="" rel="tag">web</a>
+                            <a href="#" class="home-tag" title="" rel="tag">Hidrogénio</a>
+                            <a href="#" class="home-tag" title="" rel="tag">Amizade</a>
+                            <a href="#" class="home-tag" title="" rel="tag">Amizade</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
                   <ul class="nav nav-tabs">

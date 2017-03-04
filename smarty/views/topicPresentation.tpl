@@ -1,4 +1,5 @@
-  <div id= {"$tab"}  class="vertical-align tab-pane fade in">
+ 
+  <div id= "{$tab}"  class="vertical-align tab-pane fade in {$classActive}">
     <div style="padding: 0" class="col-md-1 topic-status">
         {$votes}
         <div>Votos</div>

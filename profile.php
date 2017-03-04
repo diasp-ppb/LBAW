@@ -15,22 +15,23 @@ include "templates/header.php"
                 <div class="text-center">
                     Estudante
                 </div>
-                <div class="col-md-12 list-group">
-                    <a href="#" class="list-group-item active">
-                        <i class="glyphicon glyphicon-home"></i>
-                        Profile
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="glyphicon glyphicon-user"></i>
-                        Account Settings
-                    </a>
+                <div class="col-md-12">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Profile
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="glyphicon glyphicon-user"></i>
+                            Account Settings
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-1 main">
             <div class="row">
                 <div class="col-md-10">
-<<<<<<< HEAD
                     <div class="row section">
                         <h3>Atividade</h3>
                         <div class="timeline-centered">

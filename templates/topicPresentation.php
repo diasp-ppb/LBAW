@@ -1,4 +1,4 @@
-<?php function topicPresentation($tab, $topic, $author, $votes, $visua, $answers) { 
+<?php function topicPresentation($tab, $topic, $author, $votes, $visua, $answers, $active) { 
 
 /*
 if (!defined('BASEPATH')) 
@@ -16,6 +16,12 @@ if (!defined('BASEPATH'))
   $smarty->assign('visua',$visua);
   $smarty->assign('answers',$answers);
 
+  if($active == TRUE)
+    $classActive = 'active';
+  else
+    $classActive = '';
+
+  $smarty->assign('classActive', $classActive);
 
   $smarty->display('topicPresentation.tpl');
 } ?>

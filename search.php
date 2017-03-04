@@ -39,19 +39,26 @@ include "templates/header.php"
         <div class="col-md-8 col-md-offset-1 main">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-3">
-                    <div class="row entry">
-                        <div class="row">
+                    <div class="search topics">
+                        <div class="page-header">
+                            <h2>Tópicos</h2>
+                        </div>
+                        <div class="row entry">
                             <div class="col-md-10">
                                 <a class="title" href="#">Porque é que o Diogo é bicha e feio, mas mesmo assim gostava de o afiambrar? Não entendo esta minha vida meu deus meu deus nossa senhora</a>
                                 <div class="tags">
                                     <span class="tag">Java</span> <span class="tag">Homossexualidade</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-10">
                                 <p>Postado por: João Varvosa</p>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="search users">
+                        <div class="page-header">
+                            <h2>Utilizadores</h2>
                         </div>
                     </div>
                 </div>

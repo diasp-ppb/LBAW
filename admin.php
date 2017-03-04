@@ -8,8 +8,8 @@ include 'templates/userElem.php';
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <ul class="list-group text-center hidden-xs hidden-sm">
-                            <li class="list-group-item active"> <a href="#userlist"><i class="glyphicon glyphicon-user"></i> User List</a> </li>
-                            <li class="list-group-item"> <a href="#statistics"><i class="glyphicon glyphicon-dashboard"></i> Statistics</a> </li>
+                            <li class="list-group-item active"> <a href="#userlist"><i class="glyphicon glyphicon-user"></i> Utilizadores</a> </li>
+                            <li class="list-group-item"> <a href="#statistics"><i class="glyphicon glyphicon-list-alt"></i> Estatísticas</a> </li>
                         </ul>
                         <ul class="list-inline text-center hidden-md hidden-lg">
                             <li> <a href="#userlist"><i class="glyphicon glyphicon-user"></i> User List</a> </li>
@@ -59,52 +59,58 @@ include 'templates/userElem.php';
                                     </ul>
                                 </div>
                                 <div class="row">
-                                    <canvas id="topics-by-course"></canvas>
-                                    <script>
-                                        var ctx = document.getElementById("topics-by-course").getContext('2d');
-                                        var myChart = new Chart(ctx, {
-                                            type: 'doughnut',
-                                            data: {
-                                                labels: ["M", "T", "W", "T", "F", "S", "S"],
-                                                datasets: [{
-                                                    backgroundColor: [
-                                                        "#2ecc71",
-                                                        "#3498db",
-                                                        "#95a5a6",
-                                                        "#9b59b6",
-                                                        "#f1c40f",
-                                                        "#e74c3c",
-                                                        "#34495e"
-                                                    ],
-                                                    data: [12, 19, 3, 17, 28, 24, 7]
-                                                }]
-                                            }
-                                        });
-                                    </script>
+                                    <div class="col col-md-6 col-md-offset-3">
+                                        <h3>Tópicos por curso</h3>
+                                        <canvas id="topics-by-course"></canvas>
+                                        <script>
+                                            var ctx = document.getElementById("topics-by-course").getContext('2d');
+                                            var myChart = new Chart(ctx, {
+                                                type: 'doughnut',
+                                                data: {
+                                                    labels: ["M", "T", "W", "T", "F", "S", "S"],
+                                                    datasets: [{
+                                                        backgroundColor: [
+                                                            "#2ecc71",
+                                                            "#3498db",
+                                                            "#95a5a6",
+                                                            "#9b59b6",
+                                                            "#f1c40f",
+                                                            "#e74c3c",
+                                                            "#34495e"
+                                                        ],
+                                                        data: [12, 19, 3, 17, 28, 24, 7]
+                                                    }]
+                                                }
+                                            });
+                                        </script>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <canvas id="topics-by-tags"></canvas>
-                                    <script>
-                                        var ctx = document.getElementById("topics-by-tags").getContext('2d');
-                                        var myChart = new Chart(ctx, {
-                                            type: 'bar',
-                                            data: {
-                                                labels: ["M", "T", "W", "T", "F", "S", "S"],
-                                                datasets: [{
-                                                    backgroundColor: [
-                                                        "#2ecc71",
-                                                        "#3498db",
-                                                        "#95a5a6",
-                                                        "#9b59b6",
-                                                        "#f1c40f",
-                                                        "#e74c3c",
-                                                        "#34495e"
-                                                    ],
-                                                    data: [12, 19, 3, 17, 28, 24, 7]
-                                                }]
-                                            }
-                                        });
-                                    </script>
+                                    <div class="col col-md-6 col-md-offset-3">
+                                        <h3>Tags mais utilizadas</h3>
+                                        <canvas id="topics-by-tags"></canvas>
+                                        <script>
+                                            var ctx = document.getElementById("topics-by-tags").getContext('2d');
+                                            var myChart = new Chart(ctx, {
+                                                type: 'bar',
+                                                data: {
+                                                    labels: ["M", "T", "W", "T", "F", "S", "S"],
+                                                    datasets: [{
+                                                        backgroundColor: [
+                                                            "#2ecc71",
+                                                            "#3498db",
+                                                            "#95a5a6",
+                                                            "#9b59b6",
+                                                            "#f1c40f",
+                                                            "#e74c3c",
+                                                            "#34495e"
+                                                        ],
+                                                        data: [12, 19, 3, 17, 28, 24, 7]
+                                                    }]
+                                                }
+                                            });
+                                        </script>
+                                    </div>
                                 </div>
                             </div>
                         </div>

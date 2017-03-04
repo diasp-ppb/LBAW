@@ -659,3 +659,37 @@ div#topic {
     border-bottom: 1px solid #eee;
     padding-bottom: 15px;
 }
+
+
+body.profile .additional div.user-info {
+    margin-top: 3em;
+    margin-bottom: 4em;
+}
+
+body.search .container-fluid:not(:first-child) {
+    margin-top: 2em;
+}
+
+body.search .additional {
+    margin-top: 3em;
+}
+
+body.admin .container-fluid:not(:first-child) {
+    margin-top: 2em;
+}
+
+body.admin .additional {
+    margin-top: 3em;
+}
+
+body.admin .statistic + .statistic {
+    margin-left: 3em;
+}
+
+body.admin canvas {
+    margin-top: 0;
+}
+
+body.admin .row h3 {
+    margin-top: 2em;
+}

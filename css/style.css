@@ -499,7 +499,7 @@ img {
     margin-left: -100px;
 }
 
-div.container,html{
+div.container-fluid, html, body {
     background-color: #F6F6ED;
 }
 
@@ -553,4 +553,9 @@ div.container,html{
 
 .glyphicon.orange {
     color: #FF6701;
+}
+
+
+ul.list-group > li > a {
+    color: inherit;
 }

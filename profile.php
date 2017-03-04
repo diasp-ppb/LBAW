@@ -2,37 +2,35 @@
 include "templates/header.php"
 ?>
 
-<div style="padding:0; margin: 0 auto; width: 100%" class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-2 col-md-offset-1 additional">
             <div class="row">
-                <div class="text-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/700px-Turkish_Van_Cat.jpg" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
-                </div>
-                <div class="text-center">
-                    Whiskas Saquetas
-                </div>
-                <div class="text-center">
-                    Estudante
-                </div>
-                <div class="col-md-12">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active">
-                            <i class="glyphicon glyphicon-home"></i>
-                            Profile
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="glyphicon glyphicon-user"></i>
-                            Account Settings
-                        </a>
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/700px-Turkish_Van_Cat.jpg" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
                     </div>
+                    <div class="text-center">
+                        Whiskas Saquetas
+                    </div>
+                    <div class="text-center">
+                        Estudante
+                    </div>
+                    <ul class="list-group text-center hidden-xs hidden-sm">
+                        <li class="list-group-item active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Profile</a> </li>
+                        <li class="list-group-item"> <a href="#"><i class="glyphicon glyphicon-user"></i> Account Settings</a> </li>
+                    </ul>
+                    <ul class="list-inline text-center hidden-md hidden-lg">
+                        <li> <a href="#"><i class="glyphicon glyphicon-home"></i> Profile</a> </li>
+                        <li> <a href="#"><i class="glyphicon glyphicon-user"></i> Account Settings</a> </li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-1 main">
             <div class="row">
-                <div class="col-md-10">
-                    <div class="row section">
+                <div class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-3">
+                    <div class="row">
                         <h3>Atividade</h3>
                         <div class="timeline-centered">
                             <article class="timeline-entry">
@@ -52,7 +50,7 @@ include "templates/header.php"
                             </article>
                         </div>
                     </div>
-                    <div class="row section">
+                    <div class="row">
                         <h3>As minhas estatísticas</h3>
                         <div class="col col-md-5">
                             <h4>Respostas aceites:</h4>
@@ -94,7 +92,7 @@ include "templates/header.php"
                             </div>
                         </div>
                     </div>
-                    <div class="row section">
+                    <div class="row">
                         <h3>Os meus tópicos</h3>
                         <a class="title" href="#">Porque é que o Diogo é bicha e feio, mas mesmo assim gostava de o afiambrar? Não entendo esta minha vida meu deus meu deus nossa senhora</a>
                         <div class="tags">

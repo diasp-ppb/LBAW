@@ -15,7 +15,7 @@ include "templates/header.php"
 
 <div class="col-md-offset-1 col-md-6 form text-center">
     <div id="row text-center">
-        <h2> Criar Tópico </h2>
+        <h2>Criar Tópico</h2>
     </div>
     <div class="form-group">
              <label for="title">Titulo</label>

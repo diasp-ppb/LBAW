@@ -8,7 +8,5 @@
                 <a href=""><i id="social-gh" class="fa fa-github fa-3x social"></i></a>
             </div>
         </div>
-
-        <br />
     </body>
 </html>

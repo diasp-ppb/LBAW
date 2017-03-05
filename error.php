@@ -21,7 +21,7 @@ include "templates/header.php"
                 <div class="panel-heading">
                     <h3 class="text-center">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Oops:
-                        <small>Page not found - <b>404 error</b></small>
+                        <small>Page not found - <b>404 ERROR</b></small>
                     </h3>
                 </div>
                 <div class="panel-body">

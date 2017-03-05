@@ -47,7 +47,7 @@ include "templates/header.php"
                 </div>
             </div>
             <div class="row attach-container">
-                <div class="col-md-1 attach">
+                <div class="col-md-1  attach">
                     <div class="row upvote btn btn-info">
                         ^
                     </div>

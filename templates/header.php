@@ -43,7 +43,7 @@
                 </li>
             </ul>
             <form class="navbar-form navbar-left">
-                <div class="form-group">
+                <div class="form-group form-inline">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>

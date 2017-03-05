@@ -419,13 +419,16 @@ img {
     left: 20px;
 }
 
+
+
 .navbar.navbar-default {
     margin-bottom: 0;
     box-shadow: black;
+    background: #eaf7fc;
 }
 
 .navbar.navbar-default .container-fluid {
-    background: #eaf7fc; /* For Safari 5.1 to 6.0 */
+    
     font-family: 'Lobster', cursive;
     font-size: 1.4em;
 }
@@ -435,28 +438,13 @@ img {
     font-size: 1.9em;
 }
 
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 .nav.navbar-nav {
-    margin-left: 25%;
-}
 
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form {
-    width: 30%;
-}
 
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form .form-group{
-    width:70%;
-}
-
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form .form-group input[type=text]{
-    width:100%;
-}
-
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 ul li a {
+.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 div li a {
     color: #10354b;
 }
 
 .navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form .btn.btn-default{
-    width:15%;
     color: white;
     background-color: #10354b;
     border-color: white;
@@ -470,12 +458,14 @@ img {
     transition: 0.4s;
 }
 
+
 .header {
-    margin: 0 auto;
     background-repeat: no-repeat;
     background-position: bottom center;
     background-image: url('../resources/images/background_image.jpg');
 }
+
+
 
 .header {
     margin: 0 auto;
@@ -485,6 +475,7 @@ img {
     box-sizing: content-box;
     position: relative;
 }
+
 
 
 #logo {
@@ -656,8 +647,6 @@ div#topic {
 }
 
 
-<<<<<<< HEAD
-
 
 /* Topic page */
 
@@ -696,8 +685,8 @@ div#topic {
     margin-right: -15px;
 }
 
-.attach > .btn {
-    margin-bottom: 1px;
+.attach  .btn-info {
+    margin-bottom: 0.1em;
 }
 
 /* create topic */
@@ -710,7 +699,9 @@ div#topic {
     margin-top: 3em;
 }
 
-=======
+
+
+
 body.profile .additional div.user-info {
     margin-top: 3em;
     margin-bottom: 4em;
@@ -743,4 +734,3 @@ body.admin canvas {
 body.admin .row h3 {
     margin-top: 2em;
 }
->>>>>>> b4d70210edd827ab68b7505dc4f6b53362c1d962

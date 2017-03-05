@@ -656,6 +656,7 @@ div#topic {
 }
 
 
+<<<<<<< HEAD
 
 
 /* Topic page */
@@ -709,3 +710,37 @@ div#topic {
     margin-top: 3em;
 }
 
+=======
+body.profile .additional div.user-info {
+    margin-top: 3em;
+    margin-bottom: 4em;
+}
+
+body.search .container-fluid:not(:first-child) {
+    margin-top: 2em;
+}
+
+body.search .additional {
+    margin-top: 3em;
+}
+
+body.admin .container-fluid:not(:first-child) {
+    margin-top: 2em;
+}
+
+body.admin .additional {
+    margin-top: 3em;
+}
+
+body.admin .statistic + .statistic {
+    margin-left: 3em;
+}
+
+body.admin canvas {
+    margin-top: 0;
+}
+
+body.admin .row h3 {
+    margin-top: 2em;
+}
+>>>>>>> b4d70210edd827ab68b7505dc4f6b53362c1d962

@@ -43,6 +43,10 @@ a.title {
     font-size: medium;
 }
 
+.topic a.title, .topic-body, .comment-body {
+    overflow-wrap:break-word;
+}
+
 .tag {
     font-size: smaller;
     text-align: center;
@@ -57,22 +61,6 @@ a.title {
     display: flex;
     align-items: center;
 }
-
-div.attach {
-    
-    text-align: center;
-}
-
-.attach-container {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
-    flex-wrap: wrap;
-    margin-top: 1em;
-}
-
-
 
 .row > [class*='col-'] {
     display: flex;
@@ -693,7 +681,7 @@ div#topic {
 	content:" ";
 	border-color:transparent;
 	border-style:solid solid outset;
-	pointer-events:none;    
+	pointer-events:none;
 }
 .attach-container >.panel>.panel-heading:after{
 	border-width:7px;
@@ -711,9 +699,6 @@ div#topic {
     margin-right: -15px;
 }
 
-.attach  .btn-info {
-    margin-bottom: 0.1em;
-}
 
 /* create topic */
 #var-code{

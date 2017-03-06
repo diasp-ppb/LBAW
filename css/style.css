@@ -504,8 +504,6 @@ img {
     position: relative;
 }
 
-
-
 #logo {
     float: left;
     background-image: url('../resources/images/logo_askabit.png');
@@ -675,7 +673,9 @@ div#topic {
 }
 
 /* Topic page */
-
+.modal-dialog{
+    vertical-align: middle;
+}
 
 .attach-container > .thumbnail {
     padding:0px;
@@ -716,6 +716,18 @@ div#topic {
 }
 
 /* create topic */
+#var-code{
+    color: #f92672;
+}
+
+#variable-code{
+    color: #e6db74;
+}
+
+pre{
+    background-color: #333;
+}
+
 .createTopic label#top-title{
     font-size: 2.4em;
 }

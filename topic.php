@@ -18,10 +18,10 @@ include "templates/header.php"
                     <div class="row topic-header panel-heading">
                         <div>
                             <strong>Varvosa</strong> <span class="text-muted">posted 5 days ago</span>
-                            <button type="button" class="upvote btn btn-primary">25</button>
                             <span class="pull-right">
                                 <button type="button" class="upvote btn btn-danger"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                                 <button type="button" class="downvote btn btn-warning btn-circle"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                                <button type="button" class="upvote btn btn-primary">25</button>
                             </span>
                         </div>
 
@@ -36,6 +36,11 @@ include "templates/header.php"
                     </div>
                 </div>
             </div>
+            <div class="row replies">
+                <div class="col-md-10 col-md-offset-1 panel-body reply">
+                    <span class="text-muted"><strong>Varvosa</strong>  commented 5 days ago:</span> <span class="reply-text">Muito bem visto!</span>
+                </div>
+            </div>
 
             <div class="row attach-container">
                 <div class="col-md-1">
@@ -46,11 +51,11 @@ include "templates/header.php"
                 <div class="col-md-10 panel panel-default">
                     <div class="comment-header panel-heading">
                         <strong>Varvosa</strong> <span class="text-muted">commented 5 days ago</span>
-                        <button type="button" class="upvote btn btn-primary">-3</button>
                         <span class="pull-right">
                             <button type="button" class="upvote btn btn-danger"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                             <button type="button" class="downvote btn btn-warning btn-circle"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
                             <button type="button" class="correct btn btn-info btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
+                            <button type="button" class="upvote btn btn-primary">-3</button>
                         </span>
                     </div>
                     <div class="comment-body panel-body">

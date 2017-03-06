@@ -16,6 +16,11 @@
 
     <script src="https://use.fontawesome.com/71cda9ffac.js"></script>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
+    <link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css" />
+
 </head>
 
 <body class=<?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?>>
@@ -60,6 +65,17 @@
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">up201406241<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                    </ul>
+                </li>
+            </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>

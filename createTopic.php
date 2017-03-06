@@ -1,12 +1,7 @@
 <?php
 include "templates/header.php"
 ?>
-  <script src="https://unpkg.com/marked@0.3.6"></script>
-  <script src="https://unpkg.com/lodash@4.16.0"></script>
-  <script src="js/vue.min.js"></script>
-  <script src="js/vue-editor.js"></script>
-
-  <div class="container-fluid">
+<div class="container-fluid">
     <div class="row">
       <div class="col-md-offset-2 col-md-8 form text-center">
         <div id="row text-center">
@@ -20,10 +15,16 @@ include "templates/header.php"
           <label for="tags">Tags</label>
           <input type="text" class="form-control" id="tags" placeholder="Tags"/>
         </div>
-        <div id="editor">
-          <textarea :value="input" @input="update"></textarea>
-          <div v-html="compiledMarkdown"></div>
-        </div>
+
+        <div id="wmd-button-bar"></div>
+        <textarea id="wmd-input" class="wmd-input"></textarea>
+        <div id="wmd-preview" class="wmd-panel wmd-preview text-left"></div>
+        <script>
+            var converter = Markdown.getSanitizingConverter();
+            var editor = new Markdown.Editor(converter);
+            editor.run();
+        </script>
+
         <div class="center">
           <input type="submit" class="btn btn-info" value="Submit Button"/>
           <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Click Me</button>
@@ -99,7 +100,7 @@ include "templates/header.php"
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 
   <?php include  "templates/footer.php"?>

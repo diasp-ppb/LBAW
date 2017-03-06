@@ -43,9 +43,39 @@ a.title {
     font-size: medium;
 }
 
+.topic a.title {
+    font-size: large;
+}
+
 .topic a.title, .topic-body, .comment-body {
     overflow-wrap:break-word;
 }
+
+.attach-container, .attach-container * {
+    margin-bottom: 0 !important;
+    padding-bottom: 0;
+}
+
+.replies {
+    margin-bottom: 3em;
+    padding-bottom: 0;
+}
+
+.reply {
+    background-color: lightgray;
+    margin: 0;
+    padding: 0 0 0 1em !important;
+    display: inline-block !important;
+}
+
+.reply-text {
+    margin-left: 1em;
+}
+
+body.topic .container-fluid:not(:first-child) {
+    margin-top: 3em;
+}
+
 
 .tag {
     font-size: smaller;
@@ -956,11 +986,12 @@ footer{
 }
 
 /* VUE MK editor */
-html, body, #editor {
-  margin: 0;
-  height: 100%;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #333;
+#editor {
+    margin: 2em 0 0 0;
+    height: 50%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    border: 1px solid black;
 }
 
 textarea, #editor div {
@@ -987,4 +1018,22 @@ textarea {
 
 code {
   color: #f66;
+}
+
+
+.wmd-button > span {
+    background-image: url('//cdn.rawgit.com/derobins/wmd/master/images/wmd-buttons.png');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.wmd-input {
+    background-color: #FAFAFA !important;
+}
+
+.wmd-preview {
+    background-color: #EEE !important;
 }

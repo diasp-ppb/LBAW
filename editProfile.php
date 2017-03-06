@@ -11,7 +11,6 @@ include "templates/header.php"
                     <ul class="nav nav-pills brand-pills nav-stacked" role="tablist">
                         <li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> Quem eu sou</a></li>
                         <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-picture"></i> Imagem de perfil</a></li>
-                        <li role="presentation" class="brand-nav"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-lock"></i> Segurança</a></li>
                     </ul>
                 </div>
             </div>
@@ -132,47 +131,8 @@ include "templates/header.php"
                                         </div>
                                     </div>
                                 </div>
-
                                 <button type="submit" class="btn btn-success">Atualizar</button>
                             </form>
-                        </div>
-
-                        <div role="tabpanel" class="tab-pane" id="tab3">
-                            <form>
-                                <div class="form-group user password">
-                                    <div>
-                                        <label for="name" rel="tooltip">Password atual</label>
-                                        <input type="password" class="form-control" name="current_pw">
-                                    </div>
-                                    <div>
-                                        <label for="name" rel="tooltip">Nova password</label>
-                                        <input type="password" class="form-control" name="new_pw">
-                                    </div>
-                                    <div>
-                                        <label for="name" rel="tooltip">Confirmar password</label>
-                                        <input type="password" class="form-control" name="confirm_pw">
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn btn-success">Atualizar</button>
-                            </form>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="tab4">
-                            <p>
-                                Collaboratively administrate empowered markets via plug-and-play networks.
-                                Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without
-                                revolutionary ROI.
-                            </p>
-                            <p>
-                                Efficiently unleash cross-media information without cross-media value.
-                                Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar
-                                solutions without functional solutions.
-                            </p>
-                            <p>
-                                Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate
-                                one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service
-                                for state of the art customer service.
-                            </p>
                         </div>
                     </div>
                 </div>

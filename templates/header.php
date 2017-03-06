@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="https://use.fontawesome.com/71cda9ffac.js"></script>
-    
+
 </head>
 
 <body class=<?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?>>
@@ -44,7 +44,17 @@
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left">
+            <div class="col-sm-3 col-md-3 hidden-md hidden-lg">
+                <form id="mobile-search" class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <form id="pc-search" class="navbar-form navbar-left hidden-xs hidden-sm">
                 <div class="form-group form-inline">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>

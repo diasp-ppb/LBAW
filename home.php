@@ -50,7 +50,7 @@ include "templates/header.php"
                                           topicPresentation('REGEX para Seleciar uma linha que contem um string desenjada',' Diego  Garcia','0','17','2',array('pyhon','notepad++'));
                                           topicPresentation('Cordova, como mudar a cor da barra de controles: voltar, home e janelas','Pedro Dias','1','14','7',array('android','apache-cordova'));
                                           topicPresentation('Remover todas as quebras de linhas numa coluna de um arquivo csv no Linux','Rita Torres','7','8','4',array('linux','csv','quebra-de-linha','awk','sed'));
-                                          topicPresentation('Como enviar uma imagem dinâmica para o PHP com a função ajax do jQuery','Miguel Lira','0','7','0',array('jquery','file-upload'));
+                                          topicPresentation('Como enviar uma imagem dinâmica para o PHP com a função ajax do jQuery','João Barbosa','0','7','0',array('jquery','file-upload'));
                                     ?>
                                 </div>
                                 <div class="tab-pane" id="hot">
@@ -64,7 +64,7 @@ include "templates/header.php"
                                 <div class="tab-pane" id="recent">
                                      <?php topicPresentation('O que é o Accelerated Mobile Pages (AMP)?','Rui Pereira','2','5','0',array('amp','html')); 
                                          topicPresentation('Conexão Cliente/Servidor','Miriam Gonçalves','0','4','0',array('C#','.net'));
-                                         topicPresentation('Como gerar relatóriod PDF firemonkey android?','Jõao Madureira','0','8','0',array('android','delphi','firemonkey'));
+                                         topicPresentation('Como gerar relatóriod PDF firemonkey android?','Jõao Barbosa','0','8','0',array('android','delphi','firemonkey'));
                                          topicPresentation('FloatingActionButtonMenu','António Ramos','0','14','0',array('android','mobile'));
                                          topicPresentation('Como gravar uma imagem base64_encode com mais de 4000 caracteres no Oracle usando php','Fernando Rocha','0','9','0',array('php','imagem','oracle','base64'));
                                      ?>

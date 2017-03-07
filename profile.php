@@ -61,8 +61,22 @@ include "templates/header.php"
                     </div>
 
                     <div class="timeline-label">
-                      <h2><a href="#">Varvosinha</a> <span>aceitou a tua resposta.</span></h2>
-                      <p>A tua resposta ao tópico "Porque é que sou giro?" satisfez os requisitos do utilizador com sucesso.</p>
+                      <h2><a href="#">José Soares </a> <span>aceitou a tua resposta.</span></h2>
+                      <p>A tua resposta ao tópico "Diferenças de tipos de Web Service: SOAP, REST, XML" satisfez os requisitos do utilizador com sucesso.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="timeline-centered">
+                   <article class="timeline-entry">
+
+                  <div class="timeline-entry-inner">
+
+                    <div class="timeline-icon bg-primary">
+                      <i class="entypo-feather"></i>
+                    </div>
+
+                    <div class="timeline-label">
+                      <h2>Comentas te o tópico <span>"Diferenças de tipos de Web Service: SOAP, REST, XML"</span></h2>
                     </div>
                   </div>
 
@@ -128,9 +142,17 @@ include "templates/header.php"
               <div class="page-header">
                 <h2>Os meus tópicos</h2>
               </div>
-              <a class="title" href="#">Porque é que o Diogo é bicha e feio, mas mesmo assim gostava de o afiambrar? Não entendo esta minha vida meu deus meu deus nossa senhora</a>
+              <a class="title" href="#">Como gerar relatóriod PDF firemonkey android?</a>
               <div class="tags">
-                <span class="tag">Java</span> <span class="tag">Homossexualidade</span>
+                <span class="tag">android</span> 
+                <span class="tag">delphi</span>
+                <span class="tag">firemonkey</span>
+              </div>
+
+             <a class="title" href="#">Como enviar uma imagem dinâmica para o PHP com a função ajax do jQuery</a>
+              <div class="tags">
+                <span class="tag">jquery</span> 
+                <span class="tag">file-upload</span>
               </div>
             </div>
           </div>

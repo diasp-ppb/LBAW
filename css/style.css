@@ -98,10 +98,7 @@ body.topic .container-fluid:not(:first-child) {
 }
 
 .author {
-    float: right;
-    display: inline-block;
-    color: white;
-    background-color: black;
+    margin-left: auto;
 }
 
 .material-switch > input[type="checkbox"] {

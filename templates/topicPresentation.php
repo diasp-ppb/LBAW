@@ -1,4 +1,4 @@
-<?php function topicPresentation($topic, $author, $votes, $visua, $answers) { 
+<?php function topicPresentation($topic, $author, $votes, $visua, $answers,$tags) { 
 
 /*
 if (!defined('BASEPATH')) 
@@ -15,6 +15,7 @@ if (!defined('BASEPATH'))
   $smarty->assign('votes',$votes);
   $smarty->assign('visua',$visua);
   $smarty->assign('answers',$answers);
+  $smarty->assign('tags',$tags);
 
   $smarty->display('topicPresentation.tpl');
 } ?>

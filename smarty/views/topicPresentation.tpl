@@ -23,15 +23,16 @@
           {$topic}
         </a>
         <div class="tags">
-          <span class="tag">Java</span> <span class="tag">Homossexualidade</span>
+
+          {foreach name=outer item=v from=$tags}
+          <span class="tag">{$v}</span> 
+          {/foreach}
         </div>
     </div>
     
     
-    <div class="col-md-3">
-      <p>
-        Postado por:
+    <div class="col-md-3 author text-right">
         {$author}
-      </p>
+      
     </div>
 </div>

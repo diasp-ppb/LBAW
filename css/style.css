@@ -600,10 +600,16 @@ a.dropdown-toggle{
     transition: 0.4s;
 }*/
 
+.home .header{
+    height: 230px;
+    margin-bottom: 20px;
+}
+
 .header {
     background-repeat: no-repeat;
     background-position: bottom center;
     background-image: url('../resources/images/background_image.jpg');
+    height: 200px;
 }
 
 
@@ -616,24 +622,6 @@ a.dropdown-toggle{
     box-sizing: content-box;
     position: relative;
 }
-
-#logo {
-    float: left;
-    background-image: url('../resources/images/logo_askabit.png');
-    position: relative;
-    display: block;
-    width: 200px;
-    height: 200px;
-    background-position: top left;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    top: 25px;
-    margin-left: -100px;
-}
-
 
 .home .main .row:first-child {
     margin-top: 0;

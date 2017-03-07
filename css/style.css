@@ -1063,6 +1063,7 @@ code {
 
 .wmd-preview {
     background-color: #EEE !important;
+    margin-top: 10px;
 }
 
 
@@ -1077,3 +1078,6 @@ hr {
     margin-bottom: 1em !important;
 }
 
+div.main > div > div.col-xs-12 {
+    padding: 0 2em;
+}

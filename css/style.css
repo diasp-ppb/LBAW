@@ -1063,9 +1063,10 @@ code {
 
 .wmd-preview {
     background-color: #EEE !important;
-    margin-top: 10px;
+    margin: 10px auto;
+    width: 50%;
+    min-width: 250px;
 }
-
 
 footer > div > div {
     background-color: #FAFAFA;

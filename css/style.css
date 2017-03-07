@@ -24,6 +24,10 @@ body.home .row {
     margin-top: 5em;
 }
 
+.editProfile #tab1 form,.editProfile #tab2 form{
+    text-align: center;
+}
+
 body.home .row + .row {
     margin-top: 2em;
 }

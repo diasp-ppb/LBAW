@@ -9,7 +9,7 @@ include "templates/header.php"
     <div class="row">
         <div class="col-md-8 col-md-offset-2 main">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-10 col-md-offset-1 col-xs-12">
                     <div id="title-tags" class="page-header text-center">
                         <h2>Explore os nossos tópicos</h2>
                         <div id="explore-tags">
@@ -34,13 +34,13 @@ include "templates/header.php"
                         <div class="tabbable-line">
                             <ul class="nav nav-tabs ">
                                 <li class="active">
-                                    <a href="#featured" data-toggle="tab"><i class="glyphicon glyphicon-star"></i> Em destaque</a>
+                                    <a href="#featured" data-toggle="tab"><i class="glyphicon glyphicon-star hidden-xs"></i> Em destaque</a>
                                 </li>
                                 <li>
-                                    <a href="#hot" data-toggle="tab"><i class="glyphicon glyphicon-fire"></i> Mais cobiçadas</a>
+                                    <a href="#hot" data-toggle="tab"><i class="glyphicon glyphicon-fire hidden-xs"></i> Mais cobiçadas</a>
                                 </li>
                                 <li>
-                                    <a href="#recent" data-toggle="tab"><i class="glyphicon glyphicon-circle-arrow-up"></i> Mais recentes</a>
+                                    <a href="#recent" data-toggle="tab"><i class="glyphicon glyphicon-circle-arrow-up hidden-xs"></i> Mais recentes</a>
                                 </li>
                             </ul>
                             <div class="tab-content">

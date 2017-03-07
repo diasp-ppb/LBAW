@@ -26,6 +26,14 @@ include "templates/header.php"
             editor.run();
         </script>
 
+        <script>
+            $("#wmd-redo-button").addClass( "hidden-xs" );
+            $("#wmd-undo-button").addClass( "hidden-xs" );
+            $("#wmd-spacer3").addClass( "hidden-xs" );
+           
+        </script>
+
+
         <div class="center">
           <input type="submit" class="btn btn-info" value="Submit Button"/>
           <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Click Me</button>

@@ -602,9 +602,6 @@ img {
     border: 1px solid #10354b;
     border-bottom-color: transparent;
 }
-.statistic {
-    text-align: center;
-}
 
 .statistic .glyphicon {
     font-size: 4em;
@@ -1078,6 +1075,19 @@ hr {
     margin-bottom: 1em !important;
 }
 
-div.main > div > div.col-xs-12 {
-    padding: 0 2em;
+@media (max-width: 767px) {
+    #phone_statistics {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    #phone_statistics li.statistic {
+        list-style-type: none;
+        margin-left: 0;
+    }
+
+    div.tabbable-panel ul.nav li {
+        font-size: x-small;
+    }
 }
+

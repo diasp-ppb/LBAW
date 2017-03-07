@@ -19,7 +19,7 @@ include "templates/header.php"
 
         <div id="wmd-button-bar"></div>
         <textarea id="wmd-input" class="wmd-input"></textarea>
-        <div id="wmd-preview" class="wmd-panel wmd-preview text-left"></div>
+        <div id="wmd-preview" class="wmd-panel wmd-preview text-left well"></div>
         <script>
             var converter = Markdown.getSanitizingConverter();
             var editor = new Markdown.Editor(converter);

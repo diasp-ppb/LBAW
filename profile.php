@@ -11,7 +11,7 @@ include "templates/header.php"
               <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
               <h3>João Barbosa</h3>
               <p><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal</p>
-              <p><i class="glyphicon glyphicon-envelope"></i>bmpj13@hotmail.com</p>
+              <p><i class="glyphicon glyphicon-envelope"></i> bmpj13@hotmail.com</p>
               <p><i class="glyphicon glyphicon-globe"></i> www.github.com/bmpj13</p>
             </div>
             <ul class="list-group text-center hidden-xs hidden-sm">
@@ -62,7 +62,7 @@ include "templates/header.php"
                   </div>
 
                   <div class="timeline-label">
-                    <h2>Comentas te o tópico <span>"Diferenças de tipos de Web Service: SOAP, REST, XML"</span></h2>
+                    <h2>Comentaste o tópico <span>"Diferenças de tipos de Web Service: SOAP, REST, XML"</span></h2>
                   </div>
                 </div>
               </article>

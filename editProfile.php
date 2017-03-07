@@ -7,8 +7,12 @@ include "templates/header.php"
     <div class="row" role="tabpanel">
         <div class="col-md-2 col-md-offset-1 additional">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-xs-4 col-xs-offset-4">
-                    <ul class="nav nav-pills brand-pills nav-stacked" role="tablist">
+                <div class="col-md-10 col-md-offset-1">
+                    <ul class="nav nav-pills brand-pills nav-stacked hidden-xs hidden-sm" role="tablist">
+                        <li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> Quem eu sou</a></li>
+                        <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-picture"></i> Imagem de perfil</a></li>
+                    </ul>
+                    <ul class="list-inline text-center hidden-md hidden-lg">
                         <li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> Quem eu sou</a></li>
                         <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-picture"></i> Imagem de perfil</a></li>
                     </ul>
@@ -17,7 +21,7 @@ include "templates/header.php"
         </div>
         <div class="col-md-8 main">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-3">
+                <div class="col-md-10 col-md-offset-1 col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab1">
 
@@ -131,7 +135,9 @@ include "templates/header.php"
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success">Atualizar</button>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-success">Atualizar</button>
+                                </div>
                             </form>
                         </div>
                     </div>

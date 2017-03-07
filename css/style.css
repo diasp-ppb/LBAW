@@ -24,9 +24,16 @@ body.home .row {
     margin-top: 5em;
 }
 
-.editProfile #tab1 form,.editProfile #tab2 form{
+.editProfile #tab1 form,.editProfile #tab1 form {
     text-align: center;
 }
+
+.form-actions {
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
 
 body.home .row + .row {
     margin-top: 2em;
@@ -168,12 +175,19 @@ img {
     border-radius: 3px;
 }
 
+#tab2 .row img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .img-thumbnail {
     background-color: #fff;
     border: 1px solid #ededf0;
     border-radius: 3px;
     display: inline-block;
     height: auto;
+    width: auto;
     line-height: 1.428571429;
     max-width: 100%;
     moz-transition: all .2s ease-in-out;
@@ -181,6 +195,16 @@ img {
     padding: 2px;
     transition: all .2s ease-in-out;
     webkit-transition: all .2s ease-in-out;
+}
+
+.editProfile li.brand-nav.active{
+    background-color: #337ab7;
+    color: white;
+    border-radius: 3px;
+}
+
+.editProfile li.brand-nav.active a{
+    color: white;
 }
 
 .img-circle {
@@ -450,7 +474,7 @@ img {
 
 
 
-.navbar.navbar-default {
+/*.navbar.navbar-default {
     margin-bottom: 0;
     box-shadow: black;
     background: #eaf7fc;
@@ -506,7 +530,7 @@ img {
     color: #10354b;
     border: solid 2px #10354b;
     transition: 0.4s;
-}
+}*/
 
 .header {
     background-repeat: no-repeat;

@@ -20,7 +20,7 @@ include 'templates/userElem.php';
             </div>
             <div class="col-md-8 col-md-offset-1 main">
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-3">
+                    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
                         <div class="row">
                             <div id="userlist" class="row">
                                 <div class="page-header">
@@ -40,7 +40,24 @@ include 'templates/userElem.php';
                                     <h2>Estatísticas</h2>
                                 </div>
                                 <div class="row">
-                                    <ul class="list-inline text-center">
+                                    <ul class="list-inline text-center hidden-xs hidden-sm">
+                                        <li class="statistic">
+                                            <h4>Utilizadores</h4>
+                                            <span class="glyphicon glyphicon-user blue"></span>
+                                            <div class="statistic amount">12455</div>
+                                        </li>
+                                        <li class="statistic">
+                                            <h4>Utilizadores ativos</h4>
+                                            <span class="glyphicon glyphicon-user green"></span>
+                                            <div class="statistic amount">12455</div>
+                                        </li>
+                                        <li class="statistic">
+                                            <h4>Tópicos criados</h4>
+                                            <span class="glyphicon glyphicon-question-sign orange"></span>
+                                            <div class="statistic amount">12455</div>
+                                        </li>
+                                    </ul>
+                                    <ul id="phone_statistics" class="text-center hidden-md hidden-lg">
                                         <li class="statistic">
                                             <h4>Utilizadores</h4>
                                             <span class="glyphicon glyphicon-user blue"></span>

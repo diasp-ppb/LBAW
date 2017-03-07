@@ -46,7 +46,7 @@ include "templates/header.php"
       </div>
       <div class="col-md-8 col-md-offset-1 main">
         <div class="row">
-          <div class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-3">
+          <div class="col-md-10 col-md-offset-1 col-xs-12">
             <div class="row">
               <div class="page-header">
                 <h2>Atividade</h2>
@@ -69,7 +69,7 @@ include "templates/header.php"
                 </article>
               </div>
             </div>
-            <div class="row col-sm-12">
+            <div class="row">
               <div class="page-header">
                 <h2>As minhas estatísticas</h2>
               </div>

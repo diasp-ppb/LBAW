@@ -28,13 +28,27 @@ include 'templates/userElem.php';
                                 </div>
                                 <div class="list-group">
                                     <?php
-                                    userElem('Whiskas Saquetas');
-                                    userElem('João Varvosa');
-                                    userElem('Pedro Dias que não está preso');
-                                    userElem('Pedro Dias que está preso');
+                                    userElem('Diogo Campos');
+                                    userElem('João Barbosa');
+                                    userElem('José Pedro Monteiro');
+                                    userElem('Pedro Dias');
+                                    userElem('José Silva');
+                                    userElem('Inês Barros');
+                                    userElem('Miguel Alves');
+                                    userElem('Ana Soares');
+                                    userElem('Sebastião Gomes de Sá');
+                                    userElem('Rafael Tavares');
                                     ?>
+                                    <ul class="pagination">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
                                 </div>
-                            </div>
                             <div id="statistics" class="row">
                                 <div class="page-header">
                                     <h2>Estatísticas</h2>
@@ -109,7 +123,7 @@ include 'templates/userElem.php';
                                         <script>
                                             var ctx = document.getElementById("topics-by-tags").getContext('2d');
                                             var myChart = new Chart(ctx, {
-                                                type: 'bar',
+                                                type: 'bar',    
                                                 data: {
                                                     labels: ["M", "T", "W", "T", "F", "S", "S"],
                                                     datasets: [{

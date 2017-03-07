@@ -8,11 +8,11 @@ include "templates/header.php"
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="user-info text-center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/700px-Turkish_Van_Cat.jpg" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
-                        <h3>Whiskas Saquetas</h3>
+                        <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
+                        <h3>João Barbosa</h3>
                         <p><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal</p>
-                        <p><i class="glyphicon glyphicon-envelope"></i> amizade@hotmail.com</p>
-                        <p><i class="glyphicon glyphicon-globe"></i> amizade.github.io</p>
+                        <p><i class="glyphicon glyphicon-envelope"></i>bmpj13@hotmail.com</p>
+                        <p><i class="glyphicon glyphicon-globe"></i> www.github.com/bmpj13</p>
                     </div>
                     <ul class="list-group text-center hidden-xs hidden-sm">
                         <li class="list-group-item active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Perfil</a> </li>
@@ -54,11 +54,11 @@ include "templates/header.php"
                             </article>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row col-sm-12">
                         <div class="page-header">
                             <h2>As minhas estatísticas</h2>
                         </div>
-                        <div class="col col-md-5">
+                        <div class="col col-md-5 col-sm-12">
                             <h4>Respostas aceites:</h4>
                             <canvas id="accepted-answers"></canvas>
                             <script>
@@ -80,10 +80,11 @@ include "templates/header.php"
                                             data: [12, 19, 3, 17, 28, 24, 7]
                                         }]
                                     }
+                            
                                 });
                             </script>
                         </div>
-                        <div class="col col-md-5">
+                        <div class="col col-md-5 col-sm-12">
                             <h4>Onde comento:</h4>
                             <canvas id="where-i-comment"></canvas>
                             <script>

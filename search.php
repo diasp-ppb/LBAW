@@ -6,7 +6,7 @@ include "templates/header.php"
     <div class="row">
         <div class="col-md-2 col-md-offset-1 additional">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-xs-4 col-xs-offset-4">
+                <div class="col-md-10 col-md-offset-1 col-xs-8 col-xs-offset-2">
                     <ul class="list-group">
                         <li class="list-group-item active">
                             Pesquisar por:
@@ -38,7 +38,7 @@ include "templates/header.php"
         </div>
         <div class="col-md-8 col-md-offset-1 main">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-3">
+                <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
                     <div class="search topics">
                         <div class="page-header">
                             <h2>Tópicos</h2>

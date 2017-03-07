@@ -2,7 +2,6 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    padding-bottom: 80px;
 }
 
 body.editProfile .row input[type=text]{
@@ -74,7 +73,7 @@ a.title {
 }
 
 .reply {
-    background-color: lightgray;
+    background-color: #e2e2e2;
     margin: 0;
     padding: 0 0 0 1em !important;
     display: inline-block !important;
@@ -809,6 +808,10 @@ div .topic-presentation {
     margin-right: -15px;
 }
 
+.panel-heading {
+    background-color: #fffed8 !important;
+}
+
 
 /* create topic */
 #var-code{
@@ -1061,9 +1064,6 @@ body.admin .row h3 {
     color: black;
 }
 
-footer{
-    margin-top: 10px;
-}
 
 /* VUE MK editor */
 #editor {
@@ -1147,6 +1147,28 @@ hr {
         font-size: x-small;
     }
 }
+
+.topic input.btn[value="Comentar"] {
+    margin-top: 2em;
+}
+
+button.upvote, button.downvote, button.correct {
+    background-color: #10354b !important;
+    color: white !important;
+}
+
+button.rating {
+    color: #10354b !important;
+    background-color: white !important;
+    border: 1px solid #10354b;
+    font-weight: bold;
+}
+
+div.navbar.navbar-bottom {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 
 /* LOGO CLIP */
 @media (max-width: 1440px) {

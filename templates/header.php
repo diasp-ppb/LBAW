@@ -7,7 +7,7 @@
     <title><?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?></title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -37,23 +37,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">AskABit</a>
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="../resources/images/logo.png">
+                <img alt="Brand" src="../resources/images/askabit.png">
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cursos <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">MIEEC</a></li>
+                        <li><a href="#">MIEIC</a></li>
                     </ul>
                 </li>
             </ul>
-            <div class="col-sm-3 col-md-3 hidden-md hidden-lg">
-                <form id="mobile-search" class="navbar-form" role="search">
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" name="q">
                         <div class="input-group-btn">
@@ -62,26 +64,25 @@
                     </div>
                 </form>
             </div>
-            <form id="pc-search" class="navbar-form navbar-left hidden-xs hidden-sm">
-                <div class="form-group form-inline">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">up201406241<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img class="img-circle" alt="user" src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400">
+                        <span>up201406241</span>
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
                     </ul>
                 </li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
+            <!--<ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
+            </ul>-->
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

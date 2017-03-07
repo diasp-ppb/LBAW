@@ -474,24 +474,92 @@ img {
 
 
 
-/*.navbar.navbar-default {
+.navbar.navbar-default {
     margin-bottom: 0;
     box-shadow: black;
-    background: #eaf7fc;
+    background: #10354b;
 }
 
-.navbar.navbar-default .container-fluid {
-    
-    font-family: 'Lobster', cursive;
-    font-size: 1.4em;
+.navbar-header > button{
+    background-color: white;
 }
 
-.navbar.navbar-default .container-fluid .navbar-header a {
+.navbar-header a :first-child{
+    margin-left: -10px;
+    margin-top: -10px;
+    width: 52px;
+    height: 40px;
+}
+
+.navbar-header a :nth-child(2){
+    margin-top: -30px;
+    margin-left: 30px;
+    width: 120px;
+    height: 20px;
+}
+
+a.dropdown-toggle{
+    color: white !important;
+    font-size: 1.5em;
+    font-family: 'Oswald', sans-serif;
+}
+
+.nav.navbar-nav.navbar-right a{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+    color: white;
+}
+
+.navbar-form .input-group input{
+    border-radius: 0px;
+    height: 30px;
+    margin-top: 4px;
+}
+
+.navbar-form .input-group .input-group-btn .btn.btn-default{
+    height: 30px;
+    margin-top: 4px;
+    border-radius: 0px;
+    background-color: #a6a6a6;
+    color: white;
+}
+
+.navbar-form .input-group .input-group-btn .btn.btn-default:hover{
+    background-color: white;
+    color: #a6a6a6;
+    border:solid 2px #a6a6a6;
+}
+
+.nav.navbar-nav.navbar-right img{
+    widht: 40px;
+    height: 40px;
+}
+
+.nav.navbar-nav.navbar-right a{
+    height: 55px;
+}
+
+.nav.navbar-nav.navbar-right img{
+    margin-top: -5px;
+    padding-right: 5px;
+}
+
+.nav.navbar-nav.navbar-right .dropdown-menu{
+    background-color: white;
+    border: solid 2px #10354b;
+    border-top-color: white;
+}
+
+.nav.navbar-nav.navbar-right .dropdown-menu a{
     color: #10354b;
-    font-size: 1.9em;
 }
 
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 a{
+.nav.navbar-nav.navbar-right:active{
+    background-color: white;
+    color: #10354b;
+}
+
+/*.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 a{
     color: #10354b;
 }
 

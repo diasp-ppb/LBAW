@@ -1,6 +1,7 @@
 <?php
 include "templates/header.php"
 ?>
+
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-offset-2 col-md-8 form text-center">
@@ -103,4 +104,4 @@ include "templates/header.php"
 </div>
 
 
-  <?php include  "templates/footer.php"?>
+<?php include  "templates/footer.php"?>

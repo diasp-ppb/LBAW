@@ -4,12 +4,12 @@ include "templates/header.php"
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 main">
+        <div class="col-md-12  main">
             <div class="row">
-                <div class="header hidden-xs hidden-sm">
+                <div id="logoDIV" class="header hidden-xs hidden-sm hidden-md">
                     <div id="logo"></div>
                 </div>
-                <div class="col-md-10 col-md-offset-1 col-xs-12">
+                <div class="col-md-8 col-md-offset-2 col-xs-12">
                     <div id="title-tags" class="page-header text-center">
                         <h2>Explore os nossos tópicos</h2>
                         <div id="explore-tags">
@@ -30,7 +30,7 @@ include "templates/header.php"
             </div>
             <div class="row">
                 <div class="col-md-12 col-xs-12-col-sm-12">
-                    <div class="tabbable-panel">
+                    <div class="tabbable-panel col-md-12">
                         <div class="tabbable-line">
                             <ul class="nav nav-tabs ">
                                 <li class="active">

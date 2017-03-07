@@ -679,7 +679,7 @@ ul.list-group > li > a {
     color: inherit;
 }
 
-div#topic {
+div .topic-presentation {
     display: flex;
 }
 
@@ -1148,3 +1148,20 @@ hr {
     }
 }
 
+/* LOGO CLIP */
+@media (max-width: 1440px) {
+    
+    #logoDIV{
+    white-space: nowrap;
+    display: none !important;
+    visibility: hidden !important;
+    }
+}
+
+
+div .topic-presentation .topic-status:nth-child(3){
+     white-space: nowrap !important;
+    overflow: hidden !important;   
+    text-overflow:  ellipsis !important;
+    display: block ;
+}

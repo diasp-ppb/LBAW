@@ -1,22 +1,27 @@
-<div id="topic">
-     <div class="col-md-1 topic-status hidden-xs hidde-sm">
+<div class="topic-presentation">
+    <div class="col-md-3 hidden-xs  hidden-sm">
+      <div class="row">
+        <div class="col-md-4 topic-status hidden-xs hidden-sm">
         {$votes}
         <div>Votos</div>
      </div>
 
-    <div class="col-md-1 topic-status hidden-xs hidde-sm">
+    <div class="col-md-4 topic-status hidden-xs hidden-sm">
 
       {$answers}
 
         <div>Respostas</div>
     </div>
     
-    <div class="col-md-1 topic-status hidden-xs hidde-sm">
+    <div class="col-md-4 topic-status hidden-xs hidden-sm">
 
       {$visua}
 
         <div>Visualizações</div>
+    </div>     
+      </div>
     </div>
+     
     
     <div class="col-md-6">
         <a class="title" href="#">

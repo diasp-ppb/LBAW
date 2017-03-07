@@ -1053,3 +1053,6 @@ hr {
     margin-bottom: 1em !important;
 }
 
+div.main > div > div.col-xs-12 {
+    padding: 0 2em;
+}

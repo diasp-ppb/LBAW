@@ -564,6 +564,32 @@ a.dropdown-toggle{
     color: #10354b;
 }
 
+.navbar.navbar-default .modal-header{
+    background-color: #10354b;
+    color: white;
+}
+
+.navbar.navbar-default .modal-header span{
+    color: white !important;
+}
+
+.navbar.navbar-default .form-group input{
+    border-radius: 0px;
+}
+
+.navbar.navbar-default .modal-footer button{
+    border-radius: 0px;
+    background-color: #10354b;
+    color: white;
+}
+
+.navbar.navbar-default .modal-footer button:hover{
+    background-color: white;
+    border-color: #10354b;
+    color: #10354b;
+    transition:0.4s;
+}
+
 .home .header{
     height: 230px;
     margin-bottom: 20px;

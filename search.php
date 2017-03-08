@@ -116,7 +116,7 @@ include "templates/header.php"
                             <p class="hidden-xs hidden-sm"><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal -
                                 <i class="glyphicon glyphicon-envelope"></i> bmpj13@hotmail.com -
                                 <i class="glyphicon glyphicon-globe"></i> www.github.com/bmpj13</p>
-                            <div class="hidden-md hidden-lg">
+                            <div>
                                 <p><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal</p>
                                 <p><i class="glyphicon glyphicon-envelope"></i> bmpj13@hotmail.com</p>
                                 <p><i class="glyphicon glyphicon-globe"></i> www.github.com/bmpj13</p>

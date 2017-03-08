@@ -29,6 +29,35 @@
 <body class=<?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?>>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
+        <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h3 class="modal-title" id="lineModalLabel">Log in</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- content goes here -->
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Número de utilizador">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                            <div class="btn-group" role="group">
+                                <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Log in</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -64,7 +93,7 @@
                     </div>
                 </form>
             </div>
-            <ul class="nav navbar-nav navbar-right">
+            <!--<ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <img class="img-circle" alt="user" src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400">
@@ -78,11 +107,11 @@
                         <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
                     </ul>
                 </li>
-            </ul>
-
-            <!--<ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>-->
+
+            <ul class="nav navbar-nav navbar-right" data-toggle="modal" data-target="#squarespaceModal">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

@@ -823,6 +823,10 @@ pre{
     color: #10354b;
 }
 
+.createTopic input[type=text]{
+    border-radius: 0px;
+}
+
 body.profile .additional div.user-info {
     margin-top: 3em;
     margin-bottom: 4em;

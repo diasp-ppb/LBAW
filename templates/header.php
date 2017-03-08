@@ -29,7 +29,7 @@
 <body class=<?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?>>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -109,7 +109,7 @@
                 </li>
             </ul>-->
 
-            <ul class="nav navbar-nav navbar-right" data-toggle="modal" data-target="#squarespaceModal">
+            <ul class="nav navbar-nav navbar-right" data-toggle="modal" data-target="#loginModal">
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->

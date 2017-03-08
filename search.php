@@ -110,16 +110,10 @@ include "templates/header.php"
                         <div class="page-header">
                             <h2>Utilizadores</h2>
                         </div>
-                        <div class="user-info text-center">
-                            <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-circle img-thumbnail" style="height: 100px; width: 100px" alt="Profile Picture">
-                            <h3>João Barbosa</h3>
-                            <p class="hidden-xs hidden-sm"><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal -
-                                <i class="glyphicon glyphicon-envelope"></i> bmpj13@hotmail.com -
-                                <i class="glyphicon glyphicon-globe"></i> www.github.com/bmpj13</p>
-                            <div class="hidden-md hidden-lg">
-                                <p><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal</p>
-                                <p><i class="glyphicon glyphicon-envelope"></i> bmpj13@hotmail.com</p>
-                                <p><i class="glyphicon glyphicon-globe"></i> www.github.com/bmpj13</p>
+                        <div class="user-info pull-left">
+                            <div class="user text-center">
+                                <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-thumbnail" style="height: 80px; width: 80px" alt="Profile Picture">
+                                <h4>João Barbosa</h4>
                             </div>
                         </div>
                         </div>

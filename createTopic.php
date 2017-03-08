@@ -41,7 +41,7 @@ include "templates/header.php"
         </script>
 
         <div class="center">
-          <input type="submit" class="btn btn-info" value="Submit Button"/>
+          <input type="submit" class="btn btn-info" value="Submit"/>
         </div>
 
         <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">

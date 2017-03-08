@@ -1194,3 +1194,11 @@ div .topic-presentation .topic-status:nth-child(3){
     text-overflow:  ellipsis !important;
     display: block ;
 }
+
+
+/* margin home table  */
+
+
+.topic-presentation + .topic-presentation {
+    margin-top:1em;
+}

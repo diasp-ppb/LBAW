@@ -105,7 +105,18 @@ include "templates/header.php"
 
           </div>
         </div>
-        <div class="col-md-2 col-md-offset-10">
+
+        <div id="wmd-button-bar"></div>
+        <textarea id="wmd-input" class="wmd-input"></textarea>
+        <div id="wmd-preview" class="wmd-preview text-left well"></div>
+        <script>
+            var converter = Markdown.getSanitizingConverter();
+            var editor = new Markdown.Editor(converter);
+            editor.run();
+        </script>
+
+
+        <div id="buttondiv" class="text-center">
           <input type="submit" class="btn btn-info" value="Comentar" />
         </div>
       </div>

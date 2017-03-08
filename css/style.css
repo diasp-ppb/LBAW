@@ -51,7 +51,7 @@ a {
 a:hover { color: #52bfff !important;}
 
 a.title {
-    font-size: medium;
+    font-size: 1.4em;
 }
 
 .topic a.title {
@@ -477,6 +477,7 @@ img {
     margin-bottom: 0;
     box-shadow: black;
     background: #10354b;
+    border-radius: 0px;
 }
 
 .navbar-header > button{
@@ -553,51 +554,15 @@ a.dropdown-toggle{
     color: #10354b;
 }
 
+.nav.navbar-nav.navbar-right .dropdown-menu a:hover{
+    background-color: #10354b;
+    color: white !important;
+}
+
 .nav.navbar-nav.navbar-right:active{
     background-color: white;
     color: #10354b;
 }
-
-/*.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 a{
-    color: #10354b;
-}
-
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form#pc-search{
-    margin-left: 25%;
-    margin-right: -10%;
-}
-
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 div li a {
-    color: #10354b;
-}
-
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form#pc-search .btn.btn-default{
-    color: white;
-    background-color: #10354b;
-    border: solid 2px #10354b;
-    border-radius: 6px;
-}
-
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form#pc-search .btn.btn-default:hover{
-    background-color: white;
-    color: #10354b;
-    transition: 0.4s;
-}
-
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form#mobile-search .btn.btn-default{
-    background-color: #10354b;
-    border: solid 2px #10354b;
-    color: white;
-    height: 2.4em;
-    margin-top: -0.04em;
-}
-
-.navbar.navbar-default .container-fluid #bs-example-navbar-collapse-1 form#mobile-search .btn.btn-default:hover{
-    background-color: white;
-    color: #10354b;
-    border: solid 2px #10354b;
-    transition: 0.4s;
-}*/
 
 .home .header{
     height: 230px;
@@ -871,6 +836,11 @@ body.search .additional {
     margin-top: 3em;
 }
 
+.search .search.topics .row.entry{
+    border-bottom: solid 1px #10354b;
+    margin-bottom: 2px;
+}
+
 body.admin .container-fluid:not(:first-child) {
     margin-top: 2em;
 }
@@ -890,6 +860,7 @@ body.admin canvas {
 body.admin .row h3 {
     margin-top: 2em;
 }
+
 
 /* edit profile */
 @media (min-width: 768px) {
@@ -1162,6 +1133,18 @@ div.tabbable-panel ul.nav li {
 button.upvote, button.downvote, button.correct {
     background-color: #10354b !important;
     color: white !important;
+}
+
+button.upvote:hover{
+    background-color: #5cb85c !important;
+}
+
+button.downvote:hover{
+    background-color: #d9534f !important;
+}
+
+button.correct:hover{
+    background-color: #5bc0de !important;
 }
 
 button.rating {

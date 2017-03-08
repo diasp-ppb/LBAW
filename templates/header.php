@@ -93,7 +93,7 @@
                     </div>
                 </form>
             </div>
-            <!--<ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <img class="img-circle" alt="user" src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400">
@@ -107,11 +107,13 @@
                         <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
                     </ul>
                 </li>
-            </ul>-->
+            </ul>
 
+            <!--
             <ul class="nav navbar-nav navbar-right" data-toggle="modal" data-target="#loginModal">
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
+            -->
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

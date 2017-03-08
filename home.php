@@ -23,7 +23,6 @@ include "templates/header.php"
                             <a href="#" class="home-tag" title="" rel="tag">web</a>
                             <a href="#" class="home-tag" title="" rel="tag">Hidrogénio</a>
                             <a href="#" class="home-tag" title="" rel="tag">Amizade</a>
-                            <a href="#" class="home-tag" title="" rel="tag">Amizade</a>
                         </div>
                     </div>
                 </div>

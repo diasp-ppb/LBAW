@@ -858,6 +858,10 @@ body.profile .additional div.user-info {
     margin-bottom: 4em;
 }
 
+body.profile div.tags {
+    margin-bottom: 2em;
+}
+
 body.search .container-fluid:not(:first-child) {
     margin-top: 2em;
 }
@@ -867,8 +871,7 @@ body.search .additional {
 }
 
 .search .search.topics .row.entry{
-    border-bottom: solid 1px #10354b;
-    margin-bottom: 2px;
+    margin-bottom: 1em;
 }
 
 body.admin .container-fluid:not(:first-child) {
@@ -1200,7 +1203,6 @@ div.navbar.navbar-bottom {
     }
 }
 
-
 div .topic-presentation .topic-status:nth-child(3){
      white-space: nowrap !important;
     overflow: hidden !important;   
@@ -1214,4 +1216,13 @@ div .topic-presentation .topic-status:nth-child(3){
 
 .topic-presentation + .topic-presentation {
     margin-top:1em;
+}
+
+
+#buttondiv {
+    width: 100% !important;
+}
+
+.topic #wmd-button-bar {
+    margin-top: 4em !important;
 }

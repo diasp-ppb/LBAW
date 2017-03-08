@@ -97,7 +97,7 @@ include "templates/header.php"
                                         Gestão de processos varia de que forma entre sistemas operativos ?
                                     </a>
                                     <div class="tags">
-                                        <span class="tag">SO</span><span class="tag">Windows</span><span class="tag">Ubuntu</span>
+                                        <span class="tag">SO</span> <span class="tag">Windows</span> <span class="tag">Ubuntu</span>
                                     </div>
                                 </div>
                                 <div class="col-md-10">

@@ -110,7 +110,7 @@ include "templates/header.php"
                             <div class="page-header">
                                 <h2>Utilizadores</h2>
                             </div>
-                            
+
                             <div class="user-info pull-left">
                                 <div class="user text-center">
                                     <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-thumbnail" style="height: 80px; width: 80px" alt="Profile Picture">

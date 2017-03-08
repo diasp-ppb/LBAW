@@ -29,7 +29,7 @@ include "templates/header.php"
           </div>
         </div>
       </div>
-      <div class="col-md-8  main">
+      <div class="col-md-8 col-md-offset-1 main">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
             <div class="row">
@@ -131,7 +131,7 @@ include "templates/header.php"
                 <div class="page-header">
                   <h2>Os meus tópicos</h2>
                 </div>
-                <a class="title" href="#">Como gerar relatóriod PDF firemonkey android?</a>
+                <a class="title" href="#">Como gerar relatório PDF firemonkey android?</a>
                 <div class="tags">
                   <span class="tag">android</span>
                   <span class="tag">delphi</span>

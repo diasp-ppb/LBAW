@@ -19,10 +19,10 @@ include "templates/header.php"
               <div>
                 <strong>José Soares</strong> <span class="text-muted">posted 5 days ago</span>
                 <span class="pull-right">
-<button type="button" class="upvote btn btn-danger"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
-<button type="button" class="downvote btn btn-warning btn-circle"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
-<button type="button" class="upvote btn btn-primary">1</button>
-</span>
+                    <button type="button" class="upvote btn"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
+                    <button type="button" class="downvote btn"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                    <button type="button" class="rating btn" disabled="disabled">1</button>
+                </span>
               </div>
 
               <a class="title" href="#">Diferenças de tipos de Web Service: SOAP, REST, XML</a>
@@ -58,11 +58,11 @@ include "templates/header.php"
             <div class="comment-header panel-heading">
               <strong>Pedro Guerra</strong> <span class="text-muted">commented 5 days ago</span>
               <span class="pull-right">
-<button type="button" class="upvote btn btn-danger"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
-<button type="button" class="downvote btn btn-warning btn-circle"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
-<button type="button" class="correct btn btn-info btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
-<button type="button" class="upvote btn btn-primary">1</button>
-</span>
+                <button type="button" class="upvote btn"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
+                <button type="button" class="downvote btn"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                <button type="button" class="correct btn"><i class="glyphicon glyphicon-ok"></i></button>
+                <button type="button" class="rating btn" disabled="disabled">1</button>
+              </span>
             </div>
 
             <h1>SOAP</h1>

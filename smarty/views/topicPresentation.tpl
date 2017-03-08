@@ -38,6 +38,5 @@
     
     <div class="col-md-3 author text-right">
         {$author}
-      
     </div>
 </div>

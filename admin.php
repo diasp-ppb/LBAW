@@ -21,7 +21,6 @@ include 'templates/userElem.php';
             <div class="col-md-8 col-md-offset-1 main">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
-                        <div class="row">
                             <div id="userlist" class="row">
                                 <div class="page-header">
                                     <h2>Lista de Utilizadores</h2>
@@ -48,7 +47,8 @@ include 'templates/userElem.php';
                                         <li><a href="#">5</a></li>
                                         <li><a href="#">&raquo;</a></li>
                                     </ul>
-                                </div>
+				</div>
+			    </div>
                             <div id="statistics" class="row">
                                 <div class="page-header">
                                     <h2>Estatísticas</h2>

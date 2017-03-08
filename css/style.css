@@ -1144,8 +1144,15 @@ hr {
     }
 
     div.tabbable-panel ul.nav li {
-        font-size: x-small;
+        font-size: small;
+      
+       
     }
+     
+}
+
+div.tabbable-panel ul.nav li {
+        padding: 0; 
 }
 
 /* LOGO CLIP */

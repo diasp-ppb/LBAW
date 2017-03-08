@@ -33,13 +33,13 @@ include "templates/header.php"
                     <div class="tabbable-panel col-md-12">
                         <div class="tabbable-line">
                             <ul class="nav nav-tabs ">
-                                <li class="active">
+                                <li class="active col-xs-3">
                                     <a href="#featured" data-toggle="tab"><i class="glyphicon glyphicon-star hidden-xs"></i> Em destaque</a>
                                 </li>
-                                <li>
+                                <li class="col-xs-3">
                                     <a href="#hot" data-toggle="tab"><i class="glyphicon glyphicon-fire hidden-xs"></i> Mais cobiçadas</a>
                                 </li>
-                                <li>
+                                <li class="col-xs-3">
                                     <a href="#recent" data-toggle="tab"><i class="glyphicon glyphicon-circle-arrow-up hidden-xs"></i> Mais recentes</a>
                                 </li>
                             </ul>

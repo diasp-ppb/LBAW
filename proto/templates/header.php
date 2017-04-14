@@ -27,6 +27,9 @@
 </head>
 
 <body class=<?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?>>
+
+<?php include_once('../config/init.php'); ?>
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">

@@ -1,6 +1,6 @@
 <?php
-include "templates/header.php";
-include 'templates/userElem.php';
+include "../templates/header.php";
+include "../templates/userElem.php";
 ?>
     <div class="container-fluid">
         <div class="row">
@@ -151,5 +151,5 @@ include 'templates/userElem.php';
         </div>
     </div>
 <?php
-include "templates/footer.php"
+include "../templates/footer.php"
 ?>

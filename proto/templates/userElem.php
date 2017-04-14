@@ -5,7 +5,7 @@
          exit('No direct script access allowed');
     */
 
-    require_once('smarty/smarty.php');
+    require_once('../lib/smarty/smarty.php');
 
     $smarty = new MySmarty;
 

@@ -1,5 +1,6 @@
 <?php
-include "templates/header.php"
+include "../templates/header.php";
+include "../templates/topicPresentation.php";
 ?>
 
 <div class="container-fluid">
@@ -43,7 +44,6 @@ include "templates/header.php"
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <?php include 'templates/topicPresentation.php'; ?>
                                 <div class="tab-pane active" id="featured">
                                     <?php topicPresentation('403 Forbidden nginx/1.11.9 - Laravel 4','Ze Gomes','2','193','7',array('laravel','nginx','laravel-4')); 
                                           topicPresentation('REGEX para Seleciar uma linha que contem um string desenjada',' Diego  Garcia','0','17','2',array('pyhon','notepad++'));
@@ -78,5 +78,5 @@ include "templates/header.php"
 </div>
 
   <?php
-include "templates/footer.php"
+include "../templates/footer.php"
 ?>

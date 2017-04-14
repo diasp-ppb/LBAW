@@ -1,5 +1,5 @@
 <?php
-include "templates/header.php"
+include "../templates/header.php"
 ?>
 
 <div class="container-fluid">
@@ -34,10 +34,7 @@ include "templates/header.php"
             $("#wmd-button-row").append("<li class='wmd-button hidden-xs' id='help-button'  title='Heading <h1>/<h2> Ctrl+Shift+H' style='left: 385px;'><span style='background-position: -240px 0px;'></span></li>");
             $("#help-button").click(function(){
               $("#squarespaceModal").modal('toggle');
-            });
-
-            
-            
+            });     
         </script>
 
         <div class="center">
@@ -117,4 +114,4 @@ include "templates/header.php"
 </div>
 
 
-<?php include  "templates/footer.php"?>
+<?php include  "../templates/footer.php"?>

@@ -6,7 +6,7 @@
 
     <title><?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?></title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -67,8 +67,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img alt="Brand" src="resources/images/logo.png">
-                <img alt="Brand" src="resources/images/askabit.png">
+                <img alt="Brand" src="../resources/images/logo.png">
+                <img alt="Brand" src="../resources/images/askabit.png">
             </a>
         </div>
 

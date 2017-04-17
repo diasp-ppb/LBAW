@@ -15,6 +15,9 @@
   $conn->exec('SET SCHEMA \'public\''); 
 
 /* 
+
+  BIG TODO store para o $userId  -> usado no createTopic
+           store userName?
   Copiado da frmk
 
   include_once($BASE_DIR . 'lib/smarty/Smarty.class.php');

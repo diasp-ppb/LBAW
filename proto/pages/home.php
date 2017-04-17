@@ -1,6 +1,7 @@
 <?php
-include "../templates/header.php";
-include "../templates/topicPresentation.php";
+include_once "../templates/header.php";
+include_once "../templates/topicPresentation.php";
+include_once "../database/topics.php";
 ?>
 
 <div class="container-fluid">
@@ -45,28 +46,31 @@ include "../templates/topicPresentation.php";
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="featured">
-                                    <?php topicPresentation('403 Forbidden nginx/1.11.9 - Laravel 4','Ze Gomes','2','193','7',array('laravel','nginx','laravel-4')); 
-                                          topicPresentation('REGEX para Seleciar uma linha que contem um string desenjada',' Diego  Garcia','0','17','2',array('pyhon','notepad++'));
-                                          topicPresentation('Cordova, como mudar a cor da barra de controles: voltar, home e janelas','Pedro Dias','1','14','7',array('android','apache-cordova'));
-                                          topicPresentation('Remover todas as quebras de linhas numa coluna de um arquivo csv no Linux','Rita Torres','7','8','4',array('linux','csv','quebra-de-linha','awk','sed'));
-                                          topicPresentation('Como enviar uma imagem dinâmica para o PHP com a função ajax do jQuery','João Barbosa','0','7','0',array('jquery','file-upload'));
+                                    <?php 
+                                        $topics = getFeaturedTopics();
+                                        
+                                        foreach ($topics as $topic) { 
+                                            topicPresentation($topic);
+                                        }
                                     ?>
                                 </div>
                                 <div class="tab-pane" id="hot">
-                                   <?php topicPresentation('Por que as vezes é necessário o setTimeout com valor 0 (zero)?','João Barbosa','11','221','3',array('javascript','settimeout')); 
-                                         topicPresentation('Como fazer hash de senhas de forma segura?','Salvador Fonseca','17','13k','6',array('hash','segurança','senhas','criptografia'));
-                                         topicPresentation('Por que não devemos usar funções do tipo mysql_*?','Luis Aguiar','147','5k','6',array('php','mysql'));
-                                         topicPresentation('Como prevenir injeção de código SQL no meu código PHP','Manuel Justo','111','8k','5',array('php','sql','sql-injection'));
-                                         topicPresentation('Diferenças de tipos de Web Service: SOAP, REST, XML','José Soares','2','50k','12',array('web-service'));
-                                   ?>
+                                   <?php
+                                        $topics = getHotTopics();
+                                        
+                                        foreach ($topics as $topic) { 
+                                            topicPresentation($topic);
+                                        }
+                                    ?>
                                 </div>
                                 <div class="tab-pane" id="recent">
-                                     <?php topicPresentation('O que é o Accelerated Mobile Pages (AMP)?','Rui Pereira','2','5','0',array('amp','html')); 
-                                         topicPresentation('Conexão Cliente/Servidor','Miriam Gonçalves','0','4','0',array('C#','.net'));
-                                         topicPresentation('Como gerar relatóriod PDF firemonkey android?','Jõao Barbosa','0','8','0',array('android','delphi','firemonkey'));
-                                         topicPresentation('FloatingActionButtonMenu','António Ramos','0','14','0',array('android','mobile'));
-                                         topicPresentation('Como gravar uma imagem base64_encode com mais de 4000 caracteres no Oracle usando php','Fernando Rocha','0','9','0',array('php','imagem','oracle','base64'));
-                                     ?>
+                                     <?php 
+                                        $topics = getMostRecentTopics();
+                                        
+                                        foreach ($topics as $topic) { 
+                                            topicPresentation($topic);
+                                        }
+                                      ?>
                                 </div>
                             </div>
                         </div>

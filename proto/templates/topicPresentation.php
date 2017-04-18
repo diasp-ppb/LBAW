@@ -23,7 +23,7 @@ if (!defined('BASEPATH'))
   $tags = array();
   foreach($features as $feature) {
     $tag = getTagbyID($feature["tagid"]);
-    array_push($tags, array('name'=>$tag["name"], 'id' => $tag["id"]));
+    array_push($tags, $tag);
   }  
   
   

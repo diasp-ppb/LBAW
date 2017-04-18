@@ -10,18 +10,18 @@ include "../templates/header.php"
         </div>
         <div class="form-group">
           <label for="title">Titulo</label>
-          <input type="text" class="form-control" id="title" placeholder="Titulo da pergunta"/>
+          <input type="text" class="form-control" id="title" required="required" placeholder="Titulo da pergunta"/>
         </div>
         <div class=" form-group">
           <label for="tags">Tags</label>
-          <input type="text" class="form-control" id="tags" placeholder="Tags"/>
+          <input type="text" class="form-control" id="tags" required="required" placeholder="Tags"/>
         </div>
 
         <div id="wmd-button-bar"></div>
         <textarea id="wmd-input" class="wmd-input"></textarea>
         <div id="wmd-preview" class="wmd-preview text-left well"></div>
         
-        <script type="text/javascript" src="../js/textEditor.js"></script>
+        <script type="text/javascript" required="required" src="../js/textEditor.js"></script>
 
         <div class="center">
           <input type="submit" class="btn btn-info" value="Submit"/>

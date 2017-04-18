@@ -2,6 +2,7 @@
 include_once "../templates/header.php";
 include_once "../templates/topicPresentation.php";
 include_once "../database/topics.php";
+include_once "../database/tags.php";
 ?>
 
 <div class="container-fluid">
@@ -15,16 +16,14 @@ include_once "../database/topics.php";
                     <div id="title-tags" class="page-header text-center">
                         <h2>Explore os nossos tópicos</h2>
                         <div id="explore-tags">
-                            <a href="#" class="home-tag" title="" rel="tag">PHP</a>
-                            <a href="#" class="home-tag" title="" rel="tag">Quimica</a>
-                            <a href="#" class="home-tag" title="" rel="tag">Newton</a>
-                            <a href="#" class="home-tag" title="" rel="tag">jQuery</a>
-                            <a href="#" class="home-tag" title="" rel="tag">AutoCad</a>
-                            <a href="#" class="home-tag" title="" rel="tag">VisualStudio</a>
-                            <a href="#" class="home-tag" title="" rel="tag">Maxima</a>
-                            <a href="#" class="home-tag" title="" rel="tag">web</a>
-                            <a href="#" class="home-tag" title="" rel="tag">Hidrogénio</a>
-                            <a href="#" class="home-tag" title="" rel="tag">Amizade</a>
+                            <?php
+                                $tags = getTags();
+                                foreach ($tags as $tag) {
+                             ?>
+                                <a href="#" class="home-tag" title="" rel="tag"> <?php echo $tag["name"] ?> </a>
+                             <?php
+                                }
+                             ?>
                         </div>
                     </div>
                 </div>
@@ -46,28 +45,29 @@ include_once "../database/topics.php";
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="featured">
-                                    <?php 
-                                        $topics = getFeaturedTopics();
-                                        
-                                        foreach ($topics as $topic) { 
+                                    <?php
+                                        $featuredTopics = getFeaturedTopics();
+
+                                        foreach ($featuredTopics as $topic) {
                                             topicPresentation($topic);
                                         }
                                     ?>
                                 </div>
                                 <div class="tab-pane" id="hot">
                                    <?php
-                                        $topics = getHotTopics();
-                                        
-                                        foreach ($topics as $topic) { 
+                                        $HotTopics = getHotTopics();
+
+                                        foreach ($HotTopics as $topic) {
                                             topicPresentation($topic);
                                         }
                                     ?>
                                 </div>
+                                </div>
                                 <div class="tab-pane" id="recent">
-                                     <?php 
-                                        $topics = getMostRecentTopics();
-                                        
-                                        foreach ($topics as $topic) { 
+                                     <?php
+                                        $recentTopics = getMostRecentTopics();
+
+                                        foreach ($recentTopics as $topic) {
                                             topicPresentation($topic);
                                         }
                                       ?>

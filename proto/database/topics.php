@@ -49,3 +49,15 @@ function createTopic($title, $content, $sectionId) {
     $stmt->execute(array($userId, $title, $content, $sectionId));
     return $stmt->fetchAll(); 
 }
+
+
+//TODO VER SE TA na DOC
+function getFeaturedTagsTopic($topicId) {
+    global $conn;
+    
+    $stmt = $conn->prepare("SELECT * FROM feature
+                            WHERE postid = ?");
+    $stmt->execute(array($topicId));
+    return $stmt->fetchAll(); 
+}
+?>

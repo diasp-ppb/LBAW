@@ -24,13 +24,13 @@
      
     
     <div class="col-md-6">
-        <a class="title" href="#">
+        <a class="title" href="topic.php?id={$topicId}">
           {$topic}
         </a>
         <div class="tags">
 
-          {foreach name=outer item=v from=$tags}
-          <span class="tag">{$v}</span> 
+          {foreach $tags as $v}
+          <span class="tag">{$v['name']}</span> 
           {/foreach}
         </div>
     </div>

@@ -14,16 +14,27 @@ if (!defined('BASEPATH'))
   $topic = $topicData["title"];
   $author= getAccountByUserId($topicData["userid"])[0]["name"];
   $votes = $topicData["rating"];
+  $topicId = $topicData["id"];
   $visua = 10; //TODO
   $answers = 10; //TODO
-  $tag = array("A","B","C"); //TODO TAGS
+  $features = getFeaturedTagsTopic($topicId);
 
+  
+  $tags = array();
+  foreach($features as $feature) {
+    $tag = getTagbyID($feature["tagid"]);
+    array_push($tags, array('name'=>$tag["name"], 'id' => $tag["id"]));
+  }  
+  
+  
   $smarty->assign('topic',$topic);
   $smarty->assign('author',$author);
   $smarty->assign('votes',$votes);
   $smarty->assign('visua',$visua);
   $smarty->assign('answers',$answers);
   $smarty->assign('tags',$tags);
+  $smarty->assign('topicId',$topicId);
 
   $smarty->display('topicPresentation.tpl');
-} ?>
+} 
+?>

@@ -55,7 +55,17 @@ function getUserImage($userId){
     return $image;
 }
 
-function updateProfile($userId, $name, $location, $links) {
+function to_pg_array($array) {
+    $result = array();
+    foreach ($array as $link) {
+        array_push($result, $link);
+    }
+    return '{' . join(",", $result) . '}';
+}
+
+function updateProfile($userId, $name, $links) {
     global $conn;
+    $stmt=$conn->prepare("UPDATE account SET name = ?, links = ? WHERE id = ?;");
+    $stmt->execute(array($name, $links, $userId));
 }
 ?>

@@ -14,7 +14,7 @@ class MySmarty extends Smarty
     function __construct()
     {
         parent::__construct();        
-        $this->template_dir = "../lib/smarty/views";
+        $this->template_dir = "../templates/";
         $this->config_dir = "../lib/smarty/conf/";
         $this->compile_dir = "../lib/smarty/cache/";
         $this->caching = 0;       

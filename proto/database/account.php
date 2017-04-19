@@ -56,7 +56,6 @@ function getUserImage($userId){
 }
 
 function updateProfile($userId, $name, $location, $links) {
-    //global $conn;
-    //$stmt=$conn->prepare("UPDATE account SET"
+    global $conn;
 }
 ?>

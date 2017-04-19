@@ -1,13 +1,10 @@
 <?php
-
-   
 function getAccountByUsername($username) {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM account WHERE username = ?;");
     $stmt->execute(array($username));
     return $stmt->fetchAll();
 }
-
 
 // TODO tem de se dar add no site de lbaw
 function getAccountByUserId($userId) {
@@ -17,6 +14,12 @@ function getAccountByUserId($userId) {
     return $stmt->fetchAll();
 }
 
+function getUserLinks($userId) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT array_to_json(links) AS links FROM ACCOUNT WHERE id=?;");
+    $stmt->execute(array($userId));
+    return $stmt->fetchAll();
+}
 
 function getSessionId(){
     global $conn;
@@ -52,4 +55,8 @@ function getUserImage($userId){
     return $image;
 }
 
+function updateProfile($userId, $name, $location, $links) {
+    //global $conn;
+    //$stmt=$conn->prepare("UPDATE account SET"
+}
 ?>

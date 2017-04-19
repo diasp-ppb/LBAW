@@ -18,7 +18,7 @@ function getTagbyID($tagId) {
     $stmt = $conn->prepare("SELECT * FROM tag  
                             WHERE id = ?");
     $stmt->execute(array($tagId));
-    return $stmt->fetchAll();
+    return $stmt->fetch();
 }
 // TODO ver se ta na DOC
 function getTagByName($name) {

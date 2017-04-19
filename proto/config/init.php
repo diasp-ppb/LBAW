@@ -14,6 +14,11 @@
 
   $conn->exec('SET SCHEMA \'public\''); 
 
+  require_once('../lib/smarty/smarty.php');
+  
+  $smarty = new MySmarty;
+
+
 /* 
 
   BIG TODO store para o $userId  -> usado no createTopic

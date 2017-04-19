@@ -1,14 +1,12 @@
 <?php function topicPresentation($topicData) { 
-
+  
+  global $smarty;
 /*
 if (!defined('BASEPATH')) 
      exit('No direct script access allowed');
 */
   include_once("../database/account.php");
   require_once('../lib/smarty/smarty.php');
-
-
-  $smarty = new MySmarty; // TODO NEED TO MOVE TO GLOBAL
 
 
   $topic = $topicData["title"];
@@ -36,5 +34,6 @@ if (!defined('BASEPATH'))
   $smarty->assign('topicId',$topicId);
 
   $smarty->display('topicPresentation.tpl');
+  clear_all_assign();
 } 
 ?>

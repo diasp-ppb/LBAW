@@ -20,4 +20,12 @@ function getTagbyID($tagId) {
     $stmt->execute(array($tagId));
     return $stmt->fetchAll();
 }
+// TODO ver se ta na DOC
+function getTagByName($name) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM tag  
+                            WHERE name = ?");
+    $stmt->execute(array($name));
+    return $stmt->fetchAll();
+}
 ?>

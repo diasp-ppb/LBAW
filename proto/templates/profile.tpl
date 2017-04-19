@@ -4,23 +4,27 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
           <div class="user-info text-center">
-            <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
-            <h3>João Barbosa</h3>
-            <p><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal</p>
-            <p><i class="glyphicon glyphicon-envelope"></i> bmpj13@hotmail.com</p>
-            <p><i class="glyphicon glyphicon-globe"></i> www.github.com/bmpj13</p>
+            <img src="{$user.image}" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
+            <h3>{$user.name}</h3>
+            <p hidden><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal</p>
+            {foreach from=$emails item=$email}
+            <p><i class="glyphicon glyphicon-envelope"></i>{$email.mail}</p>
+            {/foreach}
+            {foreach from=$links item=$link}
+            <p><i class="glyphicon glyphicon-globe"></i>{$link}</p>
+            {/foreach}
           </div>
         <ul class="list-group text-center hidden-xs hidden-sm">
-          <li class="list-group-item active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Perfil</a> </li>
-          <li class="list-group-item"> <a href="#"><i class="glyphicon glyphicon-cog"></i> Definições</a> </li>
-          <li class="list-group-item"> <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Estatísticas</a> </li>
-          <li class="list-group-item"> <a href="#"><i class="glyphicon glyphicon-question-sign"></i> Tópicos</a> </li>
+          <li class="list-group-item active"> <a href="#"><i class="glyphicon glyphicon-home"></i>Perfil</a> </li>
+          <li class="list-group-item"> <a href="../pages/editProfile.php?id={$user.id}"><i class="glyphicon glyphicon-cog"></i>Definições</a> </li>
+          <li class="list-group-item"> <a href="#stats"><i class="glyphicon glyphicon-list-alt"></i>Estatísticas</a> </li>
+          <li class="list-group-item"> <a href="#my-topics"><i class="glyphicon glyphicon-question-sign"></i>Tópicos</a> </li>
         </ul>
         <ul class="list-inline text-center hidden-md hidden-lg">
-          <li> <a href="#"><i class="glyphicon glyphicon-home"></i> Perfil</a> </li>
-          <li> <a href="#"><i class="glyphicon glyphicon-cog"></i> Definições</a> </li>
-          <li> <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Estatísticas</a> </li>
-          <li> <a href="#"><i class="glyphicon glyphicon-question-sign"></i> Tópicos</a> </li>
+          <li> <a href="#"><i class="glyphicon glyphicon-home"></i>Perfil</a> </li>
+          <li> <a href="../pages/editProfile.php?id={$user.id}"><i class="glyphicon glyphicon-cog"></i>Definições</a> </li>
+          <li> <a href="#stats"><i class="glyphicon glyphicon-list-alt"></i>Estatísticas</a> </li>
+          <li> <a href="#my-topics"><i class="glyphicon glyphicon-question-sign"></i>Tópicos</a> </li>
         </ul>
       </div>
     </div>
@@ -68,7 +72,7 @@
 
 
 
-          <div class="row">
+          <div class="row" id="stats">
             <div class="page-header">
               <h2>As minhas estatísticas</h2>
             </div>
@@ -123,7 +127,7 @@
               </script>
             </div>
           </div>
-          <div class="row">
+          <div class="row" id="my-topics">
             <div class="page-header">
               <h2>Os meus tópicos</h2>
             </div>

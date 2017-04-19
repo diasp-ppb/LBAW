@@ -860,6 +860,10 @@ body.profile .additional div.user-info {
     margin-bottom: 4em;
 }
 
+body.profile .additional .glyphicon {
+    margin-right: 3px;
+}
+
 body.profile div.tags {
     margin-bottom: 2em;
 }

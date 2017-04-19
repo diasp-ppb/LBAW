@@ -32,5 +32,7 @@ if(isset($_POST['name'])) {
 	}
 
 	updateProfile($id, $name, to_pg_array($links));
+
+	header("Location: ../pages/profile.php?id=" . $id);
 }
 ?>

@@ -4,16 +4,18 @@ html, body {
     width: 100%;
 }
 
-body.editProfile .row input[type=text]{
+body.editProfile .row input[type=text] {
     border-radius: 0px;
 }
 
+body.editProfile button[type=button] {
+    border-radius: 0px;
+}
 
 body.home .row {
     margin-top: 3em;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
 
 .container-fluid {
     padding: 0;
@@ -931,7 +933,7 @@ body.admin .row h3 {
 
 .icon-addon {
     position: relative;
-    color: #555;
+    color: #555 !important;
     display: block;
 }
 
@@ -1004,6 +1006,14 @@ body.admin .row h3 {
     color: #2580db;
 }
 
+.icon-addon input.form-control:focus {
+    z-index: 0;
+}
+
+.input-group-btn i.fa {
+    margin-top: -4%;
+    margin-left: 1px;
+}
 
 .container{
     margin-top:20px;
@@ -1149,14 +1159,14 @@ hr {
 
     div.tabbable-panel ul.nav li {
         font-size: small;
-      
-       
+
+
     }
-     
+
 }
 
 div.tabbable-panel ul.nav li {
-        padding: 0; 
+        padding: 0;
 }
 
 .topic input.btn[value="Comentar"] {
@@ -1195,7 +1205,7 @@ div.navbar.navbar-bottom {
 
 /* LOGO CLIP */
 @media (max-width: 1440px) {
-    
+
     #logoDIV{
     white-space: nowrap;
     display: none !important;
@@ -1205,7 +1215,7 @@ div.navbar.navbar-bottom {
 
 div .topic-presentation .topic-status:nth-child(3){
      white-space: nowrap !important;
-    overflow: hidden !important;   
+    overflow: hidden !important;
     text-overflow:  ellipsis !important;
     display: block ;
 }

@@ -31,8 +31,6 @@ if(isset($_POST['name'])) {
 		addEmail($id, $emailToAdd);
 	}
 
-	print_r($links);
-
-	updateProfile($id, $name, $location, $links);
+	updateProfile($id, $name, to_pg_array($links));
 }
 ?>

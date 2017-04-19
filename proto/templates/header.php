@@ -104,8 +104,8 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
+                        <li><a href="../pages/profile.php"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                        <li><a href="../pages/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
                         <li role="presentation" class="divider"></li>
                         <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
                     </ul>

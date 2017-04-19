@@ -8,7 +8,7 @@ include_once('../templates/header.php');
   $smarty->display('../lib/smarty/views/createTopic.tpl');
 }*/
 
-$smarty->display('../lib/smarty/views/createTopic.tpl');
+$smarty->display('createTopic.tpl');
 
 include_once('../templates/footer.php');
 ?>

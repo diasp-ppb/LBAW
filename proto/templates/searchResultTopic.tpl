@@ -5,7 +5,7 @@
       </a>
       <div class="tags">
         {foreach $tags as $v}
-          <span class="tag"> {$v[0]['name']}</span> 
+          <span class="tag"> {$v['name']}</span> 
         {/foreach}
       </div>
     </div>

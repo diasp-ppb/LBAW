@@ -1,8 +1,9 @@
 <?php
 include_once "../templates/header.php";
-include_once "../templates/topicPresentation.php";
 include_once "../database/topics.php";
+include_once "../database/account.php";	
 include_once "../database/tags.php";
+
 
 $tags = getTags();
 $featuredTopics = getFeaturedTopics();
@@ -20,7 +21,36 @@ foreach($featuredTopics as &$topic) {
     }
 
     $topic["tags"] = $fTags;
+    $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
 }
+
+
+foreach($HotTopics as &$topic) {
+    $features = getFeaturedTagsTopic($topic["id"]);
+    $fTags = array();
+
+    foreach($features as $feature) {
+        $tag = getTagById($feature["tagid"]);
+        array_push($fTags, $tag);
+    }
+
+    $topic["tags"] = $fTags;
+    $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+}
+
+foreach($recentTopics as &$topic) {
+    $features = getFeaturedTagsTopic($topic["id"]);
+    $fTags = array();
+
+    foreach($features as $feature) {
+        $tag = getTagById($feature["tagid"]);
+        array_push($fTags, $tag);
+    }
+
+    $topic["tags"] = $fTags;
+    $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+}
+
 
 $smarty->assign('tags',$tags);
 $smarty->assign('featuredTopics',$featuredTopics);

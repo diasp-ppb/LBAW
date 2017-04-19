@@ -1,5 +1,6 @@
 <?php
 include_once('../config/init.php');
+include_once("../database/account.php");
 include_once("../database/email.php");
 
 if(isset($_POST['name'])) {
@@ -7,7 +8,7 @@ if(isset($_POST['name'])) {
 	$name = $_POST['name'];
 	$location = $_POST['location'];
 	$newEmails = array_filter(array_map('trim', $_POST['email']));
-	$links = array_map('trim', $_POST['link']);
+	$links = array_filter(array_map('trim', $_POST['link']));
 
 	$oldEmails = getUserEmailList($id);
 	$toDelete = array();
@@ -25,6 +26,12 @@ if(isset($_POST['name'])) {
 	foreach ($toDelete as $deleteId) {
 		deleteEmail($deleteId);
 	}
+
+	foreach ($newEmails as $emailToAdd) {
+		addEmail($id, $emailToAdd);
+	}
+
+	print_r($links);
 
 	updateProfile($id, $name, $location, $links);
 }

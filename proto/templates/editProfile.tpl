@@ -51,7 +51,7 @@
 
                                 {foreach from=$emails item=$email key=$index}
                                     {if $index != 0}
-                                    <div class="form-group user email" id="email-template">
+                                    <div class="form-group user email">
                                         <div class="input-group">
                                             <div class="icon-addon addon-md">
                                                 <input type="text" placeholder="E-mail" class="form-control" name="email[]" value="{$email.mail}">
@@ -91,7 +91,7 @@
 
                                 {foreach from=$links item=$link key=$index}
                                     {if $index != 0}
-                                    <div class="form-group user link" id="link-template">
+                                    <div class="form-group user link">
                                         <div class="input-group">
                                             <div class="icon-addon addon-md">
                                                 <input type="text" placeholder="Website" class="form-control" name="link[]" value="{$link}">

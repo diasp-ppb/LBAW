@@ -1,7 +1,9 @@
 <?php
-include "../templates/header.php"
+include_once("../database/account.php");
+include_once("../templates/header.php");
 ?>
 
+<script src="../js/editProfile.js"></script>
 
 <div class="container-fluid">
     <div class="row" role="tabpanel">
@@ -24,8 +26,7 @@ include "../templates/header.php"
                 <div class="col-md-10 col-md-offset-1 col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab1">
-
-                            <form>
+                            <form id="editProfile" action="../actions/member/editProfile.php" method="post">
                                 <div class="form-group user name">
                                     <div class="icon-addon addon-md">
                                         <input type="text" placeholder="Nome" class="form-control" name="name" value="João Barbosa">
@@ -41,30 +42,50 @@ include "../templates/header.php"
                                 </div>
 
                                 <div class="form-group user email">
-                                    <div class="icon-addon addon-md">
-                                        <input type="text" placeholder="E-mail" class="form-control" name="email[]" value="bmpj13@hotmail.com">
-                                        <label for="email" class="glyphicon glyphicon-envelope" rel="tooltip"></label>
+                                    <div class="input-group">
+                                        <div class="icon-addon addon-md">
+                                            <input type="text" placeholder="E-mail" class="form-control" name="email[]" value="bmpj13@hotmail.com">
+                                            <label for="email" class="glyphicon glyphicon-envelope" rel="tooltip"></label>
+                                        </div>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default form-control"><i class="fa fa-plus add-email"></i></button>
+                                        </span>
                                     </div>
                                 </div>
 
-                                <div class="form-group user email">
-                                    <div class="icon-addon addon-md">
-                                        <input type="text" placeholder="E-mail" class="form-control" name="email[]" value="">
-                                        <label for="email" class="glyphicon glyphicon-envelope" rel="tooltip"></label>
+                                <div class="form-group hide user email" id="email-template">
+                                    <div class="input-group">
+                                        <div class="icon-addon addon-md">
+                                            <input type="text" placeholder="E-mail" class="form-control" name="email[]" value="">
+                                            <label for="email" class="glyphicon glyphicon-envelope" rel="tooltip"></label>
+                                        </div>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default form-control"><i class="fa fa-minus remove-email"></i></button>
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="form-group user link">
-                                    <div class="icon-addon addon-md">
-                                        <input type="text" placeholder="Website" class="form-control" name="link[]" value="www.github.com/bmpj13">
-                                        <label for="email" class="glyphicon glyphicon-link" rel="tooltip"></label>
+                                    <div class="input-group">
+                                        <div class="icon-addon addon-md">
+                                            <input type="text" placeholder="Website" class="form-control" name="link[]" value="www.github.com/bmpj13">
+                                            <label for="link" class="glyphicon glyphicon-link" rel="tooltip"></label>
+                                        </div>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default form-control"><i class="fa fa-plus add-link"></i></button>
+                                        </span>
                                     </div>
                                 </div>
 
-                                <div class="form-group user link">
-                                    <div class="icon-addon addon-md">
-                                        <input type="text" placeholder="Website" class="form-control" name="link[]" value="">
-                                        <label for="email" class="glyphicon glyphicon-link" rel="tooltip"></label>
+                                <div class="form-group hide user link" id="link-template">
+                                    <div class="input-group">
+                                        <div class="icon-addon addon-md">
+                                            <input type="text" placeholder="Website" class="form-control" name="link[]" value="">
+                                            <label for="link" class="glyphicon glyphicon-link" rel="tooltip"></label>
+                                        </div>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default form-control"><i class="fa fa-minus remove-link"></i></button>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -77,7 +98,7 @@ include "../templates/header.php"
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/700px-Turkish_Van_Cat.jpg" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
                             </div>
 
-                            <form>
+                            <form action="../actions/member/editProfile.php" method="post">
                                 <div class="form-group row">
                                     <div class="form-check">
                                         <div class="col-md-3">

@@ -11,7 +11,7 @@ $links = json_decode(getUserLinks($userid)[0]['links']);
 $smarty->assign('user', $user);
 $smarty->assign('emails', $emails);
 $smarty->assign('links', $links);
-$smarty->display('../templates/editProfile.tpl');
+$smarty->display('editProfile.tpl');
 
 include_once("../templates/footer.php");
 ?>

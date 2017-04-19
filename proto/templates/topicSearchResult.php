@@ -49,7 +49,7 @@
   $smarty->assign('topicId',$topicId);
   $smarty->assign('type', $type);
   $smarty->display('searchResultTopic.tpl');
-  clear_all_assign();
+  //$smarty->clear_all_assign();
   
   }
   }

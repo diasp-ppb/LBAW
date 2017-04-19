@@ -18,6 +18,8 @@
   
   $smarty = new MySmarty;
 
+  $userId=1; //TODO substituir por session
+
 
 /* 
 

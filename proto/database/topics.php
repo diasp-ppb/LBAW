@@ -35,21 +35,19 @@ function getFeaturedTopics() {
 
 function getTopicContent($topicId) {
     global $conn;
-    $stmt = $conn->prepare("SELECT * FROM post 
+    $stmt = $conn->prepare("SELECT content FROM post 
                             WHERE post.id = ? OR post.parentid = ?;");
     $stmt->execute(array($topicId, $topicId));
-    return $stmt->fetchAll();    
+    return $stmt->fetch()["content"];    
 }
 
 function createTopic($title, $content, $sectionId) { 
     global $conn;
     global $userId;
-    $stmt = $conn->prepare("INSERT INTO post (userid, postType, parentid, title, content, creationDate, closedDate, rating ,sectionid) 
-                            VALUES (?, 'question', NULL,?,?,DEFAULT,NULL,0,?);");
+    $stmt = $conn->prepare("INSERT INTO post VALUES (DEFAULT,?, 'question', NULL,?,?,DEFAULT,NULL,0,?)");
     $stmt->execute(array($userId, $title, $content, $sectionId));
-    return $stmt->fetchAll(); 
+    return $stmt->errorCode();
 }
-
 
 //TODO VER SE TA na DOC
 function getFeaturedTagsTopic($topicId) {
@@ -90,5 +88,47 @@ function getTopicWithTag($tagId) {
     $stmt->execute(array($tagId));
     return $stmt->fetchAll();
 }
+
+
+function calculateTimeDiff($topicId){
+    global $conn;
+    $stmt=$conn->prepare("SELECT creationDate FROM post WHERE id= ?");
+    $stmt->execute(array($topicId));
+    $creationDate=$stmt->fetch()["creationDate"];
+    $interval = date_diff(date_create(),date_create($creationDate));
+
+    return $interval->format('%a');
+}
+
+function getRatingTopic($topicId){
+    global $conn;
+    $stmt=$conn->prepare("SELECT rating FROM post WHERE id= ?");
+    $stmt->execute(array($topicId));
+    $rating=$stmt->fetch()["rating"];
+    return $rating;
+}
+
+function getTitleTopic($topicId){
+    global $conn;
+    $stmt=$conn->prepare("SELECT title FROM post WHERE id= ?");
+    $stmt->execute(array($topicId));
+    $title=$stmt->fetch()["title"];
+    return $title;
+}
+
+function getTopicAnswers($topicId){
+    global $conn;
+    $stmt=$conn->prepare("SELECT * FROM post WHERE parentid= ? AND postType= ?");
+    $stmt->execute(array($topicId,'answer'));
+    return $stmt->fetchAll();
+}
+
+function getUserTopic($topicId){
+    global $conn;
+    $stmt=$conn->prepare("SELECT userid FROM post WHERE id= ?");
+    $stmt->execute(array($topicId));
+    return $stmt->fetch()["userid"];
+}
+
 ?>
 

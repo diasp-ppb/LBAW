@@ -104,7 +104,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a rel="pages/profile.php?id=<?php echo 1 // TODO ?>"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
                         <li role="presentation" class="divider"></li>
                         <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>

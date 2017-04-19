@@ -45,7 +45,7 @@ include_once "../database/tags.php";
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="featured">
-                                    <?php
+                                         <?php
                                         $featuredTopics = getFeaturedTopics();
 
                                         foreach ($featuredTopics as $topic) {

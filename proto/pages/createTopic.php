@@ -8,25 +8,31 @@ include "../templates/header.php"
         <div id="row text-center">
           <label id="top-title">Criar Tópico</label>
         </div>
-        <div class="form-group">
-          <label for="title">Titulo</label>
-          <input type="text" class="form-control" id="title" required="required" placeholder="Titulo da pergunta"/>
-        </div>
-        <div class=" form-group">
-          <label for="tags">Tags</label>
-          <input type="text" class="form-control" id="tags" required="required" placeholder="Tags"/>
-        </div>
 
-        <div id="wmd-button-bar"></div>
-        <textarea id="wmd-input" class="wmd-input"></textarea>
-        <div id="wmd-preview" class="wmd-preview text-left well"></div>
-        
-        <script type="text/javascript" required="required" src="../js/textEditor.js"></script>
+        <form role="form" method="post" action="../actions/create_topic.php">
+          <div class="form-group">
+            <label for="title">Titulo</label>
+            <input type="text" class="form-control" id="title" name="title" required="required" placeholder="Titulo da pergunta" value="<?php echo htmlspecialchars($_POST['title']); ?>"/>
+            <?php echo "<p class='text-danger'>$errTitle</p>";?>
+          </div>
+          <div class="form-group">
+            <label for="tags">Tags</label>
+            <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" value="<?php echo htmlspecialchars($_POST['tags']); ?>"/>
+          </div>
+          <div class="form-group">
+            <div id="wmd-button-bar"></div>
+            <textarea id="wmd-input" name="wmd-input" required="required" class="wmd-input"><?php echo htmlspecialchars($_POST['message']);?></textarea>
+            <?php echo "<p class='text-danger'>$errText</p>";?>
+            <div id="wmd-preview" class="wmd-preview text-left well"></div>
 
-        <div class="center">
-          <input type="submit" class="btn btn-info" value="Submit"/>
-        </div>
-
+            <script type="text/javascript" src="../js/textEditor.js"></script>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+              <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-info">
+            </div>
+          </div>
+        </form>
         <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">

@@ -34,6 +34,6 @@ if (!defined('BASEPATH'))
   $smarty->assign('topicId',$topicId);
 
   $smarty->display('topicPresentation.tpl');
-  clear_all_assign();
+  //$smarty->clear_all_assign();
 } 
 ?>

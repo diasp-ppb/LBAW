@@ -1,5 +1,5 @@
 <?php
-include "../templates/header.php";
+include "../pages/header.php";
 include "../templates/userElem.php";
 ?>
     <div class="container-fluid">

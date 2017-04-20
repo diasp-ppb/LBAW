@@ -22,6 +22,7 @@ foreach($featuredTopics as &$topic) {
 
     $topic["tags"] = $fTags;
     $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+    $topic["answers"]= countTopicAnswers($topic["id"])["count"];
 }
 
 
@@ -36,6 +37,7 @@ foreach($HotTopics as &$topic) {
 
     $topic["tags"] = $fTags;
     $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+    $topic["answers"]= countTopicAnswers($topic["id"])["count"];
 }
 
 foreach($recentTopics as &$topic) {
@@ -49,6 +51,7 @@ foreach($recentTopics as &$topic) {
 
     $topic["tags"] = $fTags;
     $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+    $topic["answers"]= countTopicAnswers($topic["id"])["count"];
 }
 
 

@@ -160,4 +160,12 @@ function getTopicsByUser($userId) {
     $stmt->execute(array($userId, "question"));
     return $stmt->fetchAll();
 }
+
+
+function countTopicAnswers($topicId){
+    global $conn;
+    $stmt=$conn->prepare("SELECT COUNT(*) FROM post WHERE parentid= ? AND postType= ?");
+    $stmt->execute(array($topicId,'answer'));
+    return $stmt->fetch();
+}
 ?>

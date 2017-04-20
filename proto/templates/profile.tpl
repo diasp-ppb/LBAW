@@ -131,18 +131,10 @@
             <div class="page-header">
               <h2>Os meus tópicos</h2>
             </div>
-            <a class="title" href="#">Como gerar relatório PDF firemonkey android?</a>
-            <div class="tags">
-              <span class="tag">android</span>
-              <span class="tag">delphi</span>
-              <span class="tag">firemonkey</span>
-            </div>
 
-            <a class="title" href="#">Como enviar uma imagem dinâmica para o PHP com a função ajax do jQuery</a>
-            <div class="tags">
-              <span class="tag">jquery</span>
-              <span class="tag">file-upload</span>
-            </div>
+                    {foreach $topics as $topic1 }
+                        {include file="topicPresentation.tpl" votes=$topic1.rating answers=10 visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                    {/foreach}
           </div>
         </div>
       </div>

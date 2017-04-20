@@ -32,7 +32,9 @@
 
 <body class=<?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?>>
 
-<?php include_once('../config/init.php'); ?>
+<?php
+include_once('../config/init.php');
+?>
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -108,7 +110,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="../pages/profile.php"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                        <li><a href="../pages/profile.php?id=5"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
                         <li><a href="../pages/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
                         <li role="presentation" class="divider"></li>
                         <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>

@@ -1,4 +1,5 @@
 <?php
+include_once('../config/init.php');
 
 function getHotTopics() {
     global $conn;
@@ -130,5 +131,26 @@ function getUserTopic($topicId){
     return $stmt->fetch()["userid"];
 }
 
-?>
+function textToMarkdown($topicId){
+    $answerContent=getTopicContent($topicId);
+    $Parsedown=new Parsedown();
+    $content=$Parsedown->text($answerContent);
+    return $content;
+}
 
+function isValidVote($topicId){
+    global $conn;
+    global $userId;
+    $stmt=$conn->prepare("SELECT * FROM vote WHERE postid = ? AND  userid= ?");
+    $stmt->execute(array($topicId,$userId));
+    return $stmt->fetch()==0;
+}
+
+function insertNewVote($type,$topicId){
+    global $conn;
+    global $userId;
+    $stmt = $conn->prepare("INSERT INTO vote (userid, postid, voteType) VALUES (?,?,?)");
+    $stmt->execute(array($userId,$topicId,$type));
+    return $stmt->errorCode();
+}
+?>

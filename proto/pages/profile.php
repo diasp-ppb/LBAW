@@ -15,7 +15,7 @@ if (!isset($user)) {
     header("Location: ../pages/error.php");
 }
 
-include_once("../templates/header.php");
+include_once("../pages/header.php");
 
 $emails = getUserEmailList($userid);
 $links = json_decode(getUserLinks($userid)[0]['links']);

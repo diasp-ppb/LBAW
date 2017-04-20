@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?></title>
+    <title>{$title}</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
@@ -22,19 +22,15 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
-  
+
     <script src="../api/validate_vote.js"></script>
     <link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css" />
-	
-	
-	   
+
+
+
 </head>
 
-<body class=<?=pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME)?>>
-
-<?php
-include_once('../config/init.php');
-?>
+<body class="{$title}">
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -42,7 +38,7 @@ include_once('../config/init.php');
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">脳</span><span class="sr-only">Close</span></button>
                         <h3 class="modal-title" id="lineModalLabel">Log in</h3>
                     </div>
                     <div class="modal-body">
@@ -50,7 +46,7 @@ include_once('../config/init.php');
                         <!-- content goes here -->
                         <form>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Número de utilizador">
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="N煤mero de utilizador">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
@@ -111,7 +107,7 @@ include_once('../config/init.php');
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="../pages/profile.php?id=5"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
-                        <li><a href="../pages/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
+                        <li><a href="../pages/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo t贸pico</a></li>
                         <li role="presentation" class="divider"></li>
                         <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
                     </ul>

@@ -40,12 +40,12 @@
                                 <div class="tab-pane" id="hot">
                                         {foreach $HotTopics as $topic1 }
                                             {include file="topicPresentation.tpl" votes=$topic1.rating answers=$topic1.answers visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
-                                        {/foreach} 
+                                        {/foreach}
                                 </div>
                                 <div class="tab-pane" id="recent">
-                                        {foreach $recentTopics as $topic1} 
+                                        {foreach $recentTopics as $topic1}
                                             {include file="topicPresentation.tpl" votes=$topic1.rating answers=$topic1.answers visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
-                                        {/foreach} 
+                                        {/foreach}
                                 </div>
                             </div>
                         </div>
@@ -55,3 +55,5 @@
         </div>
     </div>
 </div>
+
+{include file='footer.tpl'}

@@ -35,12 +35,12 @@
         <div class="col-md-8 col-md-offset-1 main">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
-                        
+
                         <div class="search topics">
                             <div class="page-header">
                                 <h2>Tópicos</h2>
                             </div>
-                            
+
                             {foreach $result as $topic1}
                                 {include file="searchResultTopic.tpl" type="" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
                             {/foreach}
@@ -53,7 +53,7 @@
                                 {include file="searchResultTopic.tpl" type="" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
                             {/foreach}
                         </div>
-                        
+
                         <div class="search users">
                             <div class="page-header">
                                 <h2>Utilizadores</h2>
@@ -72,3 +72,5 @@
         </div>
     </div>
 </div>
+
+{include file='footer.tpl'}

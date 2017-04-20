@@ -1,6 +1,6 @@
 <?php
 include_once('../config/init.php');
-include_once('../templates/header.php');
+include_once('../pages/header.php');
 
 /*if (!isset($_SESSION["username"])) {
   header('Location: ./home.php');

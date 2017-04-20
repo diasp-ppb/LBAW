@@ -1,7 +1,8 @@
 <?php
-include_once "../templates/header.php";
+include_once('../config/init.php');
+include_once "../pages/header.php";
 include_once "../database/topics.php";
-include_once "../database/account.php";	
+include_once "../database/account.php";
 include_once "../database/tags.php";
 
 

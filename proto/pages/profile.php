@@ -1,5 +1,5 @@
 <?php
-if (!isset($_GET["id"]) || !is_integer($_GET["id"])) {
+if (!isset($_GET["id"]) || !preg_match('/^\d+$/', $_GET["id"])) {
     header("Location: ../pages/error.php");
 }
 

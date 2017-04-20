@@ -1,3 +1,2 @@
 .idea/
-smarty/cache/
-APPPATHsmarty/cache/
+/lib/smarty/cache/*.tpl.php

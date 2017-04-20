@@ -1,2 +1,2 @@
 .idea/
-/lib/smarty/cache/*.tpl.php
+proto/lib/smarty/cache/*.tpl.php

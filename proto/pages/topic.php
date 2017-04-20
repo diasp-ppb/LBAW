@@ -1,4 +1,5 @@
 <?php
+include_once('../config/init.php');
 include_once("../templates/header.php");
 include_once("../lib/Parsedown/Parsedown.php");
 include_once("../database/topics.php");

@@ -32,7 +32,7 @@
 
                                 <div class="form-group hide user location">
                                     <div class="icon-addon addon-md">
-                                        <input type="text" placeholder="Localização" class="form-control" name="location" value="Porto, Portugal">
+                                        <input type="text" placeholder="Localizaï¿½ï¿½o" class="form-control" name="location" value="Porto, Portugal">
                                         <label for="location" class="glyphicon glyphicon-map-marker" rel="tooltip"></label>
                                     </div>
                                 </div>
@@ -194,3 +194,5 @@
         </div>
     </div>
 </div>
+
+{include file='common/footer.tpl'}

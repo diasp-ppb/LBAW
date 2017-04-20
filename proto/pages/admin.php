@@ -27,16 +27,28 @@ include "../templates/userElem.php";
                                 </div>
                                 <div class="list-group">
                                     <?php
-                                    userElem('Diogo Campos');
-                                    userElem('João Barbosa');
-                                    userElem('José Pedro Monteiro');
-                                    userElem('Pedro Dias');
-                                    userElem('José Silva');
-                                    userElem('Inês Barros');
-                                    userElem('Miguel Alves');
-                                    userElem('Ana Soares');
-                                    userElem('Sebastião Gomes de Sá');
-                                    userElem('Rafael Tavares');
+                                    $smarty->assign('username', 'Diogo Campos');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'João Barbosa');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'José Pedro Monteiro');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'Pedro Dias');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'José Silva');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'Inês Barros');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'Miguel Alves');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'Pedro Dias');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'Ana Soares');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'Sebastião Gomes de Sá');
+                                    $smarty->display('userElem.tpl');
+                                    $smarty->assign('username', 'Rafael Tavares');
+                                    $smarty->display('userElem.tpl');
                                     ?>
                                     <ul class="pagination">
                                         <li><a href="#">&laquo;</a></li>
@@ -123,7 +135,7 @@ include "../templates/userElem.php";
                                         <script>
                                             var ctx = document.getElementById("topics-by-tags").getContext('2d');
                                             var myChart = new Chart(ctx, {
-                                                type: 'bar',    
+                                                type: 'bar',
                                                 data: {
                                                     labels: ["M", "T", "W", "T", "F", "S", "S"],
                                                     datasets: [{

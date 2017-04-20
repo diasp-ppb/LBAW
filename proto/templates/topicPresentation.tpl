@@ -30,7 +30,7 @@
         <div class="tags">
 
           {foreach $tags as $v}
-          <span class="tag"> {$v['name']}</span> 
+           <span class="tag"> <a href='../pages/search.php?search={$v.name}'  class="linkTopicTag" title="" rel="tag"> {$v.name} </a> </span>
           {/foreach}
         </div>
     </div>

@@ -1,6 +1,4 @@
 <?php
-include_once('../config/init.php');
-
 function getHotTopics() {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM post

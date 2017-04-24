@@ -1,14 +1,17 @@
 <?php
-
-include_once "../pages/header.php";
-include_once "../config/init.php";
-include_once "../database/topics.php";
-include_once "../database/account.php";
-include_once "../database/tags.php";
+if (!isset($_GET["search"])) {
+    header("Location: ../pages/error.php");
+}
+include_once("../config/init.php");
+include_once("../pages/header.php");
+include_once("../database/topics.php");
+include_once("../database/account.php");
+include_once("../database/tags.php");
 
      global $smarty;
+     $textSearch=htmlspecialchars(trim($_GET["search"]));
 
-     $result = getTopicWithTitle($_GET["search"]);
+     $result = getTopicWithTitle($textSearch);
 
 
       foreach($result as &$topic) {
@@ -28,7 +31,7 @@ include_once "../database/tags.php";
 
 
 
-     $result2 = getTopicWithContent($_GET["search"]);
+     $result2 = getTopicWithContent($textSearch);
 
       foreach($result2 as &$topic) {
 
@@ -45,7 +48,7 @@ include_once "../database/tags.php";
         $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"] ;
       }
 
-     $tag = getTagByName($_GET["search"]);
+     $tag = getTagByName($textSearch);
 
      $result3 = getTopicWithTag($tag[0]["id"]);
 
@@ -70,7 +73,4 @@ include_once "../database/tags.php";
    $smarty->assign('result2',$result2);
    $smarty->assign('result3',$result3);
    $smarty->display('search.tpl');
-
-
-include "../templates/footer.php"
 ?>

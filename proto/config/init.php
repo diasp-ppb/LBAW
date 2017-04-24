@@ -14,21 +14,11 @@
 
   $conn->exec('SET SCHEMA \'public\'');
 
-  require_once('../lib/smarty/smarty.php');
-
-  $smarty = new MySmarty;
-
-  $userId=5; //TODO substituir por session
-
-
-/*
-
-  BIG TODO store para o $userId  -> usado no createTopic
-           store userName?
-  Copiado da frmk
-
   include_once($BASE_DIR . 'lib/smarty/Smarty.class.php');
 
+  $smarty = new Smarty;
+
+  $userId=5; /*TODO substituir por session*/
   $smarty = new Smarty;
   $smarty->template_dir = $BASE_DIR . 'templates/';
   $smarty->compile_dir = $BASE_DIR . 'templates_c/';
@@ -44,6 +34,4 @@
   unset($_SESSION['error_messages']);
   unset($_SESSION['field_errors']);
   unset($_SESSION['form_values']);
-
-  */
 ?>

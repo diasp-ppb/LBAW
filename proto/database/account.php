@@ -67,5 +67,13 @@ function updateProfile($userId, $name, $links) {
     global $conn;
     $stmt=$conn->prepare("UPDATE account SET name = ?, links = ? WHERE id = ?;");
     $stmt->execute(array($name, $links, $userId));
+    return $stmt->errorCode();
+}
+
+function getUserOrderedByName(){
+    global $conn;
+    $stmt=$conn->prepare("SELECT name FROM account ORDER BY name LIMIT 10");
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 ?>

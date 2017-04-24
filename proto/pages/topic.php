@@ -1,18 +1,23 @@
 <?php
+if (!isset($_GET["id"]) || !preg_match('/^\d+$/', $_GET["id"])) {
+    header("Location: ../pages/error.php");
+}
 include_once('../config/init.php');
 include_once("../pages/header.php");
 include_once("../lib/Parsedown/Parsedown.php");
 include_once("../database/topics.php");
 include_once("../database/account.php");
 
-$userTopicId=getUserTopic($_GET["id"]);
+$topicId=htmlspecialchars(trim($_GET["id"]));
+
+$userTopicId=getUserTopic($topicId);
 $userImage=getUserImage($userTopicId);
 $userName=getNameById($userTopicId);
 
-$timeDiff=calculateTimeDiff($_GET["id"]);
-$ratingTopic=getRatingTopic($_GET["id"]);
-$topicTitle=getTitleTopic($_GET["id"]);
-$answers=getTopicAnswers($_GET["id"]);
+$timeDiff=calculateTimeDiff($topicId);
+$ratingTopic=getRatingTopic($topicId);
+$topicTitle=getTitleTopic($topicId);
+$answers=getTopicAnswers($topicId);
 
 $smarty->assign('userTopicId',$userTopicId);
 $smarty->assign('userImage',$userImage);
@@ -21,9 +26,7 @@ $smarty->assign('timeDiff',$timeDiff);
 $smarty->assign('ratingTopic',$ratingTopic);
 $smarty->assign('topicTitle',$topicTitle);
 $smarty->assign('answers',$answers);
-$smarty->assign('topicId',$_GET["id"]);
+$smarty->assign('topicId',$topicId);
 
 $smarty->display('topic.tpl');
-
-include_once("../templates/footer.php");
 ?>

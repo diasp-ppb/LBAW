@@ -11,7 +11,7 @@
                 <button type="button" class="upvote btn" onclick="verifyVote('upvote',{$id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                 <button type="button" class="downvote btn" onclick="verifyVote('downvote',{$id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
                 <button type="button" class="correct btn"><i class="glyphicon glyphicon-ok"></i></button>
-                <button type="button" class="rating btn" disabled="disabled">{$rating}</button>
+                <button type="button" id="rating" class="rating btn" disabled="disabled">{$rating}</button>
             </span>
         </div>
 

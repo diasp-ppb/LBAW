@@ -76,8 +76,6 @@ include_once("../database/tags.php");
       
       $result4  = getUsersBySearchInput($textSearch);
       
-	  echo var_dump($result4);
-
    $smarty->assign('result',$result);
    $smarty->assign('result2',$result2);
    $smarty->assign('result3',$result3);

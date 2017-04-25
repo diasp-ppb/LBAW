@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 col-md-offset-1 additional">
@@ -42,15 +43,15 @@
                             </div>
 
                             {foreach $result as $topic1}
-                                {include file="searchResultTopic.tpl" type="" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                {include file="searchResultTopic.tpl" type="resultTitle" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
                             {/foreach}
 
                             {foreach $result2 as $topic1}
-                                {include file="searchResultTopic.tpl" type="" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                {include file="searchResultTopic.tpl" type="resultContent" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
                             {/foreach}
 
                             {foreach $result3 as $topic1}
-                                {include file="searchResultTopic.tpl" type="" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                {include file="searchResultTopic.tpl" type="resultTag" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
                             {/foreach}
                         </div>
 
@@ -58,12 +59,11 @@
                             <div class="page-header">
                                 <h2>Utilizadores</h2>
                             </div>
-							
-							{foreach $result4 as $profile}
-                            <div class="user-info pull-left">
+							{foreach $users as $profile}
+                            <div class="user-info pull-left resultUser">
                                 <div class="user text-center">
                                     <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-thumbnail" style="height: 80px; width: 80px" alt="Profile Picture">
-                                    <h4>$profile.name</h4>
+                                    <h4>{$profile.name}</h4>
                                 </div>
                             </div>
                             {/foreach}

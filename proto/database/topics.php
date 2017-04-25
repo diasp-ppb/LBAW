@@ -27,7 +27,7 @@ function getFeaturedTopics() {
                                 FROM post post2_1 WHERE post2_1.posttype = 'answer'
                                 GROUP BY post2_1.parentid) post2 ON post1.id = post2.parentid
                             WHERE post1.posttype = 'question'
-                            ORDER BY post1.rating/post2.count DESC LIMIT 10;");
+                            ORDER BY post1.rating DESC, post2.count LIMIT 10;");
     $stmt->execute();
     return $stmt->fetchAll();
 }
@@ -43,8 +43,21 @@ function getTopicContent($topicId) {
 function createTopic($title, $content, $sectionId) {
     global $conn;
     global $userId;
-    $stmt = $conn->prepare("INSERT INTO post VALUES (DEFAULT,?, 'question', NULL,?,?,DEFAULT,NULL,0,?)");
-    $stmt->execute(array($userId, $title, $content, $sectionId));
+    $stmt = $conn->prepare("BEGIN;
+							SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+							INSERT INTO post VALUES (DEFAULT,?, 'question', NULL,?,?,DEFAULT,NULL,0,?);
+    
+							INSERT INTO tag(name)
+								SELECT newtag.name FROM tag 
+								RIGHT JOIN (SELECT name FROM unnest(?::text[]) name) newtag 
+								ON (tag.name = newtag.name) 
+								WHERE id IS NULL;
+
+							INSERT INTO feature(postid, tagid) 
+								SELECT (SELECT currval(pg_get_serial_sequence('post', 'id'))), id FROM tag 
+								WHERE name = ANY (?::text[]);
+								COMMIT;");
+    $stmt->execute(array($userId, $title, $content, $sectionId, to_pg_array(array($tags)),to_pg_array(array($tags))));
     return $stmt->errorCode();
 }
 

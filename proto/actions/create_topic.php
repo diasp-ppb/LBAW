@@ -1,7 +1,7 @@
 <?php
 include_once('../database/topics.php');
 include_once('../config/init.php');
-
+include_once('../utils.php');
 //session_start();
 
 $title=$_POST['title'];
@@ -13,9 +13,9 @@ if(sizeof($text)<20){
     header('Location: ../pages/createTopic.php'); //em vez disto depois é preciso fazer ajax
 }
 
-if(createTopic($title,$text,1)){
+if(createTopic($title,$text,1,$tags)){
     $topicId=getTopicWithTitle($title);
-    header('Location: ../pages/topic.php?id='.$topicId[0]["id"].'');
+	header('Location: ../pages/topic.php?id='.$topicId[0]["id"].'');
 }else{
     header('Location: ../pages/createTopic.php'); //em vez disto depois é preciso fazer ajax
 }

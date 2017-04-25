@@ -1,6 +1,6 @@
-
 <?php
   session_set_cookie_params(3600, '/~lbaw1664');
+  session_save_path("/tmp");
   session_start();
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
@@ -11,6 +11,7 @@
   $conn = new PDO('pgsql:host=dbm;dbname=lbaw1664', 'lbaw1664', 'kg41ua67');
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, 1);
 
   $conn->exec('SET SCHEMA \'public\'');
 

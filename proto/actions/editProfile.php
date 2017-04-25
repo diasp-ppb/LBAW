@@ -1,5 +1,6 @@
 <?php
 include_once('../config/init.php');
+include_once("../utils.php");
 include_once("../database/account.php");
 include_once("../database/email.php");
 
@@ -23,14 +24,7 @@ if(isset($_POST['name'])) {
 		}
 	}
 
-	foreach ($toDelete as $deleteId) {
-		deleteEmail($deleteId);
-	}
-
-	foreach ($newEmails as $emailToAdd) {
-		addEmail($id, $emailToAdd);
-	}
-
+	updateEmails($id, $toDelete, $newEmails);
 	updateProfile($id, $name, to_pg_array($links));
 
 	header("Location: ../pages/profile.php?id=" . $id);

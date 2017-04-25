@@ -76,4 +76,11 @@ function getUserOrderedByName(){
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+function getUsersBySearchInput($input) {
+	global $conn;
+    $stmt=$conn->prepare("SELECT * FROM account WHERE name = ?");
+    $stmt->execute(array($input));
+    return $stmt->fetchAll();
+}
 ?>

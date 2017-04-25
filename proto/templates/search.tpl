@@ -58,13 +58,15 @@
                             <div class="page-header">
                                 <h2>Utilizadores</h2>
                             </div>
-
+							
+							{foreach $result4 as $profile}
                             <div class="user-info pull-left">
                                 <div class="user text-center">
                                     <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-thumbnail" style="height: 80px; width: 80px" alt="Profile Picture">
-                                    <h4>João Barbosa</h4>
+                                    <h4>$profile.name</h4>
                                 </div>
                             </div>
+                            {/foreach}
                         </div>
                     </div>
                 </div>

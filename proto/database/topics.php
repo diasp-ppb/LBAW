@@ -57,12 +57,11 @@ function getFeaturedTagsTopic($topicId) {
     $stmt->execute(array($topicId));
     return $stmt->fetchAll();
 }
-
 function getTopicWithTitle($title) {
     global $conn;
 
     $stmt = $conn->prepare("SELECT * FROM post
-                            WHERE to_tsvector('portuguese', title) @@ to_tsquery('portuguese', ?);");
+                            WHERE to_tsvector('portuguese', title) @@ plainto_tsquery('portuguese', ?);");
     $stmt->execute(array($title));
     return $stmt->fetchAll();
 }
@@ -71,10 +70,11 @@ function getTopicWithContent($content) {
     global $conn;
 
     $stmt = $conn->prepare("SELECT * FROM post
-                            WHERE to_tsvector('portuguese', content) @@ to_tsquery('portuguese', ?);");
+                            WHERE to_tsvector('portuguese', content) @@ plainto_tsquery('portuguese', ?);");
     $stmt->execute(array($content));
     return $stmt->fetchAll();
 }
+
 
 // ADD TO DOC
 function getTopicWithTag($tagId) {

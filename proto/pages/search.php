@@ -2,6 +2,10 @@
 if (!isset($_GET["search"])) {
     header("Location: ../pages/error.php");
 }
+if ($_GET["search"] == null) {
+	header("Location: ../pages/home.php");
+}
+
 include_once("../config/init.php");
 include_once("../pages/header.php");
 include_once("../database/topics.php");
@@ -68,9 +72,15 @@ include_once("../database/tags.php");
         $topic["tags"] = $fTags;
         $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"] ;
       }
+      
+      
+      $result4  = getUsersBySearchInput($textSearch);
+      
+	  echo var_dump($result4);
 
    $smarty->assign('result',$result);
    $smarty->assign('result2',$result2);
    $smarty->assign('result3',$result3);
+   $smarty->assign('users',$result4);
    $smarty->display('search.tpl');
 ?>

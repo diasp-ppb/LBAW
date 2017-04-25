@@ -55,6 +55,7 @@ function getUserImage($userId){
     return $image;
 }
 
+/*
 function to_pg_array($array) {
     $result = array();
     foreach ($array as $link) {
@@ -62,6 +63,7 @@ function to_pg_array($array) {
     }
     return '{' . join(",", $result) . '}';
 }
+*/
 
 function updateProfile($userId, $name, $links) {
     global $conn;
@@ -82,5 +84,22 @@ function getUsersBySearchInput($input) {
     $stmt=$conn->prepare("SELECT * FROM account WHERE name = ?");
     $stmt->execute(array($input));
     return $stmt->fetchAll();
+}
+
+function updateEmails($userId, $toDelete, $newEmails) {
+  global $conn;
+  $toDelete = to_pg_array($toDelete);
+  $newEmails = to_pg_array($newEmails);
+
+  $stmt = $conn->prepare(
+    " BEGIN;
+        SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+        DELETE FROM email WHERE id = ANY (?);
+        INSERT INTO email(userid, mail) SELECT ?::int userid, mail FROM unnest(?::text[]) mail;
+      COMMIT;
+    ");
+  $stmt->execute(array($toDelete, $userId, $newEmails));
+
+  return $stmt->errorCode();
 }
 ?>

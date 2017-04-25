@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-03-08 01:28:05
-  from "/home/syram/Documents/Projects/LBAW/PROJ/LBAW/smarty/views/topicPresentation.tpl" */
+/* Smarty version 3.1.30, created on 2017-04-25 01:32:25
+  from "/opt/lbaw/lbaw1664/public_html/testePedro/LBAW/proto/templates/topicPresentation.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58bf5e2505a2f0_34436522',
+  'unifunc' => 'content_58fe9919a9e0b1_50772311',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '815cb6926c7a29d5954703d30090999bc0bb2c7c' => 
+    '8f1c5dc130a892943c159cf69aa1b1d9a49e4142' => 
     array (
-      0 => '/home/syram/Documents/Projects/LBAW/PROJ/LBAW/smarty/views/topicPresentation.tpl',
-      1 => 1488934994,
+      0 => '/opt/lbaw/lbaw1664/public_html/testePedro/LBAW/proto/templates/topicPresentation.tpl',
+      1 => 1493076074,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58bf5e2505a2f0_34436522 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58fe9919a9e0b1_50772311 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="topic-presentation">
     <div class="col-md-3 hidden-xs  hidden-sm">
@@ -51,20 +51,21 @@ function content_58bf5e2505a2f0_34436522 (Smarty_Internal_Template $_smarty_tpl)
      
     
     <div class="col-md-6">
-        <a class="title" href="#">
+        <a class="title" href="topic.php?id=<?php echo $_smarty_tpl->tpl_vars['topicId']->value;?>
+">
           <?php echo $_smarty_tpl->tpl_vars['topic']->value;?>
 
         </a>
         <div class="tags">
 
           <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tags']->value, 'v', false, NULL, 'outer', array (
-));
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tags']->value, 'v');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
 ?>
-          <span class="tag"><?php echo $_smarty_tpl->tpl_vars['v']->value;?>
-</span> 
+           <span class="tag"> <a href='../pages/search.php?search=<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
+'  class="linkTopicTag" title="" rel="tag"> <?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
+ </a> </span>
           <?php
 }
 }

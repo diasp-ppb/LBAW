@@ -23,7 +23,7 @@
                         </div>
                         <div class="list-group">
                             {foreach $users as $user}
-                                {include file="userElem.tpl" username=$user.name}
+                                {include file="userElem.tpl" username=$user.name id=$user.id}
                             {/foreach}
                             <ul class="pagination">
                                 <li><a href="#">&laquo;</a></li>
@@ -137,4 +137,4 @@
     </div>
 </div>
 
-{include file="footer.tpl"};
+{include file="common/footer.tpl"}

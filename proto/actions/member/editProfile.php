@@ -27,6 +27,6 @@ if(isset($_POST['name'])) {
 	updateEmails($id, $toDelete, $newEmails);
 	updateProfile($id, $name, to_pg_array($links));
 
-	header("Location: ../../pages/profile.php?id=" . $id);
+	header("Location: ../../pages/member/profile.php?id=" . $id);
 }
 ?>

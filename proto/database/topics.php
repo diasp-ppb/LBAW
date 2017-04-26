@@ -46,15 +46,15 @@ function createTopic($title, $content, $sectionId, $tags) {
     $stmt = $conn->prepare("BEGIN;
 							SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 							INSERT INTO post VALUES (DEFAULT,?, 'question', NULL,?,?,DEFAULT,NULL,0,?);
-    
+
 							INSERT INTO tag(name)
-								SELECT newtag.name FROM tag 
-								RIGHT JOIN (SELECT name FROM unnest(?::text[]) name) newtag 
-								ON (tag.name = newtag.name) 
+								SELECT newtag.name FROM tag
+								RIGHT JOIN (SELECT name FROM unnest(?::text[]) name) newtag
+								ON (tag.name = newtag.name)
 								WHERE id IS NULL;
 
-							INSERT INTO feature(postid, tagid) 
-								SELECT (SELECT currval(pg_get_serial_sequence('post', 'id'))), id FROM tag 
+							INSERT INTO feature(postid, tagid)
+								SELECT (SELECT currval(pg_get_serial_sequence('post', 'id'))), id FROM tag
 								WHERE name = ANY (?::text[]);
 								COMMIT;");
     $stmt->execute(array($userId, $title, $content, $sectionId, to_pg_array($tags),to_pg_array($tags)));
@@ -88,7 +88,6 @@ function getTopicWithContent($content) {
     return $stmt->fetchAll();
 }
 
-
 // ADD TO DOC
 function getTopicWithTag($tagId) {
     global $conn;
@@ -101,31 +100,11 @@ function getTopicWithTag($tagId) {
     return $stmt->fetchAll();
 }
 
-
-function calculateTimeDiff($topicId){
+function getTopicInfo($topicId){
     global $conn;
-    $stmt=$conn->prepare("SELECT creationDate FROM post WHERE id= ?");
+    $stmt=$conn->prepare("SELECT userid, rating, title, creationDate FROM post WHERE id= ?");
     $stmt->execute(array($topicId));
-    $creationDate=$stmt->fetch()["creationDate"];
-    $interval = date_diff(date_create(),date_create($creationDate));
-
-    return $interval->format('%a');
-}
-
-function getRatingTopic($topicId){
-    global $conn;
-    $stmt=$conn->prepare("SELECT rating FROM post WHERE id= ?");
-    $stmt->execute(array($topicId));
-    $rating=$stmt->fetch()["rating"];
-    return $rating;
-}
-
-function getTitleTopic($topicId){
-    global $conn;
-    $stmt=$conn->prepare("SELECT title FROM post WHERE id= ?");
-    $stmt->execute(array($topicId));
-    $title=$stmt->fetch()["title"];
-    return $title;
+    return $stmt->fetchAll();
 }
 
 function getTopicAnswers($topicId){
@@ -133,13 +112,6 @@ function getTopicAnswers($topicId){
     $stmt=$conn->prepare("SELECT * FROM post WHERE parentid= ? AND postType= ?");
     $stmt->execute(array($topicId,'answer'));
     return $stmt->fetchAll();
-}
-
-function getUserTopic($topicId){
-    global $conn;
-    $stmt=$conn->prepare("SELECT userid FROM post WHERE id= ?");
-    $stmt->execute(array($topicId));
-    return $stmt->fetch()["userid"];
 }
 
 function textToMarkdown($topicId){

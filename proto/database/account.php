@@ -55,16 +55,6 @@ function getUserImage($userId){
     return $image;
 }
 
-/*
-function to_pg_array($array) {
-    $result = array();
-    foreach ($array as $link) {
-        array_push($result, $link);
-    }
-    return '{' . join(",", $result) . '}';
-}
-*/
-
 function updateProfile($userId, $name, $links) {
     global $conn;
     $stmt=$conn->prepare("UPDATE account SET name = ?, links = ? WHERE id = ?;");
@@ -74,7 +64,7 @@ function updateProfile($userId, $name, $links) {
 
 function getUserOrderedByName(){
     global $conn;
-    $stmt=$conn->prepare("SELECT name FROM account ORDER BY name LIMIT 10");
+    $stmt=$conn->prepare("SELECT name, id FROM account ORDER BY name LIMIT 10");
     $stmt->execute();
     return $stmt->fetchAll();
 }

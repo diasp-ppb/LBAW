@@ -21,7 +21,7 @@
                 <div class="col-md-10 col-md-offset-1 col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab1">
-                            <form id="editProfile" action="../actions/editProfile.php" method="post">
+                            <form id="editProfile" action="../../actions/member/editProfile.php" method="post">
                                 <input type="hidden" name="id" value="5">
                                 <div class="form-group user name">
                                     <div class="icon-addon addon-md">
@@ -125,7 +125,7 @@
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/700px-Turkish_Van_Cat.jpg" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
                             </div>
 
-                            <form action="../actions/editProfile.php" method="post">
+                            <form action="../../actions/member/editProfile.php" method="post">
                                 <div class="form-group row">
                                     <div class="form-check">
                                         <div class="col-md-3">

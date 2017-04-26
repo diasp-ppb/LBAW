@@ -4,7 +4,7 @@ function verifyVote(type,topicId){
 
     $.ajax({
         type: "post",
-        url: "../api/valid_vote.php",
+        url: "../../api/topic/validate_vote.php",
         data: {voteType:voteType,topicId:topic}
     }).done(function(data){
         console.log(data);

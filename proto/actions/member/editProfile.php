@@ -1,8 +1,8 @@
 <?php
-include_once('../config/init.php');
-include_once("../utils.php");
-include_once("../database/account.php");
-include_once("../database/email.php");
+include_once('../../config/init.php');
+include_once("../../utils.php");
+include_once("../../database/account.php");
+include_once("../../database/email.php");
 
 if(isset($_POST['name'])) {
 	$id = $_POST['id'];
@@ -27,6 +27,6 @@ if(isset($_POST['name'])) {
 	updateEmails($id, $toDelete, $newEmails);
 	updateProfile($id, $name, to_pg_array($links));
 
-	header("Location: ../pages/profile.php?id=" . $id);
+	header("Location: ../../pages/profile.php?id=" . $id);
 }
 ?>

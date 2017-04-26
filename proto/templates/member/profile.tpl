@@ -16,13 +16,13 @@
           </div>
         <ul class="list-group text-center hidden-xs hidden-sm">
           <li class="list-group-item active"> <a href="#"><i class="glyphicon glyphicon-home"></i>Perfil</a> </li>
-          <li class="list-group-item"> <a href="../pages/editProfile.php?id={$user.id}"><i class="glyphicon glyphicon-cog"></i>Definições</a> </li>
+          <li class="list-group-item"> <a href="../../pages/member/editProfile.php?id={$user.id}"><i class="glyphicon glyphicon-cog"></i>Definições</a> </li>
           <li class="list-group-item"> <a href="#stats"><i class="glyphicon glyphicon-list-alt"></i>Estatísticas</a> </li>
           <li class="list-group-item"> <a href="#my-topics"><i class="glyphicon glyphicon-question-sign"></i>Tópicos</a> </li>
         </ul>
         <ul class="list-inline text-center hidden-md hidden-lg">
           <li> <a href="#"><i class="glyphicon glyphicon-home"></i>Perfil</a> </li>
-          <li> <a href="../pages/editProfile.php?id={$user.id}"><i class="glyphicon glyphicon-cog"></i>Definições</a> </li>
+          <li> <a href="../../pages/member/editProfile.php?id={$user.id}"><i class="glyphicon glyphicon-cog"></i>Definições</a> </li>
           <li> <a href="#stats"><i class="glyphicon glyphicon-list-alt"></i>Estatísticas</a> </li>
           <li> <a href="#my-topics"><i class="glyphicon glyphicon-question-sign"></i>Tópicos</a> </li>
         </ul>

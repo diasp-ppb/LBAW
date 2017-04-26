@@ -5,8 +5,8 @@
                 <label id="top-title">Criar Tópico</label>
             </div>
 
-           
-            <form id="createTopicForm" role="form" method="post" action="../../actions/create_topic.php">
+
+            <form id="createTopicForm" role="form" method="post" action="../../actions/topic/createTopic.php">
                 <div class="form-group">
                     <label for="title">Titulo</label>
                     <input type="text" class="form-control" id="title" name="title" required="required" placeholder="Titulo da pergunta"/>

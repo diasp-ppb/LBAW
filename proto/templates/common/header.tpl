@@ -75,7 +75,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../home/home.php">
+            <a class="navbar-brand" href="../../pages/home/home.php">
                 <img alt="Brand" src="../../resources/images/logo.png">
                 <img alt="Brand" src="../../resources/images/askabit.png">
             </a>
@@ -93,7 +93,7 @@
                 </li>
             </ul>
             <div class="col-sm-3 col-md-3 col-md-offset-3">
-                <form action="../home/search.php" method="get" class="navbar-form" role="search">
+                <form action="../../pages/home/search.php" method="get" class="navbar-form" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" name="search">
                         <div class="input-group-btn">
@@ -110,8 +110,8 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="../member/profile.php?id=5"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
-                        <li><a href="../topic/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
+                        <li><a href="../../pages/member/profile.php?id=5"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                        <li><a href="../../pages/topic/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
                         <li role="presentation" class="divider"></li>
                         <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
                     </ul>

@@ -5,7 +5,7 @@
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
 
-  $BASE_DIR = '/opt/lbaw/lbaw1664/public_html/testePedro/LBAW/proto/';
+  $BASE_DIR = '/opt/lbaw/lbaw1664/public_html/testeZePedro/';
   $BASE_URL = '/~lbaw1664/testePedro/LBAW/proto/';
 
   $conn = new PDO('pgsql:host=dbm;dbname=lbaw1664', 'lbaw1664', 'kg41ua67');
@@ -17,6 +17,7 @@
 
   include_once($BASE_DIR . 'lib/smarty/Smarty.class.php');
 
+  $userId=1;
   $smarty = new Smarty;
 
   $userId=5; /*TODO substituir por session*/

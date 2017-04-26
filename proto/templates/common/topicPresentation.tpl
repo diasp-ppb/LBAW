@@ -24,13 +24,13 @@
      
     
     <div class="col-md-6">
-        <a class="title" href="../topic/topic.php?id={$topicId}">
+        <a class="title" href="../../pages/topic/topic.php?id={$topicId}">
           {$topic}
         </a>
         <div class="tags">
 
           {foreach $tags as $v}
-           <span class="tag"> <a href='../home/search.php?search={$v.name}'  class="linkTopicTag" title="" rel="tag"> {$v.name} </a> </span>
+           <span class="tag"> <a href='../../pages/home/search.php?search={$v.name}'  class="linkTopicTag" title="" rel="tag"> {$v.name} </a> </span>
           {/foreach}
         </div>
     </div>

@@ -10,7 +10,7 @@
                         <h2>Explore os nossos tópicos</h2>
                         <div id="explore-tags">
                                 {foreach $tags as $tag}
-                                 <a href='../home/search.php?search={$tag.name}' class="home-tag" title="" rel="tag"> {$tag.name} </a>
+                                 <a href='../../pages/home/search.php?search={$tag.name}' class="home-tag" title="" rel="tag"> {$tag.name} </a>
                                 {/foreach}
                         </div>
                     </div>

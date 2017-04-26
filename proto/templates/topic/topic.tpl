@@ -37,7 +37,7 @@
             </div>
         </div>
             {foreach $answers as $answer}
-                {include file="commentPresentation.tpl" userId=$answer.userid id=$answer.id rating=$answer.rating}
+                {include file="topic/commentPresentation.tpl" userId=$answer.userid id=$answer.id rating=$answer.rating}
             {/foreach}
     <div id="wmd-button-bar"></div>
     <textarea id="wmd-input" class="wmd-input"></textarea>

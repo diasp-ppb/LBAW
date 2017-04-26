@@ -1,5 +1,5 @@
 <?php
-include_once('../database/topics.php');
+include_once('../../database/topics.php');
 
 $type=$_POST["voteType"];
 $topicId=$_POST["topicId"];

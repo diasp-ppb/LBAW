@@ -1,5 +1,5 @@
 <?php
-include_once("../pages/header.php");
+include_once("./header.php");
 
 $smarty->display('common/error.tpl');
 ?>

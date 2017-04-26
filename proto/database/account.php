@@ -55,16 +55,6 @@ function getUserImage($userId){
     return $image;
 }
 
-/*
-function to_pg_array($array) {
-    $result = array();
-    foreach ($array as $link) {
-        array_push($result, $link);
-    }
-    return '{' . join(",", $result) . '}';
-}
-*/
-
 function updateProfile($userId, $name, $links) {
     global $conn;
     $stmt=$conn->prepare("UPDATE account SET name = ?, links = ? WHERE id = ?;");

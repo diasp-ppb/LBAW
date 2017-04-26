@@ -3,21 +3,30 @@ if (!isset($_GET["id"]) || !preg_match('/^\d+$/', $_GET["id"])) {
     header("Location: ../common/error.php");
 }
 include_once('../../config/init.php');
-include_once("../common/header.php");
 include_once("../../lib/Parsedown/Parsedown.php");
 include_once("../../database/topics.php");
 include_once("../../database/account.php");
 
-$topicId=htmlspecialchars(trim($_GET["id"]));
+$topicId = htmlspecialchars(trim($_GET["id"]));
 
-$userTopicId=getUserTopic($topicId);
-$userImage=getUserImage($userTopicId);
-$userName=getNameById($userTopicId);
+$topicInfo = getTopicInfo($topicId)[0];
 
-$timeDiff=calculateTimeDiff($topicId);
-$ratingTopic=getRatingTopic($topicId);
-$topicTitle=getTitleTopic($topicId);
-$answers=getTopicAnswers($topicId);
+if (!isset($topicInfo)) {
+    header("Location: ../common/error.php");
+}
+
+include_once("../common/header.php");
+
+$userTopicId = $topicInfo["userid"];
+$ratingTopic = $topicInfo["rating"];
+$topicTitle = $topicInfo["title"];
+$creationDate = $topicInfo["creationDate"];
+$interval = date_diff(date_create(), date_create($creationDate));
+
+$userImage = getUserImage($userTopicId);
+$userName = getNameById($userTopicId);
+
+$answers = getTopicAnswers($topicId);
 
 $smarty->assign('userTopicId',$userTopicId);
 $smarty->assign('userImage',$userImage);

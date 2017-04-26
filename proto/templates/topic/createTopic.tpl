@@ -6,7 +6,7 @@
             </div>
 
            
-            <form role="form" method="post" action="../actions/create_topic.php">
+            <form id="createTopicForm" role="form" method="post" action="../../actions/create_topic.php">
                 <div class="form-group">
                     <label for="title">Titulo</label>
                     <input type="text" class="form-control" id="title" name="title" required="required" placeholder="Titulo da pergunta"/>
@@ -20,7 +20,7 @@
                     <textarea id="wmd-input" name="wmd-input" required="required" class="wmd-input"></textarea>
                     <div id="wmd-preview" class="wmd-preview text-left well"></div>
 
-                    <script type="text/javascript" src="../js/textEditor.js"></script>
+                    <script type="text/javascript" src="../../js/textEditor.js"></script>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">

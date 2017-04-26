@@ -40,7 +40,7 @@ function getTopicContent($topicId) {
     return $stmt->fetch()["content"];
 }
 
-function createTopic($title, $content, $sectionId) {
+function createTopic($title, $content, $sectionId, $tags) {
     global $conn;
     global $userId;
     $stmt = $conn->prepare("BEGIN;
@@ -57,7 +57,7 @@ function createTopic($title, $content, $sectionId) {
 								SELECT (SELECT currval(pg_get_serial_sequence('post', 'id'))), id FROM tag 
 								WHERE name = ANY (?::text[]);
 								COMMIT;");
-    $stmt->execute(array($userId, $title, $content, $sectionId, to_pg_array(array($tags)),to_pg_array(array($tags))));
+    $stmt->execute(array($userId, $title, $content, $sectionId, to_pg_array($tags),to_pg_array($tags)));
     return $stmt->errorCode();
 }
 

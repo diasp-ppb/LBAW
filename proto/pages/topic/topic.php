@@ -20,8 +20,8 @@ include_once("../common/header.php");
 $userTopicId = $topicInfo["userid"];
 $ratingTopic = $topicInfo["rating"];
 $topicTitle = $topicInfo["title"];
-$creationDate = $topicInfo["creationDate"];
-$timeDiff = date_diff(date_create(), date_create($creationDate))->format('%a');
+$creationDate = $topicInfo["creationdate"];
+$timeDiff = round((time() - strtotime($creationDate))/(60*60*24)) ;
 
 $userImage = getUserImage($userTopicId);
 $userName = getNameById($userTopicId);

@@ -5,7 +5,6 @@
                 <label id="top-title">Criar Tópico</label>
             </div>
 
-
             <form id="createTopicForm" role="form" method="post" action="../../actions/topic/createTopic.php">
                 <div class="form-group">
                     <label for="title">Titulo</label>
@@ -28,6 +27,7 @@
                     </div>
                 </div>
             </form>
+            <script src="../../js/lockSubmit.js"> </script>
             <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">

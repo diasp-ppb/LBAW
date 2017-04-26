@@ -1,10 +1,15 @@
 $(document).ready(function() {
 
-    console.log("asdasdad");
+    console.log("loaded js");
 
-    $("createTopicForm").on("keypress", function(e) {
+    $("#createTopicForm").on("keyup keypress", function(e) {
         console.log("pressed");
-        return e.keyCode != 13;
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
+        return true;
     });
 
 });

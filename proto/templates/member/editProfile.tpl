@@ -1,4 +1,4 @@
-<script src="../js/editProfile.js"></script>
+<script src="../../js/editProfile.js"></script>
 
 <div class="container-fluid">
     <div class="row" role="tabpanel">

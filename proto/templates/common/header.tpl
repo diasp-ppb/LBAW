@@ -26,8 +26,6 @@
 	<script src="../../js/searchOptions.js"></script>
     <script src="../../js/validate_vote.js"></script>
     <script src="../../js/tagsInput.js"></script>
-    <script src="../../js/lockSubmit.js"> </script>
-   
     <link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css"/>
 
 

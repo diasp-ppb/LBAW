@@ -1,9 +1,9 @@
 <?php
 if (!isset($_GET["search"])) {
-    header("Location: ../home/error.php");
+    header("Location: ../common/error.php");
 }
 if ($_GET["search"] == null) {
-	header("Location: ../home/home.php");
+	header("Location: ./home.php");
 }
 
 include_once("../../config/init.php");

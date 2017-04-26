@@ -1,4 +1,5 @@
 <?php
+include_once('../../config/init.php');
 include_once('../../database/topics.php');
 
 $type=$_POST["voteType"];

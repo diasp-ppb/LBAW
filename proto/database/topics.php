@@ -107,6 +107,16 @@ function getTopicInfo($topicId){
     return $stmt->fetchAll();
 }
 
+function calculateTimeDiff($topicId){
+    global $conn;
+    $stmt=$conn->prepare("SELECT creationDate FROM post WHERE id= ?");
+    $stmt->execute(array($topicId));
+    $creationDate=$stmt->fetch()["creationDate"];
+    $interval = date_diff(date_create(),date_create($creationDate));
+
+    return $interval->format('%a');
+}
+
 function getTopicAnswers($topicId){
     global $conn;
     $stmt=$conn->prepare("SELECT * FROM post WHERE parentid= ? AND postType= ?");

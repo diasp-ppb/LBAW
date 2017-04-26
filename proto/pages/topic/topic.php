@@ -1,12 +1,12 @@
 <?php
 if (!isset($_GET["id"]) || !preg_match('/^\d+$/', $_GET["id"])) {
-    header("Location: ../pages/error.php");
+    header("Location: ../common/error.php");
 }
-include_once('../config/init.php');
-include_once("../pages/header.php");
-include_once("../lib/Parsedown/Parsedown.php");
-include_once("../database/topics.php");
-include_once("../database/account.php");
+include_once('../../config/init.php');
+include_once("../common/header.php");
+include_once("../../lib/Parsedown/Parsedown.php");
+include_once("../../database/topics.php");
+include_once("../../database/account.php");
 
 $topicId=htmlspecialchars(trim($_GET["id"]));
 
@@ -28,5 +28,5 @@ $smarty->assign('topicTitle',$topicTitle);
 $smarty->assign('answers',$answers);
 $smarty->assign('topicId',$topicId);
 
-$smarty->display('topic.tpl');
+$smarty->display('topic/topic.tpl');
 ?>

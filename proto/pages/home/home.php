@@ -1,9 +1,9 @@
 <?php
-include_once('../config/init.php');
-include_once("../pages/header.php");
-include_once("../database/topics.php");
-include_once("../database/account.php");
-include_once("../database/tags.php");
+include_once('../../config/init.php');
+include_once("../common/header.php");
+include_once("../../database/topics.php");
+include_once("../../database/account.php");
+include_once("../../database/tags.php");
 
 
 $tags = getTags();
@@ -61,5 +61,5 @@ $smarty->assign('featuredTopics',$featuredTopics);
 $smarty->assign('HotTopics',$HotTopics);
 $smarty->assign('recentTopics',$recentTopics);
 
-$smarty->display('home.tpl');
+$smarty->display('home/home.tpl');
 ?>

@@ -4,8 +4,8 @@
 } else {
   $smarty->display('../lib/smarty/views/createTopic.tpl');
 }*/
-include_once('../config/init.php');
-include_once('../pages/header.php');
+include_once('../../config/init.php');
+include_once('../common/header.php');
 
-$smarty->display('createTopic.tpl');
+$smarty->display('topic/createTopic.tpl');
 ?>

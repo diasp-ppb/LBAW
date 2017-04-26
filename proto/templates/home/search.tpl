@@ -43,15 +43,15 @@
                             </div>
 
                             {foreach $result as $topic1}
-                                {include file="searchResultTopic.tpl" type="resultTitle" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                {include file="home/searchResultTopic.tpl" type="resultTitle" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
                             {/foreach}
 
                             {foreach $result2 as $topic1}
-                                {include file="searchResultTopic.tpl" type="resultContent" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                {include file="home/searchResultTopic.tpl" type="resultContent" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
                             {/foreach}
 
                             {foreach $result3 as $topic1}
-                                {include file="searchResultTopic.tpl" type="resultTag" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                {include file="home/searchResultTopic.tpl" type="resultTag" topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
                             {/foreach}
                         </div>
 
@@ -75,4 +75,4 @@
     </div>
 </div>
 
-{include file='footer.tpl'}
+{include file='common/footer.tpl'}

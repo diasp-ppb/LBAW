@@ -5,14 +5,15 @@
                 <label id="top-title">Criar Tópico</label>
             </div>
 
+           
             <form role="form" method="post" action="../actions/create_topic.php">
                 <div class="form-group">
                     <label for="title">Titulo</label>
-                    <input type="text" class="form-control" id="title" name="title" required="required" placeholder="Titulo da pergunta" value="Título"/>
+                    <input type="text" class="form-control" id="title" name="title" required="required" placeholder="Titulo da pergunta"/>
                 </div>
                 <div class="form-group">
                     <label for="tags">Tags</label>
-                    <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" value="Tags"/>
+                    <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" data-role="tagsinput" />
                 </div>
                 <div class="form-group">
                     <div id="wmd-button-bar"></div>
@@ -99,4 +100,4 @@
     </div>
 </div>
 
-{include file='footer.tpl'}
+{include file='common/footer.tpl'}

@@ -18,7 +18,7 @@
 
                     <div class="row hidden-xs hidden-sm">
                         <div class="col-xs-4 col-xs-offset-4">
-                            <img alt="Brand" src="../resources/images/logo_askabit.png" width="240" height="240">
+                            <img alt="Brand" src="../../resources/images/logo_askabit.png" width="240" height="240">
                         </div>
                     </div>
                 </div>

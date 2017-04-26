@@ -1,16 +1,16 @@
 <?php
 if (!isset($_GET["search"])) {
-    header("Location: ../pages/error.php");
+    header("Location: ../home/error.php");
 }
 if ($_GET["search"] == null) {
-	header("Location: ../pages/home.php");
+	header("Location: ../home/home.php");
 }
 
-include_once("../config/init.php");
-include_once("../pages/header.php");
-include_once("../database/topics.php");
-include_once("../database/account.php");
-include_once("../database/tags.php");
+include_once("../../config/init.php");
+include_once("../common/header.php");
+include_once("../../database/topics.php");
+include_once("../../database/account.php");
+include_once("../../database/tags.php");
 
      global $smarty;
      $textSearch=htmlspecialchars(trim($_GET["search"]));
@@ -80,5 +80,5 @@ include_once("../database/tags.php");
    $smarty->assign('result2',$result2);
    $smarty->assign('result3',$result3);
    $smarty->assign('users',$result4);
-   $smarty->display('search.tpl');
+   $smarty->display('home/search.tpl');
 ?>

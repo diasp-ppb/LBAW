@@ -1,4 +1,4 @@
-        <script src="../js/footer.js"></script>
+        <script src="../../js/footer.js"></script>
         <footer id="footer" class="footer">
             <div class="navbar navbar-bottom">
                 <div class="text-center center-block">

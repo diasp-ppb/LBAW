@@ -6,7 +6,8 @@
 
     <title>{$title}</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/tagsInput.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -22,8 +23,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
-	<script src="../js/searchOptions.js"></script>
-    <script src="../js/validate_vote.js"></script>
+	<script src="../../js/searchOptions.js"></script>
+    <script src="../../js/validate_vote.js"></script>
+    <script src="../../js/tagsInput.js"></script>
+    <script src="../../js/lockSubmit.js"> </script>
+   
     <link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css"/>
 
 
@@ -46,7 +50,7 @@
                         <!-- content goes here -->
                         <form>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="N煤mero de utilizador">
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Numero de utilizador">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
@@ -71,9 +75,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../pages/home.php">
-                <img alt="Brand" src="../resources/images/logo.png">
-                <img alt="Brand" src="../resources/images/askabit.png">
+            <a class="navbar-brand" href="../home/home.php">
+                <img alt="Brand" src="../../resources/images/logo.png">
+                <img alt="Brand" src="../../resources/images/askabit.png">
             </a>
         </div>
 
@@ -89,7 +93,7 @@
                 </li>
             </ul>
             <div class="col-sm-3 col-md-3 col-md-offset-3">
-                <form action="../pages/search.php" method="get" class="navbar-form" role="search">
+                <form action="../home/search.php" method="get" class="navbar-form" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" name="search">
                         <div class="input-group-btn">
@@ -106,8 +110,8 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="../pages/profile.php?id=5"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
-                        <li><a href="../pages/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo t贸pico</a></li>
+                        <li><a href="../member/profile.php?id=5"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                        <li><a href="../topic/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
                         <li role="presentation" class="divider"></li>
                         <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
                     </ul>

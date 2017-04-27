@@ -37,6 +37,6 @@
     
     
     <div class="col-md-3 author text-right">
-        {$author}
+     <a href="../../pages/member/profile.php?id={$userId}" >  {$author} </a>
     </div>
 </div>

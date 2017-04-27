@@ -34,17 +34,17 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="featured">
                                         {foreach $featuredTopics as $topic1}
-                                        {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=$topic1.answers visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                        {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=$topic1.answers visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author userId=$topic1.userid}
                                         {/foreach}
                                 </div>
                                 <div class="tab-pane" id="hot">
                                         {foreach $HotTopics as $topic1 }
-                                            {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=$topic1.answers visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                            {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=$topic1.answers visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author userId=$topic1.userid}
                                         {/foreach}
                                 </div>
                                 <div class="tab-pane" id="recent">
                                         {foreach $recentTopics as $topic1}
-                                            {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=$topic1.answers visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                                            {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=$topic1.answers visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author userId=$topic1.userid}
                                         {/foreach}
                                 </div>
                             </div>

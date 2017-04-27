@@ -541,6 +541,17 @@ a.dropdown-toggle {
     border: solid 2px #a6a6a6;
 }
 
+.nav.navbar-nav .dropdown-menu{
+    background-color: white;
+    border: solid 2px #10354b;
+    border-top-color: white;
+}
+
+.nav.navbar-nav .dropdown-menu a:hover{
+    background-color: #10354b;
+    color: white !important;
+}
+
 .nav.navbar-nav.navbar-right img {
     widht: 40px;
     height: 40px;

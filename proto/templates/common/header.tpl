@@ -82,8 +82,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cursos <span class="caret"></span></a>
+                <li class="dropdown" style="background-color: #10354b;">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: #10354b" role="button" aria-haspopup="true" aria-expanded="false">Cursos <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">MIEEC</a></li>
                         <li><a href="#">MIEIC</a></li>
@@ -101,8 +101,8 @@
                 </form>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <li class="dropdown" style="background-color: #10354b">
+                    <a href="#" class="dropdown-toggle" style="background-color: #10354b" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <img class="img-circle" alt="user" src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400">
                         <span>up201406241</span>
                         <span class="caret"></span>

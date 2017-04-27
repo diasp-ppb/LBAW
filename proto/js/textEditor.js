@@ -10,3 +10,5 @@
  $("#help-button").click(function() {
      $("#squarespaceModal").modal('toggle');
  });
+ $("#wmd-preview").css({ 'word-wrap': "break-word" });
+ $("#wmd-preview").css({ 'width': "100%" });

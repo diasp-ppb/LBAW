@@ -92,4 +92,19 @@ function updateEmails($userId, $toDelete, $newEmails) {
 
   return $stmt->errorCode();
 }
+
+
+function countUsers(){
+    global $conn;
+    $stmt=$conn->prepare("SELECT COUNT(*) FROM account WHERE status = 'active'");
+    $stmt->execute();
+    return $stmt->fetchAll()[0]['count'];
+}
+
+function countRecentlyActiveUsers() {
+    global $conn;
+    $stmt=$conn->prepare("SELECT COUNT(*) FROM account WHERE lastAccessDate > (NOW() - INTERVAL '2 hour')");
+    $stmt->execute();
+    return $stmt->fetchAll()[0]['count'];
+}
 ?>

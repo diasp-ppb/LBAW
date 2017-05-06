@@ -161,4 +161,12 @@ function countTopicAnswers($topicId){
     $stmt->execute(array($topicId,'answer'));
     return $stmt->fetch();
 }
+
+
+function countTopics() {
+    global $conn;
+    $stmt=$conn->prepare("SELECT COUNT(*) FROM post WHERE postType= ?");
+    $stmt->execute(array('question'));
+    return $stmt->fetch()['count'];
+}
 ?>

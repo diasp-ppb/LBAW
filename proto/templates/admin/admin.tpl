@@ -1,3 +1,4 @@
+<script src="../../js/chartCreationAdmin.js"></script>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 col-md-offset-1 additional">
@@ -45,17 +46,17 @@
                                 <li class="statistic">
                                     <h4>Utilizadores</h4>
                                     <span class="glyphicon glyphicon-user blue"></span>
-                                    <div class="statistic amount">12455</div>
+                                    <div class="statistic amount">{$totalUsers}</div>
                                 </li>
                                 <li class="statistic">
                                     <h4>Utilizadores ativos</h4>
                                     <span class="glyphicon glyphicon-user green"></span>
-                                    <div class="statistic amount">12455</div>
+                                    <div class="statistic amount">{$activeUsers}</div>
                                 </li>
                                 <li class="statistic">
                                     <h4>Tópicos criados</h4>
                                     <span class="glyphicon glyphicon-question-sign orange"></span>
-                                    <div class="statistic amount">12455</div>
+                                    <div class="statistic amount">{$topicCount}</div>
                                 </li>
                             </ul>
                             <ul id="phone_statistics" class="text-center hidden-md hidden-lg">
@@ -80,54 +81,12 @@
                             <div class="col col-md-6 col-md-offset-3">
                                 <h3>Tópicos por curso</h3>
                                 <canvas id="topics-by-course"></canvas>
-                                <script>
-                                    var ctx = document.getElementById("topics-by-course").getContext('2d');
-                                    var myChart = new Chart(ctx, {
-                                        type: 'doughnut',
-                                        data: {
-                                            labels: ["M", "T", "W", "T", "F", "S", "S"],
-                                            datasets: [{
-                                                backgroundColor: [
-                                                    "#2ecc71",
-                                                    "#3498db",
-                                                    "#95a5a6",
-                                                    "#9b59b6",
-                                                    "#f1c40f",
-                                                    "#e74c3c",
-                                                    "#34495e"
-                                                ],
-                                                data: [12, 19, 3, 17, 28, 24, 7]
-                                            }]
-                                        }
-                                    });
-                                </script>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col col-md-6 col-md-offset-3">
                                 <h3>Tags mais utilizadas</h3>
                                 <canvas id="topics-by-tags"></canvas>
-                                <script>
-                                    var ctx = document.getElementById("topics-by-tags").getContext('2d');
-                                    var myChart = new Chart(ctx, {
-                                        type: 'bar',
-                                        data: {
-                                            labels: ["M", "T", "W", "T", "F", "S", "S"],
-                                            datasets: [{
-                                                backgroundColor: [
-                                                    "#2ecc71",
-                                                    "#3498db",
-                                                    "#95a5a6",
-                                                    "#9b59b6",
-                                                    "#f1c40f",
-                                                    "#e74c3c",
-                                                    "#34495e"
-                                                ],
-                                                data: [12, 19, 3, 17, 28, 24, 7]
-                                            }]
-                                        }
-                                    });
-                                </script>
                             </div>
                         </div>
                     </div>
@@ -136,5 +95,4 @@
         </div>
     </div>
 </div>
-
 {include file="common/footer.tpl"};

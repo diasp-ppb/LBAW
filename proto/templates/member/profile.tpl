@@ -79,52 +79,10 @@
             <div class="col col-md-5 col-sm-12">
               <h4>Respostas aceites:</h4>
               <canvas id="accepted-answers"></canvas>
-              <script>
-                var ctx = document.getElementById("accepted-answers").getContext('2d');
-                var myChart = new Chart(ctx, {
-                  type: 'pie',
-                  data: {
-                    labels: ["javaScript", "C++", "web-design", "java", "C#", ".net", "web"],
-                    datasets: [{
-                      backgroundColor: [
-                        "#2ecc71",
-                        "#3498db",
-                        "#95a5a6",
-                        "#9b59b6",
-                        "#f1c40f",
-                        "#e74c3c",
-                        "#34495e"
-                      ],
-                      data: [6, 7, 1, 7, 24, 15, 3]
-                    }]
-                  }
-                });
-              </script>
             </div>
             <div class="col col-md-5 col-sm-12">
               <h4>Onde comento:</h4>
-              <canvas id="where-i-comment"></canvas>
-              <script>
-                var ctx = document.getElementById("where-i-comment").getContext('2d');
-                var myChart = new Chart(ctx, {
-                  type: 'pie',
-                  data: {
-                    labels: ["javaScript", "C++", "web-design", "java", "C#", ".net", "web"],
-                    datasets: [{
-                      backgroundColor: [
-                        "#2ecc71",
-                        "#3498db",
-                        "#95a5a6",
-                        "#9b59b6",
-                        "#f1c40f",
-                        "#e74c3c",
-                        "#34495e"
-                      ],
-                      data: [12, 19, 3, 17, 28, 24, 7]
-                    }]
-                  }
-                });
-              </script>
+              <canvas id="where-i-comment"></canvas>           
             </div>
           </div>
           <div class="row" id="my-topics">
@@ -141,5 +99,5 @@
     </div>
   </div>
 </div>
-
+<script src="../../js/chartCreationUser.js" > <script>
 {include file='common/footer.tpl'}

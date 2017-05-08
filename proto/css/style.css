@@ -541,13 +541,13 @@ a.dropdown-toggle {
     border: solid 2px #a6a6a6;
 }
 
-.nav.navbar-nav .dropdown-menu{
+.nav.navbar-nav .dropdown-menu {
     background-color: white;
     border: solid 2px #10354b;
     border-top-color: white;
 }
 
-.nav.navbar-nav .dropdown-menu a:hover{
+.nav.navbar-nav .dropdown-menu a:hover {
     background-color: #10354b;
     color: white !important;
 }
@@ -941,10 +941,6 @@ body.admin .additional {
     margin-top: 3em;
 }
 
-body.admin .statistic+.statistic {
-    margin-left: 3em;
-}
-
 body.admin canvas {
     margin-top: 0;
 }
@@ -1218,6 +1214,10 @@ hr {
     div.tabbable-panel ul.nav li {
         font-size: small;
     }
+}
+
+#phone_statistics li.statistic {
+    list-style: none;
 }
 
 div.tabbable-panel ul.nav li {

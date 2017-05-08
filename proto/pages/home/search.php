@@ -12,6 +12,7 @@ include_once("../../database/topics.php");
 include_once("../../database/account.php");
 include_once("../../database/tags.php");
 
+try {
      global $smarty;
      $textSearch=htmlspecialchars(trim($_GET["search"]));
 
@@ -76,6 +77,10 @@ include_once("../../database/tags.php");
       
       $result4  = getUsersBySearchInput($textSearch);
       
+} catch(PDOException $e) {
+    saveOnLog("search.php:", $e);
+    //TODO
+}      
    $smarty->assign('result',$result);
    $smarty->assign('result2',$result2);
    $smarty->assign('result3',$result3);

@@ -4,11 +4,15 @@ include_once("../../database/account.php");
 include_once("../../database/topics.php");
 include_once("../common/header.php");
 
-$users=getUserOrderedByName();
-
-$totalUsers = countUsers();
-$activeUsers= countRecentlyActiveUsers();
-$topicCount = countTopics();
+try {
+    $users=getUserOrderedByName();
+    $totalUsers = countUsers();
+    $activeUsers= countRecentlyActiveUsers();
+    $topicCount = countTopics();
+} catch(PDOException $e) {
+    saveOnLog("Admin page:", $e);
+    //TODO
+}
 
 $smarty->assign('users', $users);
 $smarty->assign('totalUsers',$totalUsers);

@@ -9,7 +9,14 @@ include_once("../../database/email.php");
 include_once("../../database/topics.php");
 
 $userid = htmlspecialchars(trim($_GET["id"]));
-$user = getAccountByUserId($userid)[0];
+
+try {
+    $user = getAccountByUserId($userid)[0];
+} catch(PDOException $e) {
+    saveOnLog("profile.php:", $e);
+    //TODO
+}
+
 
 if (!isset($user)) {
     header("Location: ../common/error.php");
@@ -17,9 +24,16 @@ if (!isset($user)) {
 
 include_once("../common/header.php");
 
-$emails = getUserEmailList($userid);
-$links = json_decode(getUserLinks($userid)[0]['links']);
-$topics = getTopicsByUser($userid);
+
+try {
+    $emails = getUserEmailList($userid);
+    $links = json_decode(getUserLinks($userid)[0]['links']);
+    $topics = getTopicsByUser($userid);
+} catch(PDOException $e) {
+    saveOnLog("profile.php:", $e);
+    //TODO
+}
+
 
 $smarty->assign('user', $user);
 $smarty->assign('emails', $emails);

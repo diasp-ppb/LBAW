@@ -5,56 +5,60 @@ include_once("../../database/topics.php");
 include_once("../../database/account.php");
 include_once("../../database/tags.php");
 
+try{
+    $tags = getTags();
+    $featuredTopics = getFeaturedTopics();
+    $HotTopics = getHotTopics();
+    $recentTopics = getMostRecentTopics();
 
-$tags = getTags();
-$featuredTopics = getFeaturedTopics();
-$HotTopics = getHotTopics();
-$recentTopics = getMostRecentTopics();
 
-
-foreach($featuredTopics as &$topic) {
+    foreach($featuredTopics as &$topic) {
     $features = getFeaturedTagsTopic($topic["id"]);
     $fTags = array();
 
     foreach($features as $feature) {
-        $tag = getTagById($feature["tagid"]);
-        array_push($fTags, $tag);
+            $tag = getTagById($feature["tagid"]);
+            array_push($fTags, $tag);
+        }
+
+        $topic["tags"] = $fTags;
+        $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+        $topic["answers"]= countTopicAnswers($topic["id"])["count"];
+    }   
+
+
+    foreach($HotTopics as &$topic) {
+        $features = getFeaturedTagsTopic($topic["id"]);
+        $fTags = array();
+
+        foreach($features as $feature) {
+            $tag = getTagById($feature["tagid"]);
+            array_push($fTags, $tag);
+        }
+
+        $topic["tags"] = $fTags;
+        $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+        $topic["answers"]= countTopicAnswers($topic["id"])["count"];
     }
 
-    $topic["tags"] = $fTags;
-    $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
-    $topic["answers"]= countTopicAnswers($topic["id"])["count"];
-}
+    foreach($recentTopics as &$topic) {
+        $features = getFeaturedTagsTopic($topic["id"]);
+        $fTags = array();
 
+        foreach($features as $feature) {
+            $tag = getTagById($feature["tagid"]);
+            array_push($fTags, $tag);
+        }
 
-foreach($HotTopics as &$topic) {
-    $features = getFeaturedTagsTopic($topic["id"]);
-    $fTags = array();
-
-    foreach($features as $feature) {
-        $tag = getTagById($feature["tagid"]);
-        array_push($fTags, $tag);
+        $topic["tags"] = $fTags;
+        $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+        $topic["answers"]= countTopicAnswers($topic["id"])["count"];
     }
 
-    $topic["tags"] = $fTags;
-    $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
-    $topic["answers"]= countTopicAnswers($topic["id"])["count"];
+} catch(PDOException $e) {
+    saveOnLog("home.php:", $e);
+    //TODO
 }
-
-foreach($recentTopics as &$topic) {
-    $features = getFeaturedTagsTopic($topic["id"]);
-    $fTags = array();
-
-    foreach($features as $feature) {
-        $tag = getTagById($feature["tagid"]);
-        array_push($fTags, $tag);
-    }
-
-    $topic["tags"] = $fTags;
-    $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
-    $topic["answers"]= countTopicAnswers($topic["id"])["count"];
-}
-
 
 $smarty->assign('tags',$tags);
 $smarty->assign('featuredTopics',$featuredTopics);

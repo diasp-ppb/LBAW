@@ -9,13 +9,27 @@ include_once("../../database/account.php");
 include_once("../../database/email.php");
 include_once("../../database/topics.php");
 $userid = $_GET["id"];
-$user = getAccountByUserId($userid)[0];
+
+
+try {
+    $user = getAccountByUserId($userid)[0];
+} catch(PDOException $e) {
+    saveOnLog("editProfile.php:", $e);
+    //TODO
+}
 
 if (!isset($user)) {
     header("Location: ../common/error.php");
 }
 
-$emails = getUserEmailList($userid);
+try {
+    $emails = getUserEmailList($userid);
+} catch(PDOException $e) {
+    saveOnLog("editProfile.php:", $e);
+    //TODO
+}
+
+
 $links = json_decode(getUserLinks($userid)[0]['links']);
 
 $smarty->assign('user', $user);

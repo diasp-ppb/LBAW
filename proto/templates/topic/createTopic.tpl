@@ -12,7 +12,11 @@
                 </div>
                 <div class="form-group">
                     <label for="tags">Tags</label>
-                    <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" data-role="tagsinput" />
+                    <input type="text" class="form-control typeAhead" id="tags" name="tags" placeholder="Tags" data-role="tagsinput" />
+
+                    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css">
+                    <script type="text/javascript" src="../../js/typeAhead.js"></script>
                 </div>
                 <div class="form-group">
                     <div id="wmd-button-bar"></div>

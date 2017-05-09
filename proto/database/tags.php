@@ -11,6 +11,16 @@ function getTags() {
     return $stmt->fetchAll();
 }
 
+function getTagsFuzzy($query)
+ {
+    global $conn;
+    $stmt = $conn->prepare("SELECT name FROM tag
+                            WHERE name LIKE CONCAT(?,'%')");
+    $stmt->execute(array($query));
+    return $stmt->fetchAll();
+}
+
+
 
 // TODO ver se ta na DOC
 function getTagbyID($tagId) {

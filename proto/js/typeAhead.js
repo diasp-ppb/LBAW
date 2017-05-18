@@ -14,7 +14,6 @@ var todos = {
 var tags = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: dataSet,
     remote: todos
 });
 

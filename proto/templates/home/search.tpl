@@ -29,6 +29,16 @@
                                 <label for="search_users" class="label-primary"></label>
                             </div>
                         </li>
+                        <li class="list-group-item active">
+                            Opçoes de pesquisa:
+                        </li>
+                        <li class="list-group-item">
+                            Aproximada
+                            <div class="material-switch pull-right">
+                                <input id="search_aprox" name="search_aprox" type="checkbox"/>
+                                <label for="search_aprox" class="label-primary"></label>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -20,7 +20,6 @@ function getMostRecentTopics() {
 }
 
 function getFeaturedTopics() {
-    //TODO CRIAR UMA VIEW?!?
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM post post1
                                 LEFT JOIN (SELECT post2_1.parentid, COUNT(*) AS COUNT
@@ -74,7 +73,7 @@ function getTopicWithTitle($title) {
     global $conn;
 
     $stmt = $conn->prepare("SELECT * FROM post
-                            WHERE to_tsvector('portuguese', title) @@ plainto_tsquery('portuguese', ?);");
+                            WHERE to_tsvector('portuguese', title) @@ to_tsquery('portuguese', ?);");
     $stmt->execute(array($title));
     return $stmt->fetchAll();
 }
@@ -83,10 +82,11 @@ function getTopicWithContent($content) {
     global $conn;
 
     $stmt = $conn->prepare("SELECT * FROM post
-                            WHERE to_tsvector('portuguese', content) @@ plainto_tsquery('portuguese', ?);");
+                            WHERE to_tsvector('portuguese', content) @@ to_tsquery('portuguese', ?);");
     $stmt->execute(array($content));
     return $stmt->fetchAll();
 }
+
 
 // ADD TO DOC
 function getTopicWithTag($tagId) {

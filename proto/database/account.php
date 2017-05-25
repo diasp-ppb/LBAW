@@ -71,7 +71,7 @@ function getUserOrderedByName(){
 
 function getUsersBySearchInput($input) {
 	global $conn;
-    $stmt=$conn->prepare("SELECT * FROM account WHERE name = ?");
+    $stmt=$conn->prepare("SELECT * FROM account WHERE  to_tsvector('portuguese', name) @@ to_tsquery('portuguese', ?);");
     $stmt->execute(array($input));
     return $stmt->fetchAll();
 }

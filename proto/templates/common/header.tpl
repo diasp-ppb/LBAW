@@ -112,7 +112,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="../../pages/member/profile.php?id=5"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                            <li><a href="../../pages/member/profile.php?id={$smarty.session.id}"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
                             <li><a href="../../pages/topic/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
                             <li role="presentation" class="divider"></li>
                             <li><a href="../auth/logout.php"><i class="glyphicon glyphicon-off"></i> Sair</a></li>

@@ -2,22 +2,27 @@
 include_once('../../database/topics.php');
 include_once('../../config/init.php');
 include_once('../../utils.php');
-//session_start();
 
-$title=$_POST['title'];
-$tags=htmlspecialchars(trim($_POST['tags']));
-$text=htmlspecialchars(trim($_POST['wmd-input']));
-$tags=explode(",",$tags);
-var_dump($tags);
-if(sizeof($text)<20){
+if (!isset($_SESSION['id'])) {
+    header("Location: ../../pages/common/error.php");
+}
+
+$title = $_POST['title'];
+$tags = htmlspecialchars(trim($_POST['tags']));
+$text = htmlspecialchars(trim($_POST['wmd-input']));
+$tags = explode(",", $tags);
+
+/*
+if(sizeof($text) < 20) {
     $errText="Texto tem de ter no mínimo 20 caracteres.";
     header('Location: ../../pages/topic/createTopic.php'); //em vez disto depois é preciso fazer ajax
 }
+*/
 
-if(createTopic($title,$text,1,$tags)){
-    $topicId=getTopicWithTitle($title);
-	header('Location: ../../pages/topic/topic.php?id='.$topicId[0]["id"].'');
-}else{
+try {
+    $topicId = createTopic($_SESSION['id'], $title, $text, 1, $tags);
+    header('Location: ../../pages/topic/topic.php?id=' . $topicId);
+} catch (PDOException $e) {
     header('Location: ../../pages/topic/createTopic.php'); //em vez disto depois é preciso fazer ajax
 }
 

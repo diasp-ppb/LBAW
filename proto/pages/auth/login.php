@@ -10,14 +10,16 @@ $nmec = $_SERVER['UPortoNMec'];
 $names = getNames($_SERVER['CommonName']);
 $name = $names['first_name'] . ' ' . $names['last_name'];
 
-$usernameDb = getAccountByUsername($usernameAuth);
+$userDb = getAccountByUsername($usernameAuth);
 
-if ($usernameDb) {
-  $_SESSION['id'] = $usernameDb['id'];
+if ($userDb) {
+  $_SESSION['id'] = $userDb['id'];
+  $_SESSION['usertype'] = $userDb['usertype'];
 }
 else {
   $id = createAccount($usernameAuth, $name, 'member');
   $_SESSION['id'] = $id;
+  $_SESSION['usertype'] = 'member';
 }
 
 $_SESSION['username'] = $usernameAuth;

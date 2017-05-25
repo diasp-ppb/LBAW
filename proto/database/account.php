@@ -35,30 +35,12 @@ function getUserLinks($userId) {
     return $stmt->fetchAll();
 }
 
-function getSessionId(){
-    global $conn;
-    global $userId;
-    $stmt = $conn->prepare("SELECT name FROM account WHERE id = ?");
-    $stmt->execute(array($userId));
-    $name= $stmt->fetch()["name"];
-    return $name;
-}
-
 function getNameById($userId){
     global $conn;
     $stmt = $conn->prepare("SELECT name FROM account WHERE id = ?");
     $stmt->execute(array($userId));
     $name= $stmt->fetch()["name"];
     return $name;
-}
-
-function getSessionImage(){
-    global $conn;
-    global $userId;
-    $stmt=$conn->prepare("SELECT image FROM account WHERE id= ?");
-    $stmt->execute(array($userId));
-    $image=$stmt->fetch()["image"];
-    return $image;
 }
 
 function getUserImage($userId){

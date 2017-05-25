@@ -2,6 +2,13 @@
 include_once("../../config/init.php");
 include_once("../../database/account.php");
 include_once("../../database/topics.php");
+
+/*
+if (!isset($_SESSION['id']) || $_SESSION['status'] != 'admin') {
+    header("Location: ../common/error.php");
+}
+*/
+
 include_once("../common/header.php");
 
 try {

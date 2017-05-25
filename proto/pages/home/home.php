@@ -5,7 +5,7 @@ include_once("../../database/topics.php");
 include_once("../../database/account.php");
 include_once("../../database/tags.php");
 
-try{
+try {
     $tags = getTags();
     $featuredTopics = getFeaturedTopics();
     $HotTopics = getHotTopics();
@@ -24,7 +24,7 @@ try{
         $topic["tags"] = $fTags;
         $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
         $topic["answers"]= countTopicAnswers($topic["id"])["count"];
-    }   
+    }
 
 
     foreach($HotTopics as &$topic) {

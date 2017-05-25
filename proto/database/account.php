@@ -1,9 +1,16 @@
 <?php
+function createAccount($username, $name, $usertype) {
+    global $conn;
+    $stmt = $conn->prepare("INSERT INTO account(username, name, usertype) VALUES (?, ?, ?) RETURNING id;");
+    $stmt->execute(array($username, $name, $usertype));
+    return $stmt->fetch();
+}
+
 function getAccountByUsername($username) {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM account WHERE username = ?;");
     $stmt->execute(array($username));
-    return $stmt->fetchAll();
+    return $stmt->fetch();
 }
 
 // TODO tem de se dar add no site de lbaw

@@ -14,6 +14,13 @@ function getAccountByUserId($userId) {
     return $stmt->fetchAll();
 }
 
+function getUserList($offset) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT name, id FROM account ORDER BY name LIMIT 10 OFFSET ?");
+    $stmt->execute(array($offset));
+    return $stmt->fetchAll();
+}
+
 function getUserLinks($userId) {
     global $conn;
     $stmt = $conn->prepare("SELECT array_to_json(links) AS links FROM ACCOUNT WHERE id=?;");

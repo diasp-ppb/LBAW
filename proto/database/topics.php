@@ -108,7 +108,7 @@ function getTopicWithTag($tagId) {
 
 function getTopicInfo($topicId){
     global $conn;
-    $stmt=$conn->prepare("SELECT userid, rating, title, creationDate FROM post WHERE id= ?");
+    $stmt=$conn->prepare("SELECT * FROM post WHERE id= ?");
     $stmt->execute(array($topicId));
     return $stmt->fetchAll();
 }
@@ -123,18 +123,11 @@ function calculateTimeDiff($topicId){
     return $interval->format('%a');
 }
 
-function getTopicAnswers($topicId){
+function getTopicAnswers($topicId) {
     global $conn;
-    $stmt=$conn->prepare("SELECT * FROM post WHERE parentid= ? AND postType= ?");
+    $stmt=$conn->prepare("SELECT * FROM post WHERE parentid = ? AND postType= ?");
     $stmt->execute(array($topicId,'answer'));
     return $stmt->fetchAll();
-}
-
-function textToMarkdown($topicId){
-    $answerContent=getTopicContent($topicId);
-    $Parsedown=new Parsedown();
-    $content=$Parsedown->text($answerContent);
-    return $content;
 }
 
 function isValidVote($userId, $topicId) {
@@ -174,5 +167,18 @@ function countTopics() {
     $stmt=$conn->prepare("SELECT COUNT(*) FROM post WHERE postType= ?");
     $stmt->execute(array('question'));
     return $stmt->fetch()['count'];
+}
+
+function getAllTopicComments($topicId) {
+    global $conn;
+
+    $stmt=$conn->prepare("SELECT comment.postid, comment.id, comment.content, comment.creationdate, comment.userid, account.name AS publisher FROM comment 
+                            JOIN post ON (comment.postid = post.id)
+                            JOIN account ON (comment.userid = account.id)
+                            WHERE (parentid = ? OR post.id = ?)
+                            ORDER BY comment.creationdate DESC;");
+
+    $stmt->execute(array($topicId, $topicId));
+    return $stmt->fetchAll(PDO::FETCH_GROUP);   
 }
 ?>

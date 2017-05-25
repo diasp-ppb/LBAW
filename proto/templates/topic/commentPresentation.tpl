@@ -14,10 +14,10 @@
                 <button type="button" id="rating" class="rating btn" disabled="disabled">{$rating}</button>
             </span>
         </div>
-
         <div class="row comment-body">
-            {textToMarkdown($id)}
+            {textToMarkdown($content)}
         </div>
     </div>
 </div>
+{include file="topic/replyPresentation.tpl" comments=$comments}
 <br>

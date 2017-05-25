@@ -6,6 +6,7 @@ include_once('../../config/init.php');
 include_once("../../lib/Parsedown/Parsedown.php");
 include_once("../../database/topics.php");
 include_once("../../database/account.php");
+include_once("../../utils.php");
 
 $topicId = htmlspecialchars(trim($_GET["id"]));
 
@@ -22,29 +23,23 @@ if (!isset($topicInfo)) {
 
 include_once("../common/header.php");
 
-$userTopicId = $topicInfo["userid"];
-$ratingTopic = $topicInfo["rating"];
-$topicTitle = $topicInfo["title"];
-$creationDate = $topicInfo["creationdate"];
-$timeDiff = round((time() - strtotime($creationDate))/(60*60*24)) ;
-
 try {
-$userImage = getUserImage($userTopicId);
-$userName = getNameById($userTopicId);
-
-$answers = getTopicAnswers($topicId);
+    $userImage = getUserImage($topicInfo["userid"]);
+    $userName = getNameById($topicInfo["userid"]);
+    $answers = getTopicAnswers($topicId);
+    $comments = getAllTopicComments($topicId);
 } catch(PDOException $e) {
     saveOnLog("topic.php:", $e);
     //TODO
 }
-$smarty->assign('userTopicId',$userTopicId);
-$smarty->assign('userImage',$userImage);
-$smarty->assign('userName',$userName);
-$smarty->assign('timeDiff',$timeDiff);
-$smarty->assign('ratingTopic',$ratingTopic);
-$smarty->assign('topicTitle',$topicTitle);
-$smarty->assign('answers',$answers);
-$smarty->assign('topicId',$topicId);
+
+$topicInfo['timeDiff'] = getTimeDiff($topicInfo["creationdate"]);
+
+$smarty->assign('topicInfo', $topicInfo);
+$smarty->assign('userImage', $userImage);
+$smarty->assign('userName', $userName);
+$smarty->assign('answers', $answers);
+$smarty->assign('comments', $comments);
 
 $smarty->display('topic/topic.tpl');
 ?>

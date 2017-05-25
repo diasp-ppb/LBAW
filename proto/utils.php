@@ -24,4 +24,15 @@ function getNames($name) {
 
     return array('first_name' => $firstname, 'last_name' => $lastname);
 }
+
+
+function textToMarkdown($text) {
+    $Parsedown=new Parsedown();
+    $content = $Parsedown->text($text);
+    return $content;
+}
+
+function getTimeDiff($start) {
+    return round((time() - strtotime($start)) / (60*60*24));
+}
 ?>

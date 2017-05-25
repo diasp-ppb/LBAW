@@ -55,7 +55,6 @@ function updateProfile($userId, $name, $links) {
     global $conn;
     $stmt=$conn->prepare("UPDATE account SET name = ?, links = ? WHERE id = ?;");
     $stmt->execute(array($name, $links, $userId));
-    return $stmt->errorCode();
 }
 
 function getUserOrderedByName(){
@@ -85,8 +84,6 @@ function updateEmails($userId, $toDelete, $newEmails) {
       COMMIT;
     ");
   $stmt->execute(array($toDelete, $userId, $newEmails));
-
-  return $stmt->errorCode();
 }
 
 

@@ -5,7 +5,7 @@
                 <div class="panel-heading">
                     <h3 class="text-center">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Oops:
-                        <small>Page not found - <b>404 ERROR</b></small>
+                        <small>{$msg}</small>
                     </h3>
                 </div>
                 <div class="panel-body">

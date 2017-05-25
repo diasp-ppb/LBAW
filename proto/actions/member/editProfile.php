@@ -24,8 +24,12 @@ if(isset($_POST['name'])) {
 		}
 	}
 
-	updateEmails($id, $toDelete, $newEmails);
-	updateProfile($id, $name, to_pg_array($links));
+	try {
+		updateEmails($id, $toDelete, $newEmails);
+		updateProfile($id, $name, to_pg_array($links));
+	} catch (PDOException $e) {
+		print_r($e->getMessage());
+	}
 
 	header("Location: ../../pages/member/profile.php?id=" . $id);
 }

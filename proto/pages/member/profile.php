@@ -14,12 +14,13 @@ try {
     $user = getAccountByUserId($userid)[0];
 } catch(PDOException $e) {
     saveOnLog("profile.php:", $e);
+    header("Location: ../common/error.php?msg=" . $e->getMessage());
     //TODO
 }
 
 
 if (!isset($user)) {
-    header("Location: ../common/error.php");
+    header("Location: ../common/error.php?msg=" . "Page not found");
 }
 
 include_once("../common/header.php");

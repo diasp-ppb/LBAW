@@ -65,6 +65,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -90,6 +91,7 @@
                     </ul>
                 </li>
             </ul>
+
             <div class="col-sm-3 col-md-3 col-md-offset-3">
                 <form action="../../pages/home/search.php" method="get" class="navbar-form" role="search">
                     <div class="input-group">
@@ -100,27 +102,28 @@
                     </div>
                 </form>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown" style="background-color: #10354b">
-                    <a href="#" class="dropdown-toggle" style="background-color: #10354b" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <img class="img-circle" alt="user" src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400">
-                        <span>up201406241</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../pages/member/profile.php?id=5"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
-                        <li><a href="../../pages/topic/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
-                    </ul>
-                </li>
-            </ul>
 
-            <!--
-            <ul class="nav navbar-nav navbar-right" data-toggle="modal" data-target="#loginModal">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-            -->
+            {if isset($smarty.session.id)}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" style="background-color: #10354b">
+                        <a href="#" class="dropdown-toggle" style="background-color: #10354b" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img class="img-circle" alt="user" src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400">
+                            <span>{$smarty.session.username}</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../pages/member/profile.php?id={$smarty.session.id}"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                            <li><a href="../../pages/topic/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li><a href="../auth/logout.php"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            {else}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../auth/login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>    
+            {/if}
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

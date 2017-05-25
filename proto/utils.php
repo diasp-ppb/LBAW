@@ -14,4 +14,14 @@ function to_pg_array($set) {
     }
     return '{' . implode(",", $result) . '}'; // format
 }
+
+function getNames($name) {
+    $parts = array();
+
+    $parts = explode(" ", $name);
+    $lastname = array_pop($parts);
+    $firstname = $parts[0];
+
+    return array('first_name' => $firstname, 'last_name' => $lastname);
+}
 ?>

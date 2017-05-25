@@ -1,4 +1,9 @@
 <script src="../../js/chartCreationAdmin.js"></script>
+<script src="../../js/memberList.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
+<script>
+var pages = '{$pages}'
+</script>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 col-md-offset-1 additional">
@@ -26,16 +31,9 @@
                             {foreach $users as $user}
                                 {include file="userElem.tpl" username=$user.name id=$user.id}
                             {/foreach}
-                            <ul class="pagination">
-                                <li><a href="#">&laquo;</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
                         </div>
+                        <ul id="user-pagination" class="pagination">
+                        </ul>
                     </div>
                     <div id="statistics" class="row">
                         <div class="page-header">

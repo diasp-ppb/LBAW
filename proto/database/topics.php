@@ -22,9 +22,9 @@ function getMostRecentTopics() {
 function getFeaturedTopics() {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM post post1
-                                LEFT JOIN (SELECT post2_1.parentid, COUNT(*) AS COUNT
-                                FROM post post2_1 WHERE post2_1.posttype = 'answer'
-                                GROUP BY post2_1.parentid) post2 ON post1.id = post2.parentid
+                            LEFT JOIN (SELECT post2_1.parentid, COUNT(*) AS COUNT
+                            FROM post post2_1 WHERE post2_1.posttype = 'answer'
+                            GROUP BY post2_1.parentid) post2 ON post1.id = post2.parentid
                             WHERE post1.posttype = 'question'
                             ORDER BY post1.rating DESC,post2.count LIMIT 10;");
     $stmt->execute();
@@ -39,12 +39,14 @@ function getTopicContent($topicId) {
     return $stmt->fetch()["content"];
 }
 
-function createTopic($title, $content, $sectionId, $tags) {
+function createTopic($userId, $title, $content, $sectionId, $tags) {
     global $conn;
-    global $userId;
+
+    $conn->beginTransaction();
+
     $stmt = $conn->prepare("BEGIN;
 							SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-							INSERT INTO post VALUES (DEFAULT,?, 'question', NULL,?,?,DEFAULT,NULL,0,?);
+							INSERT INTO post VALUES (DEFAULT, ?, 'question', NULL, ?, ?, DEFAULT, NULL, 0, ?) RETURNING id;
 
 							INSERT INTO tag(name)
 								SELECT newtag.name FROM tag
@@ -57,7 +59,11 @@ function createTopic($title, $content, $sectionId, $tags) {
 								WHERE name = ANY (?::text[]);
 								COMMIT;");
     $stmt->execute(array($userId, $title, $content, $sectionId, to_pg_array($tags),to_pg_array($tags)));
-    return $stmt->errorCode();
+    $topicId = $conn->lastInsertId('post_id_seq');
+   
+    $conn->commit();
+
+    return $topicId;
 }
 
 //TODO VER SE TA na DOC
@@ -131,17 +137,17 @@ function textToMarkdown($topicId){
     return $content;
 }
 
-function isValidVote($topicId){
+function isValidVote($userId, $topicId) {
     global $conn;
-    global $userId;
+
     $stmt=$conn->prepare("SELECT * FROM vote WHERE postid = ? AND  userid= ?");
-    $stmt->execute(array($topicId,$userId));
-    return $stmt->fetch()==0;
+    $stmt->execute(array($topicId, $userId));
+    return $stmt->fetch() == 0;
 }
 
-function insertNewVote($type,$topicId){
+function insertNewVote($userId, $type, $topicId){
     global $conn;
-    global $userId;
+
     $stmt = $conn->prepare("INSERT INTO vote (userid, postid, voteType) VALUES (?,?,?)");
     $stmt->execute(array($userId,$topicId,$type));
     return $stmt->errorCode();

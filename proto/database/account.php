@@ -1,9 +1,16 @@
 <?php
+function createAccount($username, $name, $usertype) {
+    global $conn;
+    $stmt = $conn->prepare("INSERT INTO account(username, name, usertype) VALUES (?, ?, ?) RETURNING id;");
+    $stmt->execute(array($username, $name, $usertype));
+    return $stmt->fetch();
+}
+
 function getAccountByUsername($username) {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM account WHERE username = ?;");
     $stmt->execute(array($username));
-    return $stmt->fetchAll();
+    return $stmt->fetch();
 }
 
 // TODO tem de se dar add no site de lbaw
@@ -14,20 +21,18 @@ function getAccountByUserId($userId) {
     return $stmt->fetchAll();
 }
 
+function getUserList($offset) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT name, id FROM account ORDER BY name LIMIT 10 OFFSET ?");
+    $stmt->execute(array($offset));
+    return $stmt->fetchAll();
+}
+
 function getUserLinks($userId) {
     global $conn;
     $stmt = $conn->prepare("SELECT array_to_json(links) AS links FROM ACCOUNT WHERE id=?;");
     $stmt->execute(array($userId));
     return $stmt->fetchAll();
-}
-
-function getSessionId(){
-    global $conn;
-    global $userId;
-    $stmt = $conn->prepare("SELECT name FROM account WHERE id = ?");
-    $stmt->execute(array($userId));
-    $name= $stmt->fetch()["name"];
-    return $name;
 }
 
 function getNameById($userId){
@@ -36,15 +41,6 @@ function getNameById($userId){
     $stmt->execute(array($userId));
     $name= $stmt->fetch()["name"];
     return $name;
-}
-
-function getSessionImage(){
-    global $conn;
-    global $userId;
-    $stmt=$conn->prepare("SELECT image FROM account WHERE id= ?");
-    $stmt->execute(array($userId));
-    $image=$stmt->fetch()["image"];
-    return $image;
 }
 
 function getUserImage($userId){

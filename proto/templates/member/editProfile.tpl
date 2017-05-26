@@ -1,5 +1,3 @@
-<script src="../../js/editProfile.js"></script>
-
 <div class="container-fluid">
     <div class="row" role="tabpanel">
         <div class="col-md-2 col-md-offset-1 additional">

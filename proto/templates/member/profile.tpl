@@ -64,7 +64,7 @@
             </div>
             <div class="col col-md-5 col-sm-12">
               <h4>Onde comento:</h4>
-              <canvas id="where-i-comment"></canvas>           
+              <canvas id="where-i-comment"></canvas>
             </div>
           </div>
           <div class="row" id="my-topics">
@@ -80,5 +80,4 @@
     </div>
   </div>
 </div>
-<script src="../../js/chartCreationUser.js" > <script>
 {include file='common/footer.tpl'}

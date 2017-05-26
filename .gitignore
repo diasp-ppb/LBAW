@@ -1,3 +1,5 @@
 .idea/
 proto/lib/smarty/cache/*.tpl.php
 proto/templates_c/
+config/init.php
+

@@ -1,6 +1,3 @@
-<script src="../../js/chartCreationAdmin.js"></script>
-<script src="../../js/memberList.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
 <script>
 var pages = '{$pages}'
 </script>

@@ -207,4 +207,14 @@ function timelineGetComments($userId) {
     $stmt->execute(array($userId));
     return $stmt->fetchAll();
 }
+
+
+function updateVisualizations($topicId) {
+    global $conn;
+    $stmt=$conn->prepare("UPDATE post
+                            SET visualizations = visualizations + 1
+                            WHERE id = ?;");
+
+    $stmt->execute(array($topicId));
+}
 ?>

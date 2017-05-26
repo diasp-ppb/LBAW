@@ -18,7 +18,7 @@ function getAccountByUserId($userId) {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM account WHERE id = ?;");
     $stmt->execute(array($userId));
-    return $stmt->fetchAll();
+    return $stmt->fetch();
 }
 
 function getUserList($offset) {

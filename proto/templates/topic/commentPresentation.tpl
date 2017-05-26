@@ -14,10 +14,13 @@
                 <button type="button" id="rating" class="rating btn" disabled="disabled">{$rating}</button>
             </span>
         </div>
-        <div class="row comment-body">
+        <div class="row comment-body panel-body">
             {textToMarkdown($content)}
+            <br>
+            {if isset($smarty.session.id)}
+                <a href="#" class="pull-right"><small>Responder</small></a>
+            {/if}
         </div>
     </div>
 </div>
-{include file="topic/replyPresentation.tpl" comments=$comments}
-<br>
+{include file="topic/replyPresentation.tpl" postid=$postid comments=$comments}

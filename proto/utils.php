@@ -35,4 +35,8 @@ function textToMarkdown($text) {
 function getTimeDiff($start) {
     return round((time() - strtotime($start)) / (60*60*24));
 }
+
+function sortTimeline($a, $b) {
+   return strtotime($b['creationdate']) - strtotime($a['creationdate']);
+}
 ?>

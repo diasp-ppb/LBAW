@@ -5,3 +5,13 @@
         </div>
     {/foreach}
 </div>
+<div class="row">
+    <form role="form" class="col-md-10 col-md-offset-1 new-reply">
+        <div class="form-group">
+            <input type="hidden" name="postid" value={$postid}>
+            <input type="hidden" name="userid" value={$smarty.session.id}>
+            <textarea name="content" class="form-control" placeholder="Insira aqui a sua mensagem..." required></textarea>
+        </div>
+    </form>
+</div>
+<br><br>

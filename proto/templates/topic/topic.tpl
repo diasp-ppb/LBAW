@@ -28,13 +28,17 @@
                 </div>
                 <div class="row topic-body panel-body">
                     {textToMarkdown($topicInfo.content)}
+                    <br>
+                    {if isset($smarty.session.id)}
+                        <a href="#" class="pull-right"><small>Responder</small></a>
+                    {/if}
                 </div>
             </div>
         </div>
-        {include file="topic/replyPresentation.tpl" comments=$comments[$topicInfo.id]}
+        {include file="topic/replyPresentation.tpl" postid=$topicInfo.id comments=$comments[$topicInfo.id]}
 
         {foreach $answers as $answer}
-            {include file="topic/commentPresentation.tpl" userId=$answer.userid id=$answer.id rating=$answer.rating content=$answer.content comments=$comments[$answer.id]}
+            {include file="topic/commentPresentation.tpl" userId=$answer.userid id=$answer.id rating=$answer.rating content=$answer.content postid=$answer.id comments=$comments[$answer.id]}
         {/foreach}
     <div id="wmd-button-bar"></div>
     <textarea id="wmd-input" class="wmd-input"></textarea>

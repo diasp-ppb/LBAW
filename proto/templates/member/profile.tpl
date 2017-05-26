@@ -37,40 +37,22 @@
             <h2>Atividade</h2>
           </div>
           <div class="timeline-centered">
-            <article class="timeline-entry">
+            {foreach $timeline as $event}
+                {include file="member/timelinePresentation.tpl" event=$event}
+            {/foreach}
 
+            <article class="timeline-entry begin">
               <div class="timeline-entry-inner">
-
-                <div class="timeline-icon bg-primary">
-                  <i class="entypo-feather"></i>
-                </div>
-
-                <div class="timeline-label">
-                  <h2><a href="#">José Soares </a> <span>aceitou a tua resposta.</span></h2>
-                  <p>A tua resposta ao tópico "Diferenças de tipos de Web Service: SOAP, REST, XML" satisfez os requisitos do utilizador com sucesso.</p>
-                </div>
+                  <div class="timeline-icon bg-success" style="transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                      <i class="entypo-flight"></i>
+                  </div>
+                  <div class="timeline-label">
+                      <h2>Nasceste</h2>
+                      <p>{$creationDate}</p>
+                  </div>
               </div>
             </article>
-
-
-          <article class="timeline-entry">
-
-            <div class="timeline-entry-inner">
-
-              <div class="timeline-icon bg-primary">
-                <i class="entypo-feather"></i>
-              </div>
-
-              <div class="timeline-label">
-                <h2>Comentaste o tópico <span>"Diferenças de tipos de Web Service: SOAP, REST, XML"</span></h2>
-              </div>
-            </div>
-          </article>
-
           </div>
-
-
-
 
           <div class="row" id="stats">
             <div class="page-header">
@@ -89,10 +71,9 @@
             <div class="page-header">
               <h2>Os meus tópicos</h2>
             </div>
-
-                    {foreach $topics as $topic1 }
-                        {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=10 visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
-                    {/foreach}
+                {foreach $topics as $topic1 }
+                    {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=10 visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+                {/foreach}
           </div>
         </div>
       </div>

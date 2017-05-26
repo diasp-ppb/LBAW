@@ -181,4 +181,30 @@ function getAllTopicComments($topicId) {
     $stmt->execute(array($topicId, $topicId));
     return $stmt->fetchAll(PDO::FETCH_GROUP);   
 }
+
+
+function timelineGetTopics($userId) {
+    global $conn;
+    $stmt=$conn->prepare("SELECT 'question' AS tablename, id AS postid, title, creationdate, rating FROM post WHERE (userid = ? AND posttype = 'question')");
+    $stmt->execute(array($userId));
+    return $stmt->fetchAll();
+}
+
+function timelineGetAnswers($userId) {
+    global $conn;
+    $stmt=$conn->prepare("SELECT 'answer' AS tablename, post1.id AS postid, post1.title AS posttitle, post2.creationdate, post1.rating FROM post post1
+                            JOIN post post2 ON (post1.id = post2.parentid)
+                            WHERE (post2.userid = ? AND post2.posttype = 'answer')");
+    $stmt->execute(array($userId));
+    return $stmt->fetchAll();
+}
+
+function timelineGetComments($userId) {
+    global $conn;
+    $stmt=$conn->prepare("SELECT 'comment' AS tablename, comment.postid AS postid, comment.creationdate, post.title, post.posttype FROM comment
+                            JOIN post ON (comment.postid = post.id) 
+                            WHERE comment.userid = ?");
+    $stmt->execute(array($userId));
+    return $stmt->fetchAll();
+}
 ?>

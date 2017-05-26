@@ -3,6 +3,7 @@ include_once ('../../config/init.php');
 include_once ('../../database/account.php');
 include_once ('../../utils.php');
 
+
 $usernameAuth = explode("@", $_SERVER['Mail'])[0];
 $email = $_SERVER['Mail'];
 $nmec = $_SERVER['UPortoNMec'];
@@ -17,9 +18,13 @@ if ($userDb) {
   $_SESSION['usertype'] = $userDb['usertype'];
 }
 else {
-  $id = createAccount($usernameAuth, $name, 'member');
-  $_SESSION['id'] = $id;
-  $_SESSION['usertype'] = 'member';
+  try {
+    $id = createAccount($usernameAuth, $name, 'member');
+    $_SESSION['id'] = $r['id'];
+    $_SESSION['usertype'] = 'member';
+  } catch (PDOException $e) {
+    print_r($e->getMessage());
+  }
 }
 
 $_SESSION['username'] = $usernameAuth;

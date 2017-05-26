@@ -18,7 +18,7 @@ function getAccountByUserId($userId) {
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM account WHERE id = ?;");
     $stmt->execute(array($userId));
-    return $stmt->fetch();
+    return $stmt->fetchAll();
 }
 
 function getUserList($offset) {
@@ -86,6 +86,11 @@ function updateEmails($userId, $toDelete, $newEmails) {
   $stmt->execute(array($toDelete, $userId, $newEmails));
 }
 
+function setUserImage($imageLink,$userId){
+    global $conn;
+    $stmt=$conn->prepare("UPDATE account SET image=? WHERE id=?;");
+    $stmt->execute(array($imageLink,$userId));
+}
 
 function countUsers(){
     global $conn;

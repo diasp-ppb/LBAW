@@ -76,7 +76,7 @@ a.title {
 }
 
 .replies {
-    margin-bottom: 0.5em;
+    margin-bottom: 3em;
     padding-bottom: 0;
 }
 
@@ -1302,4 +1302,8 @@ div.tags span a {
 
 div.tags span a:hover {
     color: white !important;
+}
+
+#upload-image{
+    padding-left: 15px;
 }

@@ -77,12 +77,6 @@ var pages = '{$pages}'
                         </div>
                         <div class="row">
                             <div class="col col-md-6 col-md-offset-3">
-                                <h3>Tópicos por curso</h3>
-                                <canvas id="topics-by-course"></canvas>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col col-md-6 col-md-offset-3">
                                 <h3>Tags mais utilizadas</h3>
                                 <canvas id="topics-by-tags"></canvas>
                             </div>

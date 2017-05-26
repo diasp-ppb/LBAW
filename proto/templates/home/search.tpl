@@ -23,20 +23,17 @@
                             </div>
                         </li>
                         <li class="list-group-item">
+                            Conteúdo
+                            <div class="material-switch pull-right">
+                                <input id="search_content" name="search_content" type="checkbox" checked="checked"/>
+                                <label for="search_content" class="label-primary"></label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
                             Utilizadores
                             <div class="material-switch pull-right">
                                 <input id="search_users" name="search_option" type="checkbox" checked="checked"/>
                                 <label for="search_users" class="label-primary"></label>
-                            </div>
-                        </li>
-                        <li class="list-group-item active">
-                            Opçoes de pesquisa:
-                        </li>
-                        <li class="list-group-item">
-                            Aproximada
-                            <div class="material-switch pull-right">
-                                <input id="search_aprox" name="search_aprox" type="checkbox"/>
-                                <label for="search_aprox" class="label-primary"></label>
                             </div>
                         </li>
                     </ul>
@@ -50,6 +47,9 @@
                         <div class="search topics">
                             <div class="page-header">
                                 <h2>Tópicos</h2>
+                            </div>
+                            <div class"search-notify-topics">
+                                 <p class="info-msg-topic">Não foram encontrados resultados para a pesquisa </p>
                             </div>
 
                             {foreach $result as $topic1}
@@ -68,6 +68,9 @@
                         <div class="search users">
                             <div class="page-header">
                                 <h2>Utilizadores</h2>
+                            </div>
+                            <div class"search-notify-users">
+                                 <p class="info-msg-user">Não foram encontrados resultados para a pesquisa </p>
                             </div>
 							{foreach $users as $profile}
                             <div class="user-info pull-left resultUser">

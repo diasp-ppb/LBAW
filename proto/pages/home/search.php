@@ -11,6 +11,7 @@ include_once("../common/header.php");
 include_once("../../database/topics.php");
 include_once("../../database/account.php");
 include_once("../../database/tags.php");
+include_once("../../api/serverLog/serverLog.php");
 
 try {
      global $smarty;
@@ -61,7 +62,6 @@ try {
 
       foreach($result3 as &$topic) {
 
-
         $features = getFeaturedTagsTopic($topic["id"]);
         $fTags = array();
 
@@ -73,10 +73,7 @@ try {
         $topic["tags"] = $fTags;
         $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"] ;
       }
-      
-      
       $result4  = getUsersBySearchInput($textSearch);
-      
 } catch(PDOException $e) {
     saveOnLog("search.php:", $e);
     //TODO

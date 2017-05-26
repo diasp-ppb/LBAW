@@ -23,7 +23,9 @@
                     <a class="title" href="#">{$topicInfo.title}</a>
 
                     <div class="tags">
-                        <span class="tag">web-service</span>
+                       {foreach $tags as $v}
+                            <span class="tag"> <a href='../../pages/home/search.php?search={$v.name}'  class="linkTopicTag" title="" rel="tag"> {$v.name} </a> </span>
+                       {/foreach}
                     </div>
                 </div>
                 <div class="row topic-body panel-body">
@@ -35,11 +37,13 @@
                 </div>
             </div>
         </div>
+        
         {include file="topic/replyPresentation.tpl" postid=$topicInfo.id comments=$comments[$topicInfo.id]}
 
         {foreach $answers as $answer}
             {include file="topic/commentPresentation.tpl" userId=$answer.userid id=$answer.id rating=$answer.rating content=$answer.content postid=$answer.id comments=$comments[$answer.id]}
         {/foreach}
+
     <div id="wmd-button-bar"></div>
     <textarea id="wmd-input" class="wmd-input"></textarea>
     <div id="wmd-preview" class="wmd-preview text-left well"></div>

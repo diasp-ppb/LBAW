@@ -6,7 +6,9 @@ include_once('../../config/init.php');
 include_once("../../lib/Parsedown/Parsedown.php");
 include_once("../../database/topics.php");
 include_once("../../database/account.php");
+include_once("../../database/tags.php");
 include_once("../../utils.php");
+
 
 $topicId = htmlspecialchars(trim($_GET["id"]));
 
@@ -35,11 +37,20 @@ try {
 
 $topicInfo['timeDiff'] = getTimeDiff($topicInfo["creationdate"]);
 
+$features = getFeaturedTagsTopic($topicId);
+$fTags = array();
+foreach($features as $feature) {
+    $tag = getTagById($feature["tagid"]);
+    array_push($fTags, $tag);
+}
+
+$smarty->assign('tags',$fTags);
 $smarty->assign('topicInfo', $topicInfo);
 $smarty->assign('userImage', $userImage);
 $smarty->assign('userName', $userName);
 $smarty->assign('answers', $answers);
 $smarty->assign('comments', $comments);
+
 
 $smarty->display('topic/topic.tpl');
 ?>

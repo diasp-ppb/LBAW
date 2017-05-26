@@ -1,15 +1,15 @@
 // Get query params
 var urlParams;
-(window.onpopstate = function () {
+(window.onpopstate = function() {
     var match,
-        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        pl = /\+/g, // Regex for replacing addition symbol with a space
         search = /([^&=]+)=?([^&]*)/g,
-        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-        query  = window.location.search.substring(1);
+        decode = function(s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query = window.location.search.substring(1);
 
     urlParams = {};
     while (match = search.exec(query))
-       urlParams[decode(match[1])] = decode(match[2]);
+        urlParams[decode(match[1])] = decode(match[2]);
 })();
 
 
@@ -78,13 +78,26 @@ function verifyVote(type, topicId) {
     $.ajax({
         type: "post",
         url: "../../api/topic/validate_vote.php",
-        data: {
-            voteType: voteType,
-            topicId: topic
-        }
+        data: { voteType: voteType, topicId: topic }
     }).done(function(data) {
+        console.log(data);
         var value = JSON.parse(data);
+        console.log(value);
+
+        console.log($("button.rating.btn").text());
+
+        if (value != 1) {
+            if (type == 'upvote') {
+                $("button.rating.btn").text(parseInt($("button.rating.btn").text()) + 1);
+                console.log(type);
+            } else if (type == 'downvote') {
+                console.log(type);
+                $("button.rating.btn").text(parseInt($("button.rating.btn").text()) - 1);
+            }
+        }
+
     });
+
     return false;
 }
 

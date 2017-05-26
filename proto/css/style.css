@@ -1303,3 +1303,7 @@ div.tags span a {
 div.tags span a:hover {
     color: white !important;
 }
+
+#upload-image{
+    padding-left: 15px;
+}

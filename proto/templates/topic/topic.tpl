@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        
+
         {include file="topic/replyPresentation.tpl" postid=$topicInfo.id comments=$comments[$topicInfo.id]}
 
         {foreach $answers as $answer}
@@ -47,7 +47,6 @@
     <div id="wmd-button-bar"></div>
     <textarea id="wmd-input" class="wmd-input"></textarea>
     <div id="wmd-preview" class="wmd-preview text-left well"></div>
-    <script type="text/javascript" src="../../js/textEditor.js"></script>
     {include file="common/helpModal.tpl"}
     <div id="buttondiv" class="text-center">
         <input type="submit" class="btn btn-info" value="Comentar"/>

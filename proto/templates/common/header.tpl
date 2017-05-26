@@ -23,8 +23,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
-	<script src="../../js/searchOptions.js"></script>
-    <script src="../../js/validate_vote.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
+    
+    <script src="../../js/scripts.js"></script>
     <script src="../../js/tagsInput.js"></script>
     <link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css"/>
 
@@ -122,7 +127,7 @@
             {else}
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="../auth/login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>    
+                </ul>
             {/if}
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

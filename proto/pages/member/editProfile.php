@@ -22,10 +22,6 @@ try {
     //TODO
 }
 
-if (!isset($user)) {
-    header("Location: ../common/error.php");
-}
-
 try {
     $emails = getUserEmailList($userid);
 } catch(PDOException $e) {

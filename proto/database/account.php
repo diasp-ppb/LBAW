@@ -86,6 +86,11 @@ function updateEmails($userId, $toDelete, $newEmails) {
   $stmt->execute(array($toDelete, $userId, $newEmails));
 }
 
+function setUserImage($imageLink,$userId){
+    global $conn;
+    $stmt=$conn->prepare("UPDATE account SET image=? WHERE id=?;");
+    $stmt->execute(array($imageLink,$userId));
+}
 
 function countUsers(){
     global $conn;

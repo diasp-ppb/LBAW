@@ -138,7 +138,9 @@
                                         <input type="text" placeholder="Username do Github" class="form-control" name="git_username" id="git_username" value="">
                                     </div>
                                 </div>
-
+                                <div class="form-group row hide">
+                                    <input type="text" class="form-control" name="github-image-url" id="github-image-url" value="">
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-md-3">
                                         <div class="form-check">

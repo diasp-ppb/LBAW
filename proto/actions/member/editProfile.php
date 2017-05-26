@@ -30,17 +30,14 @@ if(isset($_POST['name'])) {
 	} catch (PDOException $e) {
 		print_r($e->getMessage());
 	}
-
-	header("Location: ../../pages/member/profile.php?id=" . $id);
 }
 
-/*if(isset($_POST["git_username"])){
-	$imagePath = "github.com/" . $_POST["git_username"]. ".png";
-	setUserImage($imagePath,$_SESSION["id"]);
-
-	header("Location: ../../pages/member/profile.php?id=" . $_SESSION["id"]);
-} else*/
-if($_FILES["upload-image"]["error"]==0){
+if(sizeof($_POST["git_username"])>0){
+	$currentImage=getUserImage($_SESSION["id"]);
+	unlink($currentImage);
+	setUserImage($_POST["github-image-url"],$_SESSION["id"]);
+}
+else if($_FILES["upload-image"]["error"]==0){
 	print_r($_FILES);
 	$destination_directory = "../../resources/images/users/";
 	$temporary = explode(".", $_FILES["upload-image"]["name"]);
@@ -53,8 +50,8 @@ if($_FILES["upload-image"]["error"]==0){
 	unlink($currentImage);
 	move_uploaded_file($sourcePath, $targetPath);
 	setUserImage($targetPath,$_SESSION["id"]);
-
-	header("Location: ../../pages/member/profile.php?id=" . $_SESSION["id"]);
 }
+
+header("Location: ../../pages/member/profile.php?id=" . $_SESSION["id"]);
 
 ?>

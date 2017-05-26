@@ -113,7 +113,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" style="background-color: #10354b">
                         <a href="#" class="dropdown-toggle" style="background-color: #10354b" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <img class="img-circle" alt="user" src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400">
+                            <img class="img-circle" alt="user" src="{$image}">
                             <span>{$smarty.session.username}</span>
                             <span class="caret"></span>
                         </a>

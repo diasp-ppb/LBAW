@@ -18,7 +18,19 @@ $(document).ready(function() {
 
     $('#git_username').on('focusout',function () {
         if($(this).val().length>0){
-            $('#submit-image').removeAttr("disabled");
+            var userURL="https://api.github.com/users/"+$(this).val();
+            console.log(userURL);
+            $.ajax({
+                type: "get",
+                url: userURL
+            }).done(function(data) {
+                $('#github-image-url').val(data.avatar_url);
+                console.log($('#github-image-url').val());
+                $('#submit-image').removeAttr("disabled");
+            }).fail(function () {
+                $('#message').html('<div class="alert alert-warning" role="alert">O utilizador do github que introduziu não existe.</div>');
+                $('#submit-image').prop('disabled',true);
+            });
         }
     });
 

@@ -29,8 +29,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
     
-    <script src="../../js/scripts.js"></script>
     <script src="../../js/tagsInput.js"></script>
+    <script src="../../js/scripts.js"></script>
+   
     <link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css"/>
 
 

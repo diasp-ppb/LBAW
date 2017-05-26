@@ -13,17 +13,17 @@ try {
 
 
     foreach($featuredTopics as &$topic) {
-    $features = getFeaturedTagsTopic($topic["id"]);
-    $fTags = array();
+        $features = getFeaturedTagsTopic($topic["id"]);
+        $fTags = array();
 
-    foreach($features as $feature) {
-            $tag = getTagById($feature["tagid"]);
-            array_push($fTags, $tag);
-        }
+        foreach($features as $feature) {
+                $tag = getTagById($feature["tagid"]);
+                array_push($fTags, $tag);
+            }
 
-        $topic["tags"] = $fTags;
-        $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
-        $topic["answers"]= countTopicAnswers($topic["id"])["count"];
+            $topic["tags"] = $fTags;
+            $topic["author"] = getAccountByUserId($topic["userid"])[0]["name"];
+            $topic["answers"]= countTopicAnswers($topic["id"])["count"];
     }
 
 

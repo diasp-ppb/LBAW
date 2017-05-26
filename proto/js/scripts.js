@@ -1,3 +1,18 @@
+// Get query params
+var urlParams;
+(window.onpopstate = function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
+
+
 $(document).ready(function() {
     if ($('body').hasClass('admin')) {
         loadAdmin();
@@ -9,6 +24,8 @@ $(document).ready(function() {
         loadEditProfile();
     } else if ($('body').hasClass('search')) {
         loadSearch();
+    } else if ($('body').hasClass('topic')) {
+        loadTopic();
     }
 
     loadFooter();
@@ -27,7 +44,6 @@ function loadCreateTopic() {
     validateCreateTopic();
     disableKeySubmit("createTopicForm");
     runTextEditor();
-    tagsTypeAhead();
 }
 
 function loadEditProfile() {
@@ -38,9 +54,23 @@ function loadSearch() {
     searchOptions();
 }
 
+function loadTopic() {
+    updateVisualizations();
+}
 
 
+function updateVisualizations() {
+    $.ajax({
+        type: "post",
+        url: "../../api/topic/updateVisualizations.php",
+        data: {
+            id: urlParams['id'],
+        }
+    });
+}
 
+
+/* Função utilizada em calls do 'upvote' (não é necessário fazer load) */
 function verifyVote(type, topicId) {
     var voteType = type;
     var topic = topicId;
@@ -226,41 +256,6 @@ function runTextEditor() {
     $("#wmd-preview").css({ 'word-wrap': "break-word" });
     $("#wmd-preview").css({ 'width': "100%" });
 }
-
-
-function tagsTypeAhead() {
-    var todos = {
-        url: '../../api/topic/typeAhead.php',
-        prepare: function(query, settings) {
-            settings.url += '?query=' + query;
-            return settings;
-        },
-        filter: function(tags) {
-
-            console.log("tags: " + tags);
-            return tags;
-        }
-    };
-
-    var tags = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.whitespace,
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        remote: todos
-    });
-
-    tags.initialize();
-
-    $("#tags").tagsinput({
-        allowDuplicates: true,
-        typeaheadjs: {
-            name: "tags",
-            source: tags.ttAdapter(),
-            limit: 10
-        },
-        freeInput: true
-    });
-}
-
 
 
 function handleTemplates() {

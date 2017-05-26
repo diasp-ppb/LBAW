@@ -7,7 +7,7 @@ $query = $_GET["query"];
 try{
     $result = getTagsFuzzy($query);
 }catch (PDOException $e) {
-    //TODO
+    echo $e->getMessage(); //TODO
 }
 $name = array();
 foreach($result as $tag) {

@@ -1,3 +1,4 @@
+<script src="../../js/createTopic.js"></script>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-offset-2 col-md-8 form text-center">
@@ -26,11 +27,12 @@
                     <script type="text/javascript" src="../../js/textEditor.js"></script>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-12   ">
-                        <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-info">
+                    <div class="col-sm-12">
+                        <input id="submit-topic" name="submit" type="submit" value="Submit" class="btn btn-info">
                     </div>
                 </div>
             </form>
+            <div id="createTopic-messages"></div>
             <script src="../../js/lockSubmit.js"> </script>
             {include file="common/helpModal.tpl"}
         </div>

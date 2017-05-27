@@ -36,11 +36,10 @@
           <div class="page-header">
             <h2>Atividade</h2>
           </div>
-          <div class="timeline-centered">
+          <div id="timeline" class="timeline-centered">
             {foreach $timeline as $event}
                 {include file="member/timelinePresentation.tpl" event=$event}
             {/foreach}
-
             <article class="timeline-entry begin">
               <div class="timeline-entry-inner">
                   <div class="timeline-icon bg-success" style="transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
@@ -52,6 +51,9 @@
                   </div>
               </div>
             </article>
+          </div>
+          <div class="text-center">
+            <button id="show-more" type="button" class="btn">+</button>
           </div>
 
           <div class="row" id="stats">

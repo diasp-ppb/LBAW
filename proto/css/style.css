@@ -1324,3 +1324,7 @@ hr {
   background-color:#FFFF00;
   height: 1px;
 }
+
+.profile article.timeline-entry {
+    display: none;
+}

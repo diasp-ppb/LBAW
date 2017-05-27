@@ -37,6 +37,7 @@ function loadAdmin() {
 
 function loadProfile() {
     createUserCharts();
+    handleTimeline();
 }
 
 function loadCreateTopic() {
@@ -560,4 +561,35 @@ function handleComments() {
             }
         });
     });
+}
+
+
+function handleTimeline() {
+    if ( typeof handleTimeline.showLimit == 'undefined' ) {
+        handleTimeline.showLimit = 5;
+    }
+
+    hideShowMore(handleTimeline.showLimit);
+    limitTimelineShow(handleTimeline.showLimit);
+
+    $("#show-more").click(function() {
+        handleTimeline.showLimit += 5;
+        limitTimelineShow(handleTimeline.showLimit);
+        hideShowMore(handleTimeline.showLimit);
+    });
+}
+
+function limitTimelineShow(showLimit) {
+    $('#timeline article').each(function(index) {
+        if (index < showLimit) {
+            $(this).fadeIn("slow");
+        }
+        else return;
+    });
+}
+
+function hideShowMore(showLimit) {
+    if (showLimit >= $('#timeline article').length) {
+        $("#show-more").hide();
+    }
 }

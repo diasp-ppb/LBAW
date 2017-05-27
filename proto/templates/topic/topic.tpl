@@ -39,9 +39,9 @@
             </div>
 
             {include file="topic/replyPresentation.tpl" postid=$topicInfo.id comments=$comments[$topicInfo.id]}
-
+            
             {foreach $answers as $answer}
-                {include file="topic/commentPresentation.tpl" userId=$answer.userid rating=$answer.rating content=$answer.content postid=$answer.id comments=$comments[$answer.id]}
+                {include file="topic/commentPresentation.tpl" creatorId=$topicInfo.userid userId=$answer.userid rating=$answer.rating content=$answer.content postid=$answer.id comments=$comments[$answer.id]}
             {/foreach}
         </div>
         <hr>

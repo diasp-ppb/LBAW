@@ -16,8 +16,7 @@ $userDb = getAccountByUsername($usernameAuth);
 if ($userDb) {
   $_SESSION['id'] = $userDb['id'];
   $_SESSION['usertype'] = $userDb['usertype'];
-}
-else {
+} else {
   try {
     $id = createAccount($usernameAuth, $name, 'member');
     $_SESSION['id'] = $r['id'];

@@ -1307,3 +1307,14 @@ div.tags span a:hover {
 #upload-image{
     padding-left: 15px;
 }
+
+.topic form.new-reply {
+    display: none;
+}
+
+.topic button.new-reply {
+    margin-top: 5px;
+    height: 2.2em;
+    font-size: 0.8em;
+    line-height: 50%;
+}

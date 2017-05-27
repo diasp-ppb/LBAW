@@ -32,7 +32,7 @@
                     {textToMarkdown($topicInfo.content)}
                     <br>
                     {if isset($smarty.session.id)}
-                        <a href="#" class="pull-right"><small>Responder</small></a>
+                        <a href="#" class="pull-right new-reply id-{$topicInfo.id}"><small>Responder</small></a>
                     {/if}
                 </div>
             </div>
@@ -44,7 +44,7 @@
         {include file="topic/replyPresentation.tpl" postid=$topicInfo.id comments=$comments[$topicInfo.id]}
 
         {foreach $answers as $answer}
-            {include file="topic/commentPresentation.tpl" userId=$answer.userid id=$answer.id rating=$answer.rating content=$answer.content postid=$answer.id comments=$comments[$answer.id]}
+            {include file="topic/commentPresentation.tpl" userId=$answer.userid rating=$answer.rating content=$answer.content postid=$answer.id comments=$comments[$answer.id]}
         {/foreach}
 
     <div id="wmd-button-bar"></div>

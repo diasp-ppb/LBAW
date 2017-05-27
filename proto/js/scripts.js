@@ -56,6 +56,7 @@ function loadSearch() {
 
 function loadTopic() {
     updateVisualizations();
+    handleComments();
 }
 
 
@@ -64,7 +65,7 @@ function updateVisualizations() {
         type: "post",
         url: "../../api/topic/updateVisualizations.php",
         data: {
-            id: urlParams['id'],
+            id: urlParams['id']
         }
     });
 }
@@ -444,4 +445,55 @@ function results() {
             $(".info-msg-user").hide();
         }
     }
+}
+
+
+function handleComments() {
+    // Show and hide comment form
+    $("a.new-reply").click(function() {
+        var classes = $(this).attr("class").split(" ");
+        for (elemClass of classes) {
+            if (elemClass.match("^id-")) {
+                $("form." + elemClass).slideToggle();
+            }
+        }
+    });
+
+
+    // Send comment
+    $("button.new-reply").click(function() {
+        var button = $(this);
+        var textArea = button.siblings("textarea");
+        if (textArea.val() === undefined || textArea.val() == "") {
+            textArea.attr('placeholder', 'Escreva uma mensagem antes de enviar!');
+            return false;
+        }
+
+        var values = {};
+        $(this).siblings().each(function() {
+            var elem = $(this);
+            values[elem.attr('name')] =  elem.val();
+        });
+
+        $.ajax({
+            type: "post",
+            url: "../../api/topic/insertComment.php",
+            dataType: 'json',
+            data: { values : values }
+        })
+        .done(function(data) {
+            console.log(data);
+            if (data === "success") {
+                html = '<div class="col-md-10 col-md-offset-1 panel-body reply">' +
+                            '<span class="text-muted"><strong>You</strong> commented just now:</span> <span class="reply-text">' + values['content'] + '</span>'
+                       '</div>';
+                button.parents("div.row").prev("div.row.replies").prepend(
+                    $(html).hide().fadeIn('slow')
+                );
+            } else {
+                textArea.val("");
+                textArea.attr('placeholder', 'Ocorreu um erro, tente novamente mais tarde.');
+            }
+        });
+    });
 }

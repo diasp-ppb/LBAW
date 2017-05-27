@@ -233,4 +233,12 @@ function updateVisualizations($topicId) {
 
     $stmt->execute(array($topicId));
 }
+
+
+function createComment($postid, $userid, $content) {
+    global $conn;
+    $stmt=$conn->prepare("INSERT INTO comment(postid, userid, content) VALUES (?, ?, ?);");
+    $stmt->execute(array($postid, $userid, $content));
+}
+
 ?>

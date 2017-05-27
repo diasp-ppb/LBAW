@@ -1,4 +1,4 @@
-<div class="row attach-container" id="{$id}">
+<div class="row attach-container" id="{$postid}">
     <div class="col-md-1">
         <div class="thumbnail hidden-xs hidden-sm">
             <img class="img-responsive user-photo" src="{getUserImage($userId)}">
@@ -18,7 +18,7 @@
             {textToMarkdown($content)}
             <br>
             {if isset($smarty.session.id)}
-                <a href="#" class="pull-right"><small>Responder</small></a>
+                <a href="#" class="pull-right new-reply id-{$postid}"><small>Responder</small></a>
             {/if}
         </div>
     </div>

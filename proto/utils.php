@@ -1,4 +1,6 @@
 <?php
+include_once("../../lib/Parsedown/Parsedown.php");
+
 function to_pg_array($set) {
     settype($set, 'array'); // can be called with a scalar or array
     $result = array();
@@ -27,7 +29,7 @@ function getNames($name) {
 
 
 function textToMarkdown($text) {
-    $Parsedown=new Parsedown();
+    $Parsedown = new Parsedown();
     $content = $Parsedown->text($text);
     return $content;
 }

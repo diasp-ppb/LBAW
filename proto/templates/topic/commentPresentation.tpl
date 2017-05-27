@@ -1,4 +1,4 @@
-<div class="row attach-container" id="{$postid}">
+<div class="row attach-container comment" id="{$postid}">
     <div class="col-md-1">
         <div class="thumbnail hidden-xs hidden-sm">
             <img class="img-responsive user-photo" src="{getUserImage($userId)}">

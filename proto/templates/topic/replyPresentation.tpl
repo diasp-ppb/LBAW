@@ -5,7 +5,7 @@
         </div>
     {/foreach}
 </div>
-<div class="row">
+<div class="row new-reply">
     <form role="form" class="col-md-10 col-md-offset-1 new-reply id-{$postid}">
         <div class="form-group">
             <input type="hidden" name="postid" value={$postid}>

@@ -69,11 +69,32 @@ function updateVisualizations() {
     });
 }
 
+function verifyVotesButtons(topicId,userId){
+    console.log("Entrou");
+    var tagButton;
+    $.ajax({
+        type: "post",
+        url: "../../api/topic/verify_votes.php",
+        data: { topicId: topicId, userId: userId }
+    }).done(function(data){
+        var value=JSON.parse(data);
+        if(value==0){
+            tagButton="#"+topicId+" button.upvote.btn";
+            $(tagButton).attr('style','background-color:#5cb85c !important');
+        }else if(value==1){
+            tagButton="#"+topicId+" button.downvote.btn";
+            $(tagButton).attr('style','background-color:#d9534f !important');
+        }else if(value==2){
+        }
+    });
+}
 
 /* Função utilizada em calls do 'upvote' (não é necessário fazer load) */
 function verifyVote(type, topicId) {
     var voteType = type;
     var topic = topicId;
+    var tagTopic="#"+topic+" button.rating.btn";
+    var tagButton;
 
     $.ajax({
         type: "post",
@@ -84,15 +105,41 @@ function verifyVote(type, topicId) {
         var value = JSON.parse(data);
         console.log(value);
 
-        console.log($("button.rating.btn").text());
+        //console.log($(tagTopic).text());
 
-        if (value != 1) {
+        if(value == 0){
             if (type == 'upvote') {
-                $("button.rating.btn").text(parseInt($("button.rating.btn").text()) + 1);
-                console.log(type);
+                tagButton="#"+topicId+" button.upvote.btn";
+                console.log($(tagButton).attr('style'));
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
             } else if (type == 'downvote') {
-                console.log(type);
-                $("button.rating.btn").text(parseInt($("button.rating.btn").text()) - 1);
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).removeAttr('style');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 1);
+            }
+        } else if(value == 1){
+            if (type == 'upvote') {
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).removeAttr("style");
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).attr('style','background-color:#5cb85c !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 2);
+            } else if (type == 'downvote') {
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).removeAttr("style");
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).attr('style','background-color:#d9534f !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 2);
+            }
+        } else if (value == 2) {
+            if (type == 'upvote') {
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).attr('style','background-color:#5cb85c !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 1);
+            } else if (type == 'downvote') {
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).attr('style','background-color:#d9534f !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
             }
         }
 

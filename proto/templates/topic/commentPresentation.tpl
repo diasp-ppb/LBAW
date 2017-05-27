@@ -22,5 +22,8 @@
             {/if}
         </div>
     </div>
+    <script>
+        verifyVotesButtons({$id},{$smarty.session.id});
+    </script>
 </div>
 {include file="topic/replyPresentation.tpl" postid=$postid comments=$comments}

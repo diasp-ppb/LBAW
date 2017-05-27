@@ -1231,8 +1231,8 @@ div.tabbable-panel ul.nav li {
 button.upvote,
 button.downvote,
 button.correct {
-    background-color: #10354b !important;
-    color: white !important;
+    background-color: #10354b;
+    color: white;
 }
 
 button.upvote:hover {

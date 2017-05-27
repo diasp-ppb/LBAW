@@ -130,12 +130,20 @@ function getTopicAnswers($topicId) {
     return $stmt->fetchAll();
 }
 
-function isValidVote($userId, $topicId) {
+function hasAlreadyMade($userId,$topicId,$type){
     global $conn;
 
-    $stmt=$conn->prepare("SELECT * FROM vote WHERE postid = ? AND  userid= ?");
-    $stmt->execute(array($topicId, $userId));
-    return $stmt->fetch() == 0;
+    $stmt=$conn->prepare("SELECT * FROM vote WHERE postid= ? AND userid=? AND voteType=?");
+    $stmt->execute(array($topicId,$userId,$type));
+    return $stmt->fetch()>0;
+}
+
+function getTopicVoteType($userId,$topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("SELECT votetype FROM vote WHERE postid= ? AND userid=?");
+    $stmt->execute(array($topicId,$userId));
+    return $stmt->fetchAll();
 }
 
 function insertNewVote($userId, $type, $topicId){
@@ -143,6 +151,14 @@ function insertNewVote($userId, $type, $topicId){
 
     $stmt = $conn->prepare("INSERT INTO vote (userid, postid, voteType) VALUES (?,?,?)");
     $stmt->execute(array($userId,$topicId,$type));
+    return $stmt->errorCode();
+}
+
+function deleteVote($userId,$topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("DELETE FROM vote WHERE userid=? AND postid=?");
+    $stmt->execute(array($userId,$topicId));
     return $stmt->errorCode();
 }
 

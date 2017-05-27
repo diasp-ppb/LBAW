@@ -1,20 +1,31 @@
 <?php
 include_once('../../config/init.php');
 include_once('../../database/topics.php');
+include_once('../../api/serverLog/serverLog.php');
 
 $type = $_POST["voteType"];
 $topicId = $_POST["topicId"];
 
+if($type=="upvote")
+    $inverseType="downvote";
+else
+    $inverseType="upvote";
+
 try {
-    if (isValidVote($_SESSION['id'], $topicId)) {
-        insertNewVote($_SESSION['id'], $type, $topicId);
+    if (hasAlreadyMade($_SESSION["id"], $topicId, $type)) {
+        deleteVote($_SESSION['id'],$topicId);
         echo json_encode(0);
-    }
-    else {
+    } else if(hasAlreadyMade($_SESSION['id'],$topicId,$inverseType)){
+        deleteVote($_SESSION['id'],$topicId);
+        insertNewVote($_SESSION['id'], $type, $topicId);
         echo json_encode(1);
     }
+    else {
+        insertNewVote($_SESSION['id'], $type, $topicId);
+        echo json_encode(2);
+    }
 } catch(PDOException $e) {
-    print_r($e->getMessage());
+    saveOnLog("ola",$e->getMessage());
 }
 
 ?>

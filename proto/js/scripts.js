@@ -61,6 +61,106 @@ function loadTopic() {
 }
 
 
+
+function verifyVotesButtons(topicId, userId){ 
+    var tagButton; 
+    $.ajax({ 
+        type: "post", 
+        url: "../../api/topic/verify_votes.php", 
+        data: { topicId: topicId, userId: userId } 
+    }).done(function(data){ 
+        var value=JSON.parse(data); 
+        if(value==0){ 
+            tagButton="#"+topicId+" button.upvote.btn"; 
+            $(tagButton).attr('style','background-color:#5cb85c !important'); 
+        }else if(value==1){ 
+            tagButton="#"+topicId+" button.downvote.btn"; 
+            $(tagButton).attr('style','background-color:#d9534f !important'); 
+        }else if(value==2){ 
+        } 
+    }); 
+} 
+
+
+
+function verifyVotesButtons(topicId, userId) {
+    var tagButton;
+    $.ajax({
+        type: "post",
+        url: "../../api/topic/verify_votes.php",
+        data: { topicId: topicId, userId: userId }
+    }).done(function(data){
+        var value=JSON.parse(data);
+        if(value == 0){
+            tagButton="#"+topicId+" button.upvote.btn";
+            $(tagButton).attr('style','background-color:#5cb85c !important');
+        } else if(value == 1){
+            tagButton="#"+topicId+" button.downvote.btn";
+            $(tagButton).attr('style','background-color:#d9534f !important');
+        } else if(value == 2) {
+        }
+    });
+}
+
+/* Função utilizada em calls do 'upvote' (não é necessário fazer load) */
+function verifyVote(type, topicId) {
+    var voteType = type;
+    var topic = topicId;
+    var tagTopic="#"+topic+" button.rating.btn";
+    var tagButton;
+
+    $.ajax({
+        type: "post",
+        url: "../../api/topic/validate_vote.php",
+        data: { voteType: voteType, topicId: topic }
+    }).done(function(data) {
+        var value = JSON.parse(data);
+
+        if(value == 0){
+            if (type == 'upvote') {
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).removeAttr('style');
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
+            } else if (type == 'downvote') {
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).removeAttr('style');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 1);
+            }
+        } else if(value == 1){
+            if (type == 'upvote') {
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).removeAttr("style");
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).attr('style','background-color:#5cb85c !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 2);
+            } else if (type == 'downvote') {
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).removeAttr("style");
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).attr('style','background-color:#d9534f !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 2);
+            }
+        } else if (value == 2) {
+            if (type == 'upvote') {
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).attr('style','background-color:#5cb85c !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 1);
+            } else if (type == 'downvote') {
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).attr('style','background-color:#d9534f !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
+            }
+        }
+
+    });
+
+    return false;
+}
+
+
+
+
+
 function updateVisualizations() {
     if (performance.navigation.type == 0) {
         $.ajax({
@@ -72,32 +172,6 @@ function updateVisualizations() {
         });
     }
 }
-
-
-/* Função utilizada em calls do 'upvote' (não é necessário fazer load) */
-function verifyVote(type, topicId) {
-    var voteType = type;
-    var topic = topicId;
-
-    $.ajax({
-        type: "post",
-        url: "../../api/topic/validate_vote.php",
-        data: { voteType: voteType, topicId: topic }
-    }).done(function(data) {
-        var value = JSON.parse(data);
-        if (value != 1) {
-            if (type == 'upvote') {
-                $("button.rating.btn").text(parseInt($("button.rating.btn").text()) + 1);
-            } else if (type == 'downvote') {
-                $("button.rating.btn").text(parseInt($("button.rating.btn").text()) - 1);
-            }
-        }
-
-    });
-
-    return false;
-}
-
 
 function loadFooter() {
     var docHeight = $(window).height();

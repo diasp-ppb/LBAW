@@ -27,7 +27,7 @@
         </div>
     </div>
     <script>
-        verifyVotesButtons({$id},{$smarty.session.id});
+        verifyVotesButtons({$postid}, {$smarty.session.id});
     </script>
 </div>
 {include file="topic/replyPresentation.tpl" postid=$postid comments=$comments}

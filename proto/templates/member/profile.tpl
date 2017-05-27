@@ -71,9 +71,9 @@
             <div class="page-header">
               <h2>Os meus tópicos</h2>
             </div>
-                {foreach $topics as $topic1 }
-                    {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=10 visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
-                {/foreach}
+            {foreach $topics as $topic1 }
+                {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=10 visua=$topic1.visualizations topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+            {/foreach}
           </div>
         </div>
       </div>

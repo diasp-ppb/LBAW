@@ -1,4 +1,5 @@
-console.log("run");
+var dataSet = ["AbacoMMA"];
+
 var todos = {
     url: '../../api/topic/typeAhead.php',
     prepare: function(query, settings) {
@@ -6,8 +7,8 @@ var todos = {
         return settings;
     },
     filter: function(tags) {
-
-        console.log("tags: " + tags);
+        //FOR DEBUG
+        //console.log("tags: " + tags);
         return tags;
     }
 };
@@ -15,12 +16,12 @@ var todos = {
 var tags = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
+    local: dataSet,
     remote: todos
 });
 
 tags.initialize();
 
-console.log($("#tags").length);
 $("#tags").tagsinput({
     allowDuplicates: true,
     typeaheadjs: {

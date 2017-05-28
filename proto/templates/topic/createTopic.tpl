@@ -13,6 +13,7 @@
                 <div class="form-group">
                     <label for="tags">Tags</label>
                     <input type="text" class="form-control typeAhead" id="tags" name="tags" placeholder="Tags" data-role="tagsinput" />
+                    <script type="text/javascript" src="../../js/typeAhead.js"></script>
                 </div>
                 <div class="form-group">
                     <div id="wmd-button-bar"></div>

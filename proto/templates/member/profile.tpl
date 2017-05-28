@@ -36,11 +36,10 @@
           <div class="page-header">
             <h2>Atividade</h2>
           </div>
-          <div class="timeline-centered">
+          <div id="timeline" class="timeline-centered">
             {foreach $timeline as $event}
                 {include file="member/timelinePresentation.tpl" event=$event}
             {/foreach}
-
             <article class="timeline-entry begin">
               <div class="timeline-entry-inner">
                   <div class="timeline-icon bg-success" style="transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
@@ -52,6 +51,9 @@
                   </div>
               </div>
             </article>
+          </div>
+          <div class="text-center">
+            <button id="show-more" type="button" class="btn">+</button>
           </div>
 
           <div class="row" id="stats">
@@ -71,9 +73,9 @@
             <div class="page-header">
               <h2>Os meus tópicos</h2>
             </div>
-                {foreach $topics as $topic1 }
-                    {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=10 visua=10 topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
-                {/foreach}
+            {foreach $topics as $topic1 }
+                {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=10 visua=$topic1.visualizations topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
+            {/foreach}
           </div>
         </div>
       </div>

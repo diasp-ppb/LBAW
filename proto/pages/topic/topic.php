@@ -3,7 +3,6 @@ if (!isset($_GET["id"]) || !preg_match('/^\d+$/', $_GET["id"])) {
     header("Location: ../common/error.php");
 }
 include_once('../../config/init.php');
-include_once("../../lib/Parsedown/Parsedown.php");
 include_once("../../database/topics.php");
 include_once("../../database/account.php");
 include_once("../../database/tags.php");

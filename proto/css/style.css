@@ -1284,10 +1284,6 @@ div .topic-presentation .topic-status:nth-child(3) {
     margin-top: 1em;
 }
 
-#buttondiv {
-    width: 100% !important;
-}
-
 .topic #wmd-button-bar {
     margin-top: 4em !important;
 }
@@ -1306,4 +1302,29 @@ div.tags span a:hover {
 
 #upload-image{
     padding-left: 15px;
+}
+
+
+.topic form.new-reply {
+    display: none;
+}
+
+.topic button.new-reply {
+    margin-top: 5px;
+    height: 2.2em;
+    font-size: 0.8em;
+    line-height: 50%;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#FFFF00;
+  height: 1px;
+}
+
+.profile article.timeline-entry {
+    display: none;
 }

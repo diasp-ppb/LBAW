@@ -32,10 +32,10 @@ try {
     $links = json_decode(getUserLinks($userid)[0]['links']);
     $topics = getTopicsByUser($userid);
 
-    $topics = timelineGetTopics($userid);
+    $topicsTimeline = timelineGetTopics($userid);
     $answers = timelineGetAnswers($userid);
     $comments = timelineGetComments($userid);
-    $timeline = array_merge($topics, $answers, $comments);
+    $timeline = array_merge($topicsTimeline, $answers, $comments);
     usort($timeline, "sortTimeline");
 
     $creationDate = getAccountByUserId($userid)['creationdate'];

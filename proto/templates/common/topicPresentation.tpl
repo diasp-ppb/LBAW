@@ -7,17 +7,12 @@
      </div>
 
     <div class="col-md-4 topic-status hidden-xs hidden-sm">
-
       {$answers}
-
         <div>Respostas</div>
     </div>
-    
     <div class="col-md-4 topic-status hidden-xs hidden-sm">
-
       {$visua}
-
-        <div>Visualizações</div>
+        <div>Visitas</div>
     </div>     
       </div>
     </div>

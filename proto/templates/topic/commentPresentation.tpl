@@ -1,4 +1,4 @@
-<div class="row attach-container" id="{$id}">
+<div class="row attach-container comment" id="{$postid}">
     <div class="col-md-1">
         <div class="thumbnail hidden-xs hidden-sm">
             <img class="img-responsive user-photo" src="{getUserImage($userId)}">
@@ -10,7 +10,11 @@
             <span class="pull-right">
                 <button type="button" class="upvote btn" onclick="verifyVote('upvote',{$id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                 <button type="button" class="downvote btn" onclick="verifyVote('downvote',{$id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
-                <button type="button" class="correct btn"><i class="glyphicon glyphicon-ok"></i></button>
+                {if isset($smarty.session)}
+                    {if $smarty.session.usertype == 'expert' || $creatorId == $smarty.session.id}
+                        <button type="button" class="correct btn"><i class="glyphicon glyphicon-ok"></i></button>
+                    {/if}
+                {/if}
                 <button type="button" id="rating" class="rating btn" disabled="disabled">{$rating}</button>
             </span>
         </div>
@@ -18,9 +22,12 @@
             {textToMarkdown($content)}
             <br>
             {if isset($smarty.session.id)}
-                <a href="#" class="pull-right"><small>Responder</small></a>
+                <a href="#" class="pull-right new-reply id-{$postid}"><small>Responder</small></a>
             {/if}
         </div>
     </div>
+    <script>
+        verifyVotesButtons({$postid}, {$smarty.session.id});
+    </script>
 </div>
 {include file="topic/replyPresentation.tpl" postid=$postid comments=$comments}

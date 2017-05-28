@@ -12,7 +12,6 @@ var urlParams;
         urlParams[decode(match[1])] = decode(match[2]);
 })();
 
-
 $(document).ready(function() {
     if ($('body').hasClass('admin')) {
         loadAdmin();
@@ -38,6 +37,7 @@ function loadAdmin() {
 
 function loadProfile() {
     createUserCharts();
+    handleTimeline();
 }
 
 function loadCreateTopic() {
@@ -56,43 +56,100 @@ function loadSearch() {
 
 function loadTopic() {
     updateVisualizations();
+    handleReplies();
+    runTextEditor();
+    handleComments();
 }
 
 
-function updateVisualizations() {
+
+function verifyVotesButtons(topicId, userId){ 
+    var tagButton; 
+    $.ajax({ 
+        type: "post", 
+        url: "../../api/topic/verify_votes.php", 
+        data: { topicId: topicId, userId: userId } 
+    }).done(function(data){ 
+        var value=JSON.parse(data); 
+        if(value==0){ 
+            tagButton="#"+topicId+" button.upvote.btn"; 
+            $(tagButton).attr('style','background-color:#5cb85c !important'); 
+        }else if(value==1){ 
+            tagButton="#"+topicId+" button.downvote.btn"; 
+            $(tagButton).attr('style','background-color:#d9534f !important'); 
+        }else if(value==2){ 
+        } 
+    }); 
+} 
+
+
+
+function verifyVotesButtons(topicId, userId) {
+    var tagButton;
     $.ajax({
         type: "post",
-        url: "../../api/topic/updateVisualizations.php",
-        data: {
-            id: urlParams['id'],
+        url: "../../api/topic/verify_votes.php",
+        data: { topicId: topicId, userId: userId }
+    }).done(function(data){
+        var value=JSON.parse(data);
+        if(value == 0){
+            tagButton="#"+topicId+" button.upvote.btn";
+            $(tagButton).attr('style','background-color:#5cb85c !important');
+        } else if(value == 1){
+            tagButton="#"+topicId+" button.downvote.btn";
+            $(tagButton).attr('style','background-color:#d9534f !important');
+        } else if(value == 2) {
         }
     });
 }
-
 
 /* Função utilizada em calls do 'upvote' (não é necessário fazer load) */
 function verifyVote(type, topicId) {
     var voteType = type;
     var topic = topicId;
+    var tagTopic="#"+topic+" button.rating.btn";
+    var tagButton;
 
     $.ajax({
         type: "post",
         url: "../../api/topic/validate_vote.php",
         data: { voteType: voteType, topicId: topic }
     }).done(function(data) {
-        console.log(data);
         var value = JSON.parse(data);
-        console.log(value);
 
-        console.log($("button.rating.btn").text());
-
-        if (value != 1) {
+        if(value == 0){
             if (type == 'upvote') {
-                $("button.rating.btn").text(parseInt($("button.rating.btn").text()) + 1);
-                console.log(type);
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).removeAttr('style');
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
             } else if (type == 'downvote') {
-                console.log(type);
-                $("button.rating.btn").text(parseInt($("button.rating.btn").text()) - 1);
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).removeAttr('style');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 1);
+            }
+        } else if(value == 1){
+            if (type == 'upvote') {
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).removeAttr("style");
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).attr('style','background-color:#5cb85c !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 2);
+            } else if (type == 'downvote') {
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).removeAttr("style");
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).attr('style','background-color:#d9534f !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 2);
+            }
+        } else if (value == 2) {
+            if (type == 'upvote') {
+                tagButton="#"+topicId+" button.upvote.btn";
+                $(tagButton).attr('style','background-color:#5cb85c !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) + 1);
+            } else if (type == 'downvote') {
+                tagButton="#"+topicId+" button.downvote.btn";
+                $(tagButton).attr('style','background-color:#d9534f !important');
+                $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
             }
         }
 
@@ -101,6 +158,21 @@ function verifyVote(type, topicId) {
     return false;
 }
 
+
+
+
+
+function updateVisualizations() {
+    if (performance.navigation.type == 0) {
+        $.ajax({
+            type: "post",
+            url: "../../api/topic/updateVisualizations.php",
+            data: {
+                id: urlParams['id']
+            }
+        });
+    }
+}
 
 function loadFooter() {
     var docHeight = $(window).height();
@@ -396,5 +468,128 @@ function results() {
         } else {
             $(".info-msg-user").hide();
         }
+    }
+}
+
+
+function handleReplies() {
+    // Show and hide comment form
+    $("body").on('click', 'a.new-reply', function(e) {
+        var classes = $(this).attr("class").split(" ");
+        for (elemClass of classes) {
+            if (elemClass.match("^id-")) {
+                $("form." + elemClass).slideToggle();
+            }
+        }
+
+        e.preventDefault();
+    });
+
+
+    // Send comment
+    $("body").on('click', 'button.new-reply', function() {
+        var button = $(this);
+        var textArea = button.siblings("textarea");
+        if (textArea.val() === undefined || textArea.val() == "") {
+            textArea.attr('placeholder', 'Escreva uma mensagem antes de enviar!');
+            return false;
+        }
+
+        var values = {};
+        $(this).siblings().each(function() {
+            var elem = $(this);
+            values[elem.attr('name')] =  elem.val();
+        });
+
+        $.ajax({
+            type: "post",
+            url: "../../api/topic/insertReply.php",
+            dataType: 'json',
+            data: { values : values }
+        })
+        .done(function(data) {
+            if (data === "success") {
+                html = '<div class="col-md-10 col-md-offset-1 panel-body reply">' +
+                            '<span class="text-muted"><strong>You</strong> commented just now:</span> <span class="reply-text">' + values['content'] + '</span>'
+                       '</div>';
+                button.parents("div.row").prev("div.row.replies").prepend(
+                    $(html).hide().fadeIn('slow')
+                );
+                textArea.val("");
+                textArea.attr('placeholder', 'Insira aqui a sua mensagem...');
+            } else {
+                textArea.val("");
+                textArea.attr('placeholder', 'Ocorreu um erro, tente novamente mais tarde.');
+            }
+        });
+    });
+}
+
+
+
+function handleComments() {
+    $("#submit-topic").click(function() {
+        var button = $(this);
+        var textArea = $("#wmd-input");
+        if (textArea.val() === undefined || textArea.val() == "") {
+            textArea.attr('placeholder', 'Escreva uma mensagem antes de enviar!');
+            return false;
+        }
+
+        values = {};
+        $(this).closest("div.form-group").siblings("div.form-group").children("input").each(function() {
+            var elem = $(this);
+            values[elem.attr('name')] =  elem.val();
+        });
+        values['content'] = textArea.val();
+
+        $.ajax({
+            type: "post",
+            url: "../../api/topic/insertComment.php",
+            dataType: 'html',
+            data: { values : values }
+        })
+        .done(function(html) {
+            if (html == "error") {
+                textArea.val("");
+                textArea.attr('placeholder', 'Ocorreu um erro, tente novamente mais tarde.');
+                $("#wmd-preview").empty();
+            } else {
+                $("#" + values['postid']).parent().append(
+                    $(html).hide().fadeIn('slow')
+                );
+            }
+        });
+    });
+}
+
+
+function handleTimeline() {
+    if ( typeof handleTimeline.showLimit == 'undefined' ) {
+        handleTimeline.showLimit = 5;
+    }
+
+    hideShowMore(handleTimeline.showLimit);
+    limitTimelineShow(handleTimeline.showLimit);
+
+    $("#show-more").click(function() {
+        handleTimeline.showLimit += 5;
+        limitTimelineShow(handleTimeline.showLimit);
+        hideShowMore(handleTimeline.showLimit);
+    });
+}
+
+function limitTimelineShow(showLimit) {
+    $('#timeline article').each(function(index) {
+        if (index < showLimit) {
+            $(this).fadeIn("slow");
+        }
+        else return;
+    });
+}
+
+function hideShowMore(showLimit) {
+    if (showLimit >= $('#timeline article').length) {
+        $("#show-more").hide();
     }
 }

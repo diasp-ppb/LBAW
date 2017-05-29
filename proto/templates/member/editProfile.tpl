@@ -21,7 +21,6 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab1">
                             <form id="editProfile" action="../../actions/member/editProfile.php" method="post">
-                                <input type="hidden" name="id" value="5">
                                 <div class="form-group user name">
                                     <div class="icon-addon addon-md">
                                         <input type="text" placeholder="Nome" class="form-control" name="name" value="{$user.name}">

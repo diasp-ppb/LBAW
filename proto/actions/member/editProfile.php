@@ -5,7 +5,7 @@ include_once("../../database/account.php");
 include_once("../../database/email.php");
 
 if(isset($_POST['name'])) {
-	$id = htmlspecialchars(trim($_POST['id']));
+	$id = $_SESSION['id'];
 	$name = htmlspecialchars(trim($_POST['name']));
 	$location = htmlspecialchars(trim($_POST['location']));
 	$newEmails = array_filter(array_map('trim', $_POST['email']));
@@ -28,7 +28,7 @@ if(isset($_POST['name'])) {
 		updateEmails($id, $toDelete, $newEmails);
 		updateProfile($id, $name, to_pg_array($links));
 	} catch (PDOException $e) {
-		print_r($e->getMessage());
+		saveOnLog("editProfile (Info): ", $e->getMessage());
 	}
 }
 

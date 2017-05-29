@@ -17,7 +17,7 @@
                 </div>
                 {include file='common/textEditor.tpl'}
             </form>
-            <div id="createTopic-messages"></div>
+            <div style="margin-top: 1em;" id="createTopic-messages"></div>
         </div>
     </div>
 </div>

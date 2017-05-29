@@ -142,11 +142,37 @@ function getTopicVoteType($userId,$topicId){
  
     $stmt=$conn->prepare("SELECT votetype FROM vote WHERE postid= ? AND userid=?"); 
     $stmt->execute(array($topicId,$userId)); 
-    return $stmt->fetchAll(); 
-    $stmt=$conn->prepare("SELECT * FROM vote WHERE postid = ? AND  userid= ?"); 
-    $stmt->execute(array($topicId, $userId)); 
-    return $stmt->fetch() == 0; 
-} 
+    return $stmt->fetchAll();
+}
+
+function getAcceptVoteByTopic($topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("SELECT votetype,userid FROM vote WHERE postid= ? AND votetype=?");
+    $stmt->execute(array($topicId,"accept"));
+    return $stmt->fetchAll();
+}
+
+function getUserAcceptTopic($topicId){
+    $vote=getAcceptVoteByTopic($topicId);
+    if(sizeof($vote)>0){
+        return $vote[0]["userid"];
+    }else{
+        return "";
+    }
+}
+
+function getUserIdByTopic($topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("SELECT userid FROM post WHERE id= ?");
+    $stmt->execute(array($topicId));
+    return $stmt->fetchAll()[0]["userid"];
+}
+
+function hasAlreadyAnAccept($topicId){
+    return sizeof(getAcceptVoteByTopic($topicId))>0;
+}
 
 function insertNewVote($userId, $type, $topicId){
     global $conn;
@@ -162,9 +188,15 @@ function deleteVote($userId,$topicId){
     $stmt=$conn->prepare("DELETE FROM vote WHERE userid=? AND postid=?"); 
     $stmt->execute(array($userId,$topicId)); 
     return $stmt->errorCode(); 
-} 
+}
 
+function deleteAcceptVoteByTopic($topicId){
+    global $conn;
 
+    $stmt=$conn->prepare("DELETE FROM vote WHERE postid=? AND votetype=?");
+    $stmt->execute(array($topicId,"accept"));
+    return $stmt->errorCode();
+}
 
 function getTopicsByUser($userId) {
     global $conn;

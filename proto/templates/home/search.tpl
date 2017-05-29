@@ -75,8 +75,10 @@
 							{foreach $users as $profile}
                             <div class="user-info pull-left resultUser">
                                 <div class="user text-center">
-                                    <img src="https://avatars2.githubusercontent.com/u/17344964?v=3&s=400" class="img-thumbnail" style="height: 80px; width: 80px" alt="Profile Picture">
-                                    <h4>{$profile.name}</h4>
+                                    <a href='../../pages/member/profile.php?id={$profile.id}' style="color: #303641">
+                                        <img src={getUserImage($profile.id)} class="img-thumbnail" style="height: 80px; width: 80px" alt="Profile Picture">
+                                        <h4>{$profile.name}</h4>
+                                    </a>
                                 </div>
                             </div>
                             {/foreach}

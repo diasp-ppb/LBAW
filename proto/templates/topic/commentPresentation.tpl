@@ -5,15 +5,17 @@
         </div>
     </div>
     <div class="col-md-10 panel panel-default">
-        <div class="comment-header panel-heading">
+        <div class="comment-header panel-heading" id="{$postid}header">
             <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{getNameById($userId)}</a></strong> <span class="text-muted">comentou à {calculateTimeDiff($id)} dias </span>
             <span class="pull-right">
-                {if isset($smarty.session.id)}
-                <button type="button" class="upvote btn" onclick="verifyVote('upvote',{$id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
-                <button type="button" class="downvote btn" onclick="verifyVote('downvote',{$id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
-                    {if $smarty.session.usertype == 'expert' || $creatorId == $smarty.session.id}
-                        <button type="button" class="correct btn"><i class="glyphicon glyphicon-ok"></i></button>
-                    {/if}
+                {if $smarty.session.id!=getUserIdByTopic($postid)}
+                <button type="button" class="upvote btn" onclick="verifyVote('upvote',{$postid})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
+                <button type="button" class="downvote btn" onclick="verifyVote('downvote',{$postid})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                {if (hasAlreadyAnAccept($postid) && $smarty.session.id==getUserAcceptTopic($postid))}
+                    <button type="button" class="correct btn" onclick="verifyVote('accept',{$postid})"><i class="glyphicon glyphicon-ok"></i>ola1</button>
+                {elseif ($smarty.session.usertype == 'expert' || $creatorId == $smarty.session.id) && !hasAlreadyAnAccept($postid)}
+                        <button type="button" class="correct btn" onclick="verifyVote('accept',{$postid})"><i class="glyphicon glyphicon-ok"></i>ola2</button>
+                {/if}
                 {/if}
                 <button type="button" id="rating" class="rating btn" disabled="disabled">{$rating}</button>
             </span>
@@ -28,6 +30,7 @@
     </div>
     <script>
         verifyVotesButtons({$postid}, {$smarty.session.id});
+        verifyAcceptVotes({$postid});
     </script>
 </div>
 {include file="topic/replyPresentation.tpl" postid=$postid comments=$comments}

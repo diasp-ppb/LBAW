@@ -14,7 +14,7 @@
                         <div>
                             <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{$userName}</a></strong> <span class="text-muted">postou à {$topicInfo.timeDiff} dias</span>
                             <span class="pull-right">
-                                {if isset($smarty.session.id)}
+                                {if isset($smarty.session.id) && $smarty.session.id!=$topicInfo.userid}
                                     <button type="button" class="upvote btn" onclick="verifyVote('upvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                                     <button type="button" class="downvote btn" onclick="verifyVote('downvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
                                 {/if}

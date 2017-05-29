@@ -20,7 +20,7 @@
                 <button type="button" id="rating" class="rating btn" disabled="disabled">{$rating}</button>
                 {if isset($smarty.session)}
                     {if $smarty.session.usertype == 'admin'}
-                        <button type="buton" class="remove btn"><i class="glyphicon glyphicon-remove"></i></button>
+                    <button id="comment{$postid}" type="buton" class="remove remove-comment btn"><i class="glyphicon glyphicon-remove"></i></button>
                     {/if}
                 {/if}
             </span>

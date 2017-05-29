@@ -638,13 +638,26 @@ function addDeleteReply() {
             $.post("../../api/topic/deleteReply.php", {
                 id: replyId
             });
-            $(this).parent().parent().hide("fast");
+            $(this).parent().parent().fadeOut("300", function() {
+                $("#reply" + replyId).parent().parent().remove();
+            });
         }
     );
 }
 
 function addDeleteComment() {
+    $(".remove-comment").click(
+        function() {
+            var commentId = $(this).attr("id").substring(7);
 
+            $.post("../../api/topic/deleteComment.php", {
+                id: commentId
+            });
+
+            $("#" + commentId + ", #replies" + commentId + ", #newreplies" + commentId).fadeOut("300", function() {
+                $("#" + commentId + ", #replies" + commentId + ", #newreplies" + commentId).remove();
+            });
+        });
 }
 
 function addDeleteTopic() {

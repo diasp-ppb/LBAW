@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    line-height: 1.4;
 }
 
 body.editProfile .row input[type=text] {

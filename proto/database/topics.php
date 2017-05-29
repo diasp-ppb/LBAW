@@ -26,7 +26,7 @@ function getFeaturedTopics() {
                             FROM post post2_1 WHERE post2_1.posttype = 'answer'
                             GROUP BY post2_1.parentid) post2 ON post1.id = post2.parentid
                             WHERE post1.posttype = 'question'
-                            ORDER BY post1.rating DESC,post2.count LIMIT 10;");
+                            ORDER BY  post1.visualizations DESC LIMIT 10;");
     $stmt->execute();
     return $stmt->fetchAll();
 }
@@ -321,5 +321,11 @@ function deletePost($postId) {
     $stmt=$conn->prepare("DELETE FROM post WHERE id = ?;");
     $stmt->execute(array($postId));
     return $stmt->errorCode();
+}
+
+function updatePostContent($postid, $content) {
+    global $conn;
+    $stmt=$conn->prepare("UPDATE post SET content = ? WHERE id = ?;");
+    $stmt->execute(array($content, $postid));
 }
 ?>

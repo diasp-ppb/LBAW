@@ -14,13 +14,13 @@
                         <div>
                             <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{$userName}</a></strong> <span class="text-muted">postou há {$topicInfo.timeDiff} dias</span>
                             <span class="pull-right">
-                                {if isset($smarty.session.id) && $smarty.session.id!=$topicInfo.userid}
+                                {if isset($smarty.session.id) && $smarty.session.id != $topicInfo.userid}
                                     <button type="button" class="upvote btn" onclick="verifyVote('upvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                                     <button type="button" class="downvote btn" onclick="verifyVote('downvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
                                 {/if}
                                 <button type="button" class="rating btn" disabled="disabled">{$topicInfo.rating}</button>
                                 {if $smarty.session.usertype == 'admin'}
-                                    <button type="buton" class="remove btn"><i class="glyphicon glyphicon-remove"></i></button>
+                                    <button type="buton" class="remove remove-topic btn"><i class="glyphicon glyphicon-remove"></i></button>
                                 {/if}
                             </span>
                         </div>
@@ -38,8 +38,22 @@
                         <br>
                         {if isset($smarty.session.id)}
                             <a href="#" class="pull-right new-reply id-{$topicInfo.id}"><small>Responder</small></a>
+
+                            {if $smarty.session.id == $topicInfo.userid}
+                                <a href="#" style="margin-right: 1em;" class="pull-right edit-post id-{$topicInfo.id}"><small>Editar</small></a>
+                            {/if}
                         {/if}
                     </div>
+                </div>
+                <div class="row edit-post">
+                    <form role="form" class="col-md-10 col-md-offset-1 edit-post id-{$topicInfo.id}">
+                        <div class="form-group">
+                            <input type="hidden" name="postid" value={$topicInfo.id}>
+                            <input type="hidden" name="userid" value={$smarty.session.id}>
+                            <textarea name="content" class="form-control">{$content}</textarea>
+                            <button type="button" class="btn btn-primary pull-right edit-post id-{$topicInfo.id}">Enviar</button>
+                        </div>
+                    </form>
                 </div>
                 <script>
                     verifyVotesButtons({$topicInfo.id}, {$smarty.session.id});

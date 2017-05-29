@@ -63,6 +63,7 @@ function loadTopic() {
     runTextEditor();
     handleComments();
     addDeleteButtons();
+    handleEdits();
 }
 
 function verifyVotesButtons(topicId, userId) {
@@ -518,16 +519,16 @@ function results() {
             }
 
             if (total > 0) {
-                $(".info-msg-topic").hide();
+                $(".info-msg-topic").hide("slow");
             } else {
-                $(".info-msg-topic").show();
+                $(".info-msg-topic").show("slow");
             }
         }
 
         if ($(".resultUser").length < 1 || $('#search_users')[0].checked == false) {
-            $(".info-msg-user").show();
+            $(".info-msg-user").show("slow");
         } else {
-            $(".info-msg-user").hide();
+            $(".info-msg-user").hide("slow");
         }
     }
 }
@@ -539,7 +540,7 @@ function handleReplies() {
         var classes = $(this).attr("class").split(" ");
         for (elemClass of classes) {
             if (elemClass.match("^id-")) {
-                $("form." + elemClass).slideToggle();
+                $("form.new-reply." + elemClass).slideToggle();
             }
         }
 
@@ -638,14 +639,26 @@ function addDeleteReply() {
             $.post("../../api/topic/deleteReply.php", {
                 id: replyId
             });
-
-            $(this).parent().parent().remove();
+            $(this).parent().parent().fadeOut("300", function() {
+                $("#reply" + replyId).parent().parent().remove();
+            });
         }
     );
 }
 
 function addDeleteComment() {
+    $(".remove-comment").click(
+        function() {
+            var commentId = $(this).attr("id").substring(7);
 
+            $.post("../../api/topic/deleteComment.php", {
+                id: commentId
+            });
+
+            $("#" + commentId + ", #replies" + commentId + ", #newreplies" + commentId).fadeOut("300", function() {
+                $("#" + commentId + ", #replies" + commentId + ", #newreplies" + commentId).remove();
+            });
+        });
 }
 
 function addDeleteTopic() {
@@ -679,4 +692,60 @@ function hideShowMore(showLimit) {
     if (showLimit >= $('#timeline article').length) {
         $("#show-more").hide();
     }
+}
+
+
+function handleEdits() {
+    // Show and hide post form
+    $("body").on('click', 'a.edit-post', function(e) {
+        var classes = $(this).attr("class").split(" ");
+        for (elemClass of classes) {
+            if (elemClass.match("^id-")) {
+                $("form.edit-post." + elemClass).slideToggle();
+            }
+        }
+
+        e.preventDefault();
+    });
+
+
+    // Update post
+    $("body").on('click', 'button.edit-post', function() {
+        var button = $(this);
+        var textArea = button.siblings("textarea");
+        if (textArea.val() === undefined || textArea.val() == "") {
+            textArea.attr('placeholder', 'Escreva uma mensagem antes de enviar!');
+            return false;
+        }
+
+        var values = {};
+        $(this).siblings().each(function() {
+            var elem = $(this);
+            values[elem.attr('name')] = elem.val();
+        });
+
+        $.ajax({
+                type: "post",
+                url: "../../api/topic/updatePost.php",
+                dataType: 'json',
+                data: { values: values }
+            })
+            .done(function(data) {
+                if (data == "accept") {
+                    var paragraph = button.closest("div.edit-post").prev().children(".panel-body").children("p");
+                    paragraph.text(values['content']);
+                    paragraph.fadeIn();
+                    
+                    var classes = button.attr("class").split(" ");
+                    for (elemClass of classes) {
+                        if (elemClass.match("^id-")) {
+                            $("a.edit-post." + elemClass).click();
+                        }
+                    }
+                } else {
+                    textArea.val("");
+                    textArea.attr('placeholder', 'Ocorreu um erro, tente novamente mais tarde.');
+                }
+            });
+    });
 }

@@ -20,7 +20,7 @@
                 <button type="button" id="rating" class="rating btn" disabled="disabled">{$rating}</button>
                 {if isset($smarty.session)}
                     {if $smarty.session.usertype == 'admin'}
-                        <button type="buton" class="remove btn"><i class="glyphicon glyphicon-remove"></i></button>
+                    <button id="comment{$postid}" type="buton" class="remove remove-comment btn"><i class="glyphicon glyphicon-remove"></i></button>
                     {/if}
                 {/if}
             </span>
@@ -30,8 +30,21 @@
             <br>
             {if isset($smarty.session.id)}
                 <a href="#" class="pull-right new-reply id-{$postid}"><small>Responder</small></a>
+                {if $smarty.session.id == $userId}
+                    <a href="#" style="margin-right: 1em;" class="pull-right edit-post id-{$postid}"><small>Editar</small></a>
+                {/if}
             {/if}
         </div>
+    </div>
+    <div class="row edit-post">
+        <form role="form" class="col-md-10 col-md-offset-1 edit-post id-{$postid}">
+            <div class="form-group">
+                <input type="hidden" name="postid" value={$postid}>
+                <input type="hidden" name="userid" value={$smarty.session.id}>
+                <textarea name="content" class="form-control">{$content}</textarea>
+                <button type="button" class="btn btn-primary pull-right edit-post id-{$postid}">Enviar</button>
+            </div>
+        </form>
     </div>
     <script>
         verifyVotesButtons({$postid}, {$smarty.session.id});

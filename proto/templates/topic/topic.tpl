@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <input type="hidden" name="postid" value={$topicInfo.id}>
                             <input type="hidden" name="userid" value={$smarty.session.id}>
-                            <textarea name="content" class="form-control">{$content}</textarea>
+                            <textarea name="content" class="form-control">{$topicInfo.content}</textarea>
                             <button type="button" class="btn btn-primary pull-right edit-post id-{$topicInfo.id}">Enviar</button>
                         </div>
                     </form>

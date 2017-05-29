@@ -81,6 +81,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="../../pages/member/profile.php?id={$smarty.session.id}"><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
                             <li><a href="../../pages/topic/createTopic.php"><i class="glyphicon glyphicon-plus"></i> Novo tópico</a></li>
+                            {if $smarty.session.usertype == 'admin'}
+                            <li><a href="../../pages/admin/admin.php"><i class="glyphicon glyphicon-eye-open"></i> Admin </a></li>
+                            {/if}
                             <li role="presentation" class="divider"></li>
                             <li><a href="../auth/logout.php"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
                         </ul>

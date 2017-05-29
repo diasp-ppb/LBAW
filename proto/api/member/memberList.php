@@ -1,5 +1,5 @@
 <?php
-if (!isset($_GET["page"]) || !preg_match('/^\d+$/', $_GET["page"])) {
+if (!isset($_GET["page"]) || !preg_match('/^\d+$/', htmlspecialchars(trim($_GET["page"])))) {
     header('HTTP/1.1 500 Internal Server Error');
     header('Content-Type: application/json; charset=UTF-8');
     die(json_encode(array('message' => 'Internal Server Error', 'code' => 500)));

@@ -6,7 +6,7 @@
                 {$comment.content}
                 {if isset($smarty.session)}
                     {if $smarty.session.usertype == 'admin'}
-                    <i class="glyphicon glyphicon-remove pull-right remove-reply"></i>
+                    <i id="reply{$comment.id}" class="glyphicon glyphicon-remove pull-right remove-reply"></i>
                     {/if}
                 {/if}
             </span>

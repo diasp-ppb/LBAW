@@ -17,11 +17,11 @@
                                 {if isset($smarty.session.id)}
                                     <button type="button" class="upvote btn" onclick="verifyVote('upvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                                     <button type="button" class="downvote btn" onclick="verifyVote('downvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
-                                    {if $smarty.session.usertype == 'admin'}
-                                        <button type="buton" class="remove btn"><i class="glyphicon glyphicon-remove"></i></button>
-                                    {/if}
                                 {/if}
                                 <button type="button" class="rating btn" disabled="disabled">{$topicInfo.rating}</button>
+                                {if $smarty.session.usertype == 'admin'}
+                                    <button type="buton" class="remove btn"><i class="glyphicon glyphicon-remove"></i></button>
+                                {/if}
                             </span>
                         </div>
 

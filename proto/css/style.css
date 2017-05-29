@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    line-height: 1.4;
 }
 
 body.editProfile .row input[type=text] {
@@ -1246,6 +1247,10 @@ button.rating {
     background-color: white !important;
     border: 1px solid #10354b;
     font-weight: bold;
+}
+
+li > i.disable-member:hover {
+    cursor: pointer;
 }
 
 button.remove {

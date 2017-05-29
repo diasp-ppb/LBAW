@@ -12,13 +12,13 @@
 
         <div class="timeline-label">
             {if $event.tablename == 'question'}
-                <h2><a href="#">Criaste o tópico</a> <span>{$event.title}</span></h2>
+                <h2><a href='../../pages/topic/topic.php?id={$event.postid}' style="color: #303641">Criou o tópico</a> <span>{$event.title}</span></h2>
                 <p>{$event.creationdate}</p>
             {elseif $event.tablename == 'answer'}
-                <h2><a href="#">Respondeste ao tópico</a> <span>{$event.posttitle}</span></h2>
+                <h2><a href='../../pages/topic/topic.php?id={$event.postid}' style="color: #303641">Respondeu ao tópico</a> <span>{$event.posttitle}</span></h2>
                 <p>{$event.creationdate}</p>
             {elseif $event.tablename == 'comment'}
-                <h2><a href="#">Comentaste o tópico</a> <span>{$event.title}</span></h2>
+                <h2><a href='../../pages/topic/topic.php?id={$event.postid}' style="color: #303641">Comentou o tópico</a> <span>{$event.title}</span></h2>
                 <p>{$event.creationdate}</p>
             {/if}
         </div>

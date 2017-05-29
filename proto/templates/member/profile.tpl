@@ -46,7 +46,7 @@
                       <i class="entypo-flight"></i>
                   </div>
                   <div class="timeline-label">
-                      <h2>Nasceste</h2>
+                      <h2>Nasceu</h2>
                       <p>{$creationDate}</p>
                   </div>
               </div>

@@ -8,6 +8,7 @@ include_once("../../database/account.php");
 include_once("../../database/email.php");
 include_once("../../database/topics.php");
 include_once("../../utils.php");
+include_once("../../api/serverLog/serverLog.php");
 
 $userid = htmlspecialchars(trim($_GET["id"]));
 

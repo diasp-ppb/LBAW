@@ -12,10 +12,12 @@
                 <div class="col-md-10 topic-main panel panel-default">
                     <div class="row topic-header panel-heading">
                         <div>
-                            <strong>{$userName}</strong> <span class="text-muted">posted {$topicInfo.timeDiff} days ago</span>
+                            <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{$userName}</a></strong> <span class="text-muted">postou à {$topicInfo.timeDiff} dias</span>
                             <span class="pull-right">
-                                <button type="button" class="upvote btn" onclick="verifyVote('upvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
-                                <button type="button" class="downvote btn" onclick="verifyVote('downvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                                {if isset($smarty.session.id)}
+                                    <button type="button" class="upvote btn" onclick="verifyVote('upvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
+                                    <button type="button" class="downvote btn" onclick="verifyVote('downvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                                {/if}
                                 <button type="button" class="rating btn" disabled="disabled">{$topicInfo.rating}</button>
                             </span>
                         </div>

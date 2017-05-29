@@ -6,11 +6,11 @@
     </div>
     <div class="col-md-10 panel panel-default">
         <div class="comment-header panel-heading">
-            <strong>{getNameById($userId)}</strong> <span class="text-muted">commented {calculateTimeDiff($id)} days ago</span>
+            <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{getNameById($userId)}</a></strong> <span class="text-muted">comentou à {calculateTimeDiff($id)} dias </span>
             <span class="pull-right">
+                {if isset($smarty.session.id)}
                 <button type="button" class="upvote btn" onclick="verifyVote('upvote',{$id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                 <button type="button" class="downvote btn" onclick="verifyVote('downvote',{$id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
-                {if isset($smarty.session)}
                     {if $smarty.session.usertype == 'expert' || $creatorId == $smarty.session.id}
                         <button type="button" class="correct btn"><i class="glyphicon glyphicon-ok"></i></button>
                     {/if}

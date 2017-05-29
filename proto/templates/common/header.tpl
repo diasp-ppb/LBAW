@@ -88,16 +88,6 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="dropdown" style="background-color: #10354b;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: #10354b" role="button" aria-haspopup="true" aria-expanded="false">Cursos <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">MIEEC</a></li>
-                        <li><a href="#">MIEIC</a></li>
-                    </ul>
-                </li>
-            </ul>
-
             <div class="col-sm-3 col-md-3 col-md-offset-3">
                 <form action="../../pages/home/search.php" method="get" class="navbar-form" role="search">
                     <div class="input-group">

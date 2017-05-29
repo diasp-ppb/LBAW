@@ -656,9 +656,11 @@ function addDeleteComment() {
             });
 
             $("#" + commentId + ", #replies" + commentId + ", #newreplies" + commentId).fadeOut("300", function() {
+                $("#newreplies" + commentId).nextAll(':lt(2)').remove();
                 $("#" + commentId + ", #replies" + commentId + ", #newreplies" + commentId).remove();
             });
-        });
+        }
+    );
 }
 
 function addDeleteTopic() {
@@ -735,7 +737,7 @@ function handleEdits() {
                     var paragraph = button.closest("div.edit-post").prev().children(".panel-body").children("p");
                     paragraph.text(values['content']);
                     paragraph.fadeIn();
-                    
+
                     var classes = button.attr("class").split(" ");
                     for (elemClass of classes) {
                         if (elemClass.match("^id-")) {

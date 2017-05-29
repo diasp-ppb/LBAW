@@ -628,7 +628,6 @@ function handleComments() {
 function addDeleteButtons() {
     addDeleteReply();
     addDeleteComment();
-    addDeleteTopic();
 }
 
 function addDeleteReply() {
@@ -661,10 +660,6 @@ function addDeleteComment() {
             });
         }
     );
-}
-
-function addDeleteTopic() {
-
 }
 
 function handleTimeline() {

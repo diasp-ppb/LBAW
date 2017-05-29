@@ -1253,6 +1253,10 @@ li > i.disable-member:hover {
     cursor: pointer;
 }
 
+.delete-topic-form {
+    display: inline;
+}
+
 button.remove {
     height: 34px;
 }

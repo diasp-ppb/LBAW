@@ -25,6 +25,8 @@ $(document).ready(function() {
         loadSearch();
     } else if ($('body').hasClass('topic')) {
         loadTopic();
+    } else if ($('body').hasClass('help')) {
+        loadHelp();
     }
 
     loadFooter();
@@ -33,6 +35,7 @@ $(document).ready(function() {
 function loadAdmin() {
     createAdminCharts();
     loadMemberList();
+    addDisableButton();
 }
 
 function loadProfile() {
@@ -59,6 +62,7 @@ function loadTopic() {
     handleReplies();
     runTextEditor();
     handleComments();
+    addDeleteButtons();
 }
 
 function verifyVotesButtons(topicId, userId){ 
@@ -103,7 +107,7 @@ function verifyAcceptVotes(topicId){
 function verifyVote(type, topicId) {
     var voteType = type;
     var topic = topicId;
-    var tagTopic="#"+topic+" button.rating.btn";
+    var tagTopic = "#" + topic + " button.rating.btn";
     var tagButton;
     var tagHeaderTopic;
     console.log("OLA: "+voteType);
@@ -113,39 +117,39 @@ function verifyVote(type, topicId) {
         data: { voteType: voteType, topicId: topic }
     }).done(function(data) {
         var value = JSON.parse(data);
-        console.log("Data: "+data);
-        if(value == 0){
+
+        if (value == 0) {
             if (type == 'upvote') {
-                tagButton="#"+topicId+" button.upvote.btn";
+                tagButton = "#" + topicId + " button.upvote.btn";
                 $(tagButton).removeAttr('style');
                 $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
             } else if (type == 'downvote') {
-                tagButton="#"+topicId+" button.downvote.btn";
+                tagButton = "#" + topicId + " button.downvote.btn";
                 $(tagButton).removeAttr('style');
                 $(tagTopic).text(parseInt($(tagTopic).text()) + 1);
             }
-        } else if(value == 1){
+        } else if (value == 1) {
             if (type == 'upvote') {
-                tagButton="#"+topicId+" button.downvote.btn";
+                tagButton = "#" + topicId + " button.downvote.btn";
                 $(tagButton).removeAttr("style");
-                tagButton="#"+topicId+" button.upvote.btn";
-                $(tagButton).attr('style','background-color:#5cb85c !important');
+                tagButton = "#" + topicId + " button.upvote.btn";
+                $(tagButton).attr('style', 'background-color:#5cb85c !important');
                 $(tagTopic).text(parseInt($(tagTopic).text()) + 2);
             } else if (type == 'downvote') {
-                tagButton="#"+topicId+" button.upvote.btn";
+                tagButton = "#" + topicId + " button.upvote.btn";
                 $(tagButton).removeAttr("style");
-                tagButton="#"+topicId+" button.downvote.btn";
-                $(tagButton).attr('style','background-color:#d9534f !important');
+                tagButton = "#" + topicId + " button.downvote.btn";
+                $(tagButton).attr('style', 'background-color:#d9534f !important');
                 $(tagTopic).text(parseInt($(tagTopic).text()) - 2);
             }
         } else if (value == 2) {
             if (type == 'upvote') {
-                tagButton="#"+topicId+" button.upvote.btn";
-                $(tagButton).attr('style','background-color:#5cb85c !important');
+                tagButton = "#" + topicId + " button.upvote.btn";
+                $(tagButton).attr('style', 'background-color:#5cb85c !important');
                 $(tagTopic).text(parseInt($(tagTopic).text()) + 1);
             } else if (type == 'downvote') {
-                tagButton="#"+topicId+" button.downvote.btn";
-                $(tagButton).attr('style','background-color:#d9534f !important');
+                tagButton = "#" + topicId + " button.downvote.btn";
+                $(tagButton).attr('style', 'background-color:#d9534f !important');
                 $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
             }
         } else if (value == 3){
@@ -234,6 +238,17 @@ function createAdminCharts() {
     });
 }
 
+function addDisableButton() {
+    $(".disable-member").click(
+        function() {
+            $.post("../../api/member/disableMember.php", {
+                id: $(this).attr("id")
+            });
+
+            $(this).replaceWith('<span class="pull-right">Disabled</span>')
+        }
+    );
+}
 
 function loadMemberList() {
     $('#user-pagination').twbsPagination({
@@ -251,9 +266,10 @@ function loadMemberList() {
                 for (var i = 0; i < data.length; i++) {
                     $('#userlist .list-group').append('<li class="list-group-item"> \
                     <a href="../../pages/member/profile.php?id=' + data[i].id + '">' + data[i].name + '</a> \
-                    <i class="glyphicon glyphicon-remove pull-right"></i> \
+                    <i id="' + data[i].id + '" + class="glyphicon glyphicon-remove pull-right disable-member"></i> \
                     </li>');
                 }
+                addDisableButton();
             });
         }
     });
@@ -261,12 +277,22 @@ function loadMemberList() {
 
 
 function createUserCharts() {
+    var userId = urlParams['id'];
+    console.log(userId);
     $.ajax({
         type: "post",
         url: "../../api/member/getChartsInfo.php",
-        data: {}
+        data: ({ id: userId })
     }).done(function(data) {
+        console.log(data);
         var info = JSON.parse(data);
+        console.log(info);
+        if (info[0].length < 7 || info[1].length < 7 || info[2].length < 7 || info[3].length < 7) {
+            console.log("not engouth data");
+            $(".accepted-data").hide();
+            $(".comment-data").hide();
+            $(".no-data").show();
+        }
         var ctx = document.getElementById("accepted-answers").getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'pie',
@@ -374,6 +400,11 @@ function handleTemplates() {
     });
 }
 
+function hideALL() {
+    $('.resultTitle').hide("slow");
+    $('.resultTag').hide("slow");
+    $('.resultContent').hide("slow");
+}
 
 function searchOptions() {
     if ($(".resultTitle").length < 1) {
@@ -393,20 +424,35 @@ function searchOptions() {
     }
 
     $("#search_title").click(function() {
+        hideALL();
         if (this.checked) {
             $('.resultTitle').show("slow");
         } else {
             $('.resultTitle').hide("slow");
         }
 
+        if ($('#search_tags')[0].checked) {
+            $('.resultTag').show("slow");
+        }
+        if ($('#search_content')[0].checked) {
+            $('.resultContent').show("slow");
+        }
         results();
     });
 
     $('#search_tags').click(function() {
+        hideALL();
         if (this.checked) {
             $('.resultTag').show("slow");
         } else {
             $('.resultTag').hide("slow");
+        }
+
+        if ($('#search_title')[0].checked) {
+            $('.resultTitle').show("slow");
+        }
+        if ($('#search_content')[0].checked) {
+            $('.resultContent').show("slow");
         }
 
         results();
@@ -423,12 +469,19 @@ function searchOptions() {
     });
 
     $('#search_content').click(function() {
+        hideALL();
         if (this.checked) {
             $('.resultContent').show("slow");
         } else {
             $('.resultContent').hide("slow");
         }
 
+        if ($('#search_title')[0].checked) {
+            $('.resultTitle').show("slow");
+        }
+        if ($('#search_tags')[0].checked) {
+            $('.resultTag').show("slow");
+        }
         results();
     });
 
@@ -507,30 +560,30 @@ function handleReplies() {
         var values = {};
         $(this).siblings().each(function() {
             var elem = $(this);
-            values[elem.attr('name')] =  elem.val();
+            values[elem.attr('name')] = elem.val();
         });
 
         $.ajax({
-            type: "post",
-            url: "../../api/topic/insertReply.php",
-            dataType: 'json',
-            data: { values : values }
-        })
-        .done(function(data) {
-            if (data === "success") {
-                html = '<div class="col-md-10 col-md-offset-1 panel-body reply">' +
-                            '<span class="text-muted"><strong>You</strong> commented just now:</span> <span class="reply-text">' + values['content'] + '</span>'
-                       '</div>';
-                button.parents("div.row").prev("div.row.replies").prepend(
-                    $(html).hide().fadeIn('slow')
-                );
-                textArea.val("");
-                textArea.attr('placeholder', 'Insira aqui a sua mensagem...');
-            } else {
-                textArea.val("");
-                textArea.attr('placeholder', 'Ocorreu um erro, tente novamente mais tarde.');
-            }
-        });
+                type: "post",
+                url: "../../api/topic/insertReply.php",
+                dataType: 'json',
+                data: { values: values }
+            })
+            .done(function(data) {
+                if (data === "success") {
+                    html = '<div class="col-md-10 col-md-offset-1 panel-body reply">' +
+                        '<span class="text-muted"><strong>You</strong> commented just now:</span> <span class="reply-text">' + values['content'] + '</span>'
+                    '</div>';
+                    button.parents("div.row").prev("div.row.replies").prepend(
+                        $(html).hide().fadeIn('slow')
+                    );
+                    textArea.val("");
+                    textArea.attr('placeholder', 'Insira aqui a sua mensagem...');
+                } else {
+                    textArea.val("");
+                    textArea.attr('placeholder', 'Ocorreu um erro, tente novamente mais tarde.');
+                }
+            });
     });
 }
 
@@ -548,33 +601,60 @@ function handleComments() {
         values = {};
         $(this).closest("div.form-group").siblings("div.form-group").children("input").each(function() {
             var elem = $(this);
-            values[elem.attr('name')] =  elem.val();
+            values[elem.attr('name')] = elem.val();
         });
         values['content'] = textArea.val();
 
         $.ajax({
-            type: "post",
-            url: "../../api/topic/insertComment.php",
-            dataType: 'html',
-            data: { values : values }
-        })
-        .done(function(html) {
-            if (html == "error") {
-                textArea.val("");
-                textArea.attr('placeholder', 'Ocorreu um erro, tente novamente mais tarde.');
-                $("#wmd-preview").empty();
-            } else {
-                $("#" + values['postid']).parent().append(
-                    $(html).hide().fadeIn('slow')
-                );
-            }
-        });
+                type: "post",
+                url: "../../api/topic/insertComment.php",
+                dataType: 'html',
+                data: { values: values }
+            })
+            .done(function(html) {
+                if (html == "error") {
+                    textArea.val("");
+                    textArea.attr('placeholder', 'Ocorreu um erro, tente novamente mais tarde.');
+                    $("#wmd-preview").empty();
+                } else {
+                    $("#" + values['postid']).parent().append(
+                        $(html).hide().fadeIn('slow')
+                    );
+                }
+            });
     });
 }
 
+function addDeleteButtons() {
+    addDeleteReply();
+    addDeleteComment();
+    addDeleteTopic();
+}
+
+function addDeleteReply() {
+    $(".remove-reply").click(
+        function() {
+            var replyId = $(this).attr("id").substring(5);
+
+            $.post("../../api/topic/deleteReply.php", {
+                id: replyId
+            });
+
+            $(this).parent().parent().remove();
+        }
+    );
+}
+
+function addDeleteComment() {
+
+}
+
+function addDeleteTopic() {
+
+}
 
 function handleTimeline() {
-    if ( typeof handleTimeline.showLimit == 'undefined' ) {
+    if (typeof handleTimeline.showLimit == 'undefined') {
         handleTimeline.showLimit = 5;
     }
 
@@ -592,8 +672,7 @@ function limitTimelineShow(showLimit) {
     $('#timeline article').each(function(index) {
         if (index < showLimit) {
             $(this).fadeIn("slow");
-        }
-        else return;
+        } else return;
     });
 }
 

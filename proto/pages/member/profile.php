@@ -41,7 +41,7 @@ try {
 
     $creationDate = getAccountByUserId($userid)['creationdate'];
 } catch(PDOException $e) {
-    saveOnLog("profile.php:", $e);
+    saveOnLog("profile.php:", $e->getMessage());
     //TODO
 }
 

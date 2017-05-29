@@ -60,13 +60,16 @@
             <div class="page-header">
               <h2>As minhas estatísticas</h2>
             </div>
-            <div class="col col-md-5 col-sm-12">
+            <div class="accepted-data col col-md-5 col-sm-12">
               <h4>Respostas aceites:</h4>
               <canvas id="accepted-answers"></canvas>
             </div>
-            <div class="col col-md-5 col-sm-12">
+            <div class="comment-data col col-md-5 col-sm-12">
               <h4>Onde comento:</h4>
               <canvas id="where-i-comment"></canvas>
+            </div>
+            <div hidden class="no-data">
+              <p> Ainda não tens actividade suficiente na comunidade :( </p> 
             </div>
           </div>
           <div class="row" id="my-topics">
@@ -81,5 +84,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 {include file='common/footer.tpl'}

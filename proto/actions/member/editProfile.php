@@ -5,7 +5,7 @@ include_once("../../database/account.php");
 include_once("../../database/email.php");
 
 if(isset($_POST['name'])) {
-	$id = htmlspecialchars(trim($_POST['id']));
+	$id = $_SESSION['id'];
 	$name = htmlspecialchars(trim($_POST['name']));
 	$location = htmlspecialchars(trim($_POST['location']));
 	$newEmails = array_filter(array_map('trim', $_POST['email']));
@@ -28,16 +28,13 @@ if(isset($_POST['name'])) {
 		updateEmails($id, $toDelete, $newEmails);
 		updateProfile($id, $name, to_pg_array($links));
 	} catch (PDOException $e) {
-		print_r($e->getMessage());
+		saveOnLog("editProfile (Info): ", $e->getMessage());
 	}
-}
-
-if(sizeof($_POST["git_username"])>0){
+} else if (sizeof($_POST["git_username"]) > 0) {
 	$currentImage=getUserImage($_SESSION["id"]);
 	unlink($currentImage);
 	setUserImage($_POST["github-image-url"],$_SESSION["id"]);
-}
-else if($_FILES["upload-image"]["error"]==0){
+} else if ($_FILES["upload-image"]["error"] == 0) {
 	print_r($_FILES);
 	$destination_directory = "../../resources/images/users/";
 	$temporary = explode(".", $_FILES["upload-image"]["name"]);

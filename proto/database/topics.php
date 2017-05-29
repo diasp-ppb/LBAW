@@ -314,4 +314,10 @@ function deletePost($postId) {
     $stmt->execute(array($postId));
     return $stmt->errorCode();
 }
+
+function updatePostContent($postid, $content) {
+    global $conn;
+    $stmt=$conn->prepare("UPDATE post SET content = ? WHERE id = ?;");
+    $stmt->execute(array($content, $postid));
+}
 ?>

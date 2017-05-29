@@ -1316,11 +1316,11 @@ div.tags span a:hover {
     padding-left: 15px;
 }
 
-.topic form.new-reply {
+.topic form.new-reply, .topic form.edit-post {
     display: none;
 }
 
-.topic button.new-reply {
+.topic button.new-reply, .topic button.edit-post {
     margin-top: 5px;
     height: 2.2em;
     font-size: 0.8em;

@@ -30,6 +30,7 @@ $_SESSION['username'] = $usernameAuth;
 $_SESSION['email'] = $email;
 $_SESSION['nmec'] = $nmec;
 $_SESSION['name'] = $name;
+$_SESSION['s_token']=generateSessionToken();
 
 header("Location: ../home/home.php");
 ?>

@@ -175,6 +175,14 @@ function getUserIdByTopic($topicId){
     return $stmt->fetchAll()[0]["userid"];
 }
 
+function getCreationDateTopic($topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("SELECT creationdate FROM post WHERE id= ?");
+    $stmt->execute(array($topicId));
+    return $stmt->fetchAll()[0]["creationdate"];
+}
+
 function hasAlreadyAnAccept($topicId){
     return sizeof(getAcceptVoteByTopic($topicId))>0;
 }

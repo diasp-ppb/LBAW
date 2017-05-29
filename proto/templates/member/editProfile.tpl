@@ -113,6 +113,9 @@
                                         </span>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control hidden" id="s_token" name="s_token" value="{$smarty.session.s_token}"/>
+                                </div>
 
                                 <button type="submit" class="btn btn-success">Atualizar</button>
                             </form>
@@ -152,6 +155,9 @@
                                     <div class="form-group">
                                         <input type="file" name="upload-image" id="upload-image" disabled>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control hidden" id="s_token" name="s_token" value="{$smarty.session.s_token}"/>
                                 </div>
                                 <div class="form-actions">
                                     <button id="submit-image" type="submit" class="btn btn-success" disabled>Atualizar</button>

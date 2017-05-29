@@ -3,7 +3,7 @@ include_once('../../database/topics.php');
 include_once('../../config/init.php');
 include_once('../../utils.php');
 
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id']) || $_SESSION["s_token"]!==$_POST["s_token"]) {
     header("Location: ../../pages/common/error.php");
 }
 

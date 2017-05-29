@@ -34,9 +34,9 @@
                     <br>
                     <textarea style="height: 25em;" name="text" class="form-control" placeholder="Insira aqui a sua mensagem..."></textarea>
                     <br>
+                    <input type="text" class="form-control hidden" id="s_token" name="s_token" value="{$smarty.session.s_token}"/>
                     <button type="submit" class="btn btn-primary new-reply">Enviar</button>
                 </div>
-               
             </form>
         </div>
     </div>

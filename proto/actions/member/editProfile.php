@@ -4,6 +4,10 @@ include_once("../../utils.php");
 include_once("../../database/account.php");
 include_once("../../database/email.php");
 
+if($_SESSION["s_token"]!==$_POST["s_token"]){
+	header('Location: ../../pages/common/error.php');
+}
+
 if(isset($_POST['name'])) {
 	$id = $_SESSION['id'];
 	$name = htmlspecialchars(trim($_POST['name']));

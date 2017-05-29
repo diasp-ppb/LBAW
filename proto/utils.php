@@ -41,4 +41,8 @@ function getTimeDiff($start) {
 function sortTimeline($a, $b) {
    return strtotime($b['creationdate']) - strtotime($a['creationdate']);
 }
+
+function generateSessionToken(){
+    return bin2hex(openssl_random_pseudo_bytes(16));
+}
 ?>

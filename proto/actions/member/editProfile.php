@@ -30,14 +30,11 @@ if(isset($_POST['name'])) {
 	} catch (PDOException $e) {
 		saveOnLog("editProfile (Info): ", $e->getMessage());
 	}
-}
-
-if(sizeof($_POST["git_username"])>0){
+} else if (sizeof($_POST["git_username"]) > 0) {
 	$currentImage=getUserImage($_SESSION["id"]);
 	unlink($currentImage);
 	setUserImage($_POST["github-image-url"],$_SESSION["id"]);
-}
-else if($_FILES["upload-image"]["error"]==0){
+} else if ($_FILES["upload-image"]["error"] == 0) {
 	print_r($_FILES);
 	$destination_directory = "../../resources/images/users/";
 	$temporary = explode(".", $_FILES["upload-image"]["name"]);

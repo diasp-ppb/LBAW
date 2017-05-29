@@ -5,8 +5,10 @@
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
 
-  $BASE_DIR = '/opt/lbaw/lbaw1664/public_html/testeZePedro/';
-  $BASE_URL = '/~lbaw1664/testeZePedro/';
+  $BASE_DIR = '/opt/lbaw/lbaw1664/public_html/testePedro/LBAW/proto/';
+  $BASE_URL = '/~lbaw1664/testePedro/LBAW/proto/';
+
+
 
   $conn = new PDO('pgsql:host=dbm;dbname=lbaw1664', 'lbaw1664', 'kg41ua67');
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);

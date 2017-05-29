@@ -1106,8 +1106,6 @@ body.admin .row h3 {
     /* Browser Variations: */
     -moz-transform: scale(0.8);
     -o-transform: scale(0.8);
-
-    transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
@@ -1295,6 +1293,7 @@ div .topic-presentation .topic-status:nth-child(3) {
 
 div.tags span {
     margin-right: 0.5em;
+    display: inline-block;
 }
 
 div.tags span a {
@@ -1305,10 +1304,9 @@ div.tags span a:hover {
     color: white !important;
 }
 
-#upload-image{
+#upload-image {
     padding-left: 15px;
 }
-
 
 .topic form.new-reply {
     display: none;
@@ -1322,12 +1320,12 @@ div.tags span a:hover {
 }
 
 hr {
-  border: 0;
-  clear:both;
-  display:block;
-  width: 96%;
-  background-color:#FFFF00;
-  height: 1px;
+    border: 0;
+    clear: both;
+    display: block;
+    width: 96%;
+    background-color: #FFFF00;
+    height: 1px;
 }
 
 .profile article.timeline-entry {

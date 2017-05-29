@@ -4,8 +4,10 @@
 
 $labels = array();
 $frequency = array();
+$userId = intval($_POST['id']);
+
 try {
-    $charInfo = getUserMostAcceptedTags(4);//TODO FIX
+    $charInfo = getUserMostAcceptedTags($userId);
 } catch(PDOException $e) {
     saveOnLog("getCharsInfo Member:", $e);
     //TODO
@@ -19,10 +21,9 @@ $labelsComment = array();
 $frequencyComment = array();
 
 try{
-    $chartcommentsInfo = getUserMostCommentsTags(4); //TODO
+    $chartcommentsInfo = getUserMostCommentsTags($userId); 
 } catch(PDOException $e) {
     saveOnLog("getCharsInfo member:", $e);
-    //TODO 
 }
 
 foreach ($chartcommentsInfo as $result){

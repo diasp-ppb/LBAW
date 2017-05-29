@@ -20,7 +20,7 @@
                                 {/if}
                                 <button type="button" class="rating btn" disabled="disabled">{$topicInfo.rating}</button>
                                 {if $smarty.session.usertype == 'admin'}
-                                    <button type="buton" class="remove btn"><i class="glyphicon glyphicon-remove"></i></button>
+                                    <button type="buton" class="remove remove-topic btn"><i class="glyphicon glyphicon-remove"></i></button>
                                 {/if}
                             </span>
                         </div>

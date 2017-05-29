@@ -1,4 +1,4 @@
-<div class="row replies">
+<div id="replies{$postid}" class="row replies">
     {foreach $comments as $comment}
         <div class="col-md-10 col-md-offset-1 panel-body reply">
             <span class="text-muted"><strong>{$comment.publisher}</strong> comentou há {getTimeDiff($comment.creationdate)} dias:</span>
@@ -13,7 +13,7 @@
         </div>
     {/foreach}
 </div>
-<div class="row new-reply">
+<div id="replies{$postid}" class="row replies">
     <form role="form" class="col-md-10 col-md-offset-1 new-reply id-{$postid}">
         <div class="form-group">
             <input type="hidden" name="postid" value={$postid}>

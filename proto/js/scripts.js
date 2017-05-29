@@ -628,7 +628,7 @@ function addDeleteButtons() {
     addDeleteReply();
     addDeleteComment();
     addDeleteTopic();
-}
+}}
 
 function addDeleteReply() {
     $(".remove-reply").click(
@@ -639,13 +639,26 @@ function addDeleteReply() {
                 id: replyId
             });
 
-            $(this).parent().parent().remove();
+            $(this).parent().parent().fadeOut("300", function() {
+                $("#reply" + replyId).parent().parent().remove();
+            });
         }
     );
 }
 
 function addDeleteComment() {
+    $(".remove-comment").click(
+        function() {
+            var commentId = $(this).attr("id").substring(7);
 
+            $.post("../../api/topic/deleteComment.php", {
+                id: commentId
+            });
+
+            $("#" + commentId + ", #replies" + commentId + ", #newreplies" + commentId).fadeOut("300", function() {
+                $("#" + commentId + ", #replies" + commentId + ", #newreplies" + commentId).remove();
+            });
+        });
 }
 
 function addDeleteTopic() {

@@ -1,7 +1,6 @@
 <?php
     include_once("../../config/init.php");
     include_once('../../database/tags.php');
-
     include_once("../serverLog/serverLog.php");
 /*  
     topics-by-tags

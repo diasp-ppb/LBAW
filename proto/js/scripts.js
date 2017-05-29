@@ -25,6 +25,8 @@ $(document).ready(function() {
         loadSearch();
     } else if ($('body').hasClass('topic')) {
         loadTopic();
+    } else if ($('body').hasClass('help')) {
+        loadHelp();
     }
 
     loadFooter();
@@ -61,7 +63,7 @@ function loadTopic() {
     handleComments();
 }
 
-
+function loadHelp() {}
 
 function verifyVotesButtons(topicId, userId) {
     var tagButton;

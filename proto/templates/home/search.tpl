@@ -48,12 +48,8 @@
                             <div class="page-header">
                                 <h2>Tópicos</h2>
                             </div>
-                            <div class"search-notify-topics alert alert-info">
-                                 <p class="info-msg-topic">Não foram encontrados resultados para a pesquisa </p>
-                            </div>
-
-                            <div id="messages"  class="alert alert-info">
-                               <p> Mensagem será enviada com o email {$smarty.SESSION.email}! </p>
+                            <div class"search-notify-topics ">
+                                 <p class="alert alert-info info-msg-topic">Não foram encontrados resultados para a pesquisa </p>
                             </div>
                             {foreach $result as $topic1}
                                 {include file="home/searchResultTopic.tpl" type=$topic1.class topicId=$topic1.id title=$topic1.title tags=$topic1.tags topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
@@ -66,8 +62,8 @@
                                 <h2>Utilizadores</h2>
                             </div>
 
-                            <div class"search-notify-users ">
-                                 <p class="info-msg-user">Não foram encontrados resultados para a pesquisa </p>
+                            <div class"search-notify-users">
+                                 <p class="alert alert-info info-msg-user">Não foram encontrados resultados para a pesquisa </p>
                             </div>
 
 							{foreach $users as $profile}

@@ -518,16 +518,16 @@ function results() {
             }
 
             if (total > 0) {
-                $(".info-msg-topic").hide();
+                $(".info-msg-topic").hide("slow");
             } else {
-                $(".info-msg-topic").show();
+                $(".info-msg-topic").show("slow");
             }
         }
 
         if ($(".resultUser").length < 1 || $('#search_users')[0].checked == false) {
-            $(".info-msg-user").show();
+            $(".info-msg-user").show("slow");
         } else {
-            $(".info-msg-user").hide();
+            $(".info-msg-user").hide("slow");
         }
     }
 }
@@ -638,8 +638,7 @@ function addDeleteReply() {
             $.post("../../api/topic/deleteReply.php", {
                 id: replyId
             });
-
-            $(this).parent().parent().remove();
+            $(this).parent().parent().hide("fast");
         }
     );
 }

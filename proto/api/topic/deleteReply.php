@@ -21,7 +21,7 @@ try {
     deleteReply($replyId);
     die(json_encode(array('message' => 'OK', 'code' => 200)));
 } catch (PDOException $e) {
-    saveOnLog("Delete Comment:", $e);
+    saveOnLog("Delete Reply:", $e);
     die(json_encode(array('message' => 'Internal Server Error', 'code' => 500)));
 }
 ?>

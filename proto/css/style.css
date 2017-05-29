@@ -1261,6 +1261,10 @@ i.remove-reply {
     margin-right: 5px;
 }
 
+i.remove-reply {
+    cursor: pointer;
+}
+
 div.navbar.navbar-bottom {
     margin-bottom: 0;
     padding-bottom: 0;

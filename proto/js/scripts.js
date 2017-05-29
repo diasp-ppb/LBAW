@@ -73,7 +73,6 @@ function verifyVotesButtons(topicId, userId){
         data: { topicId: topicId, userId: userId } 
     }).done(function(data){ 
         var value=JSON.parse(data);
-        console.log("Votes buttons: "+data);
         if(value==0){
             tagButton="#"+topicId+" button.upvote.btn";
             $(tagButton).attr('style','background-color:#5cb85c !important');
@@ -92,11 +91,9 @@ function verifyAcceptVotes(topicId){
         data: { topicId: topicId }
     }).done(function(data){
         var value=JSON.parse(data);
-        console.log("Accept data: "+data);
         if(value==0){
             var tagButton="#"+topicId+" button.correct.btn";
             var tagHeaderTopic="#"+topicId+"header";
-            console.log(tagButton);
             $(tagButton).attr('style','background-color: #428bca !important');
             $(tagHeaderTopic).attr('style','background-color: #5bc0de !important');
         }
@@ -110,7 +107,6 @@ function verifyVote(type, topicId) {
     var tagTopic = "#" + topic + " button.rating.btn";
     var tagButton;
     var tagHeaderTopic;
-    console.log("OLA: "+voteType);
     $.ajax({
         type: "post",
         url: "../../api/topic/validate_vote.php",
@@ -155,13 +151,11 @@ function verifyVote(type, topicId) {
         } else if (value == 3){
             tagButton="#"+topicId+" button.correct.btn";
             tagHeaderTopic="#"+topicId+"header";
-            console.log(tagButton);
             $(tagButton).attr('style','background-color: #428bca !important');
             $(tagHeaderTopic).attr('style','background-color: #5bc0de !important');
         } else if(value == 4){
             tagButton="#"+topicId+" button.correct.btn";
             tagHeaderTopic="#"+topicId+"header";
-            console.log(tagButton);
             $(tagButton).removeAttr("style");
             $(tagHeaderTopic).removeAttr("style");
         }
@@ -278,17 +272,13 @@ function loadMemberList() {
 
 function createUserCharts() {
     var userId = urlParams['id'];
-    console.log(userId);
     $.ajax({
         type: "post",
         url: "../../api/member/getChartsInfo.php",
         data: ({ id: userId })
     }).done(function(data) {
-        console.log(data);
         var info = JSON.parse(data);
-        console.log(info);
         if (info[0].length < 7 || info[1].length < 7 || info[2].length < 7 || info[3].length < 7) {
-            console.log("not engouth data");
             $(".accepted-data").hide();
             $(".comment-data").hide();
             $(".no-data").show();

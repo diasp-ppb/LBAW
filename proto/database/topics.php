@@ -142,11 +142,11 @@ function hasAlreadyMade($userId,$topicId,$type) {
     return $stmt->fetch() > 0;
 }
 
-function getTopicVoteType($userId,$topicId){ 
-    global $conn; 
- 
-    $stmt=$conn->prepare("SELECT votetype FROM vote WHERE postid= ? AND userid=?"); 
-    $stmt->execute(array($topicId,$userId)); 
+function getTopicVoteType($userId,$topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("SELECT votetype FROM vote WHERE postid= ? AND userid=?");
+    $stmt->execute(array($topicId,$userId));
     return $stmt->fetchAll();
 }
 
@@ -187,12 +187,12 @@ function insertNewVote($userId, $type, $topicId){
     return $stmt->errorCode();
 }
 
-function deleteVote($userId,$topicId){ 
-    global $conn; 
- 
-    $stmt=$conn->prepare("DELETE FROM vote WHERE userid=? AND postid=?"); 
-    $stmt->execute(array($userId,$topicId)); 
-    return $stmt->errorCode(); 
+function deleteVote($userId,$topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("DELETE FROM vote WHERE userid=? AND postid=?");
+    $stmt->execute(array($userId,$topicId));
+    return $stmt->errorCode();
 }
 
 function deleteAcceptVoteByTopic($topicId){
@@ -292,10 +292,16 @@ function createComment($parentid, $userid, $content) {
 }
 
 function deleteReply($replyId) {
-    echo "GIRO";
     global $conn;
     $stmt=$conn->prepare("DELETE FROM comment WHERE id = ?;");
     $stmt->execute(array($replyId));
+    return $stmt->errorCode();
+}
+
+function deletePost($postId) {
+    global $conn;
+    $stmt=$conn->prepare("DELETE FROM post WHERE id = ?;");
+    $stmt->execute(array($postId));
     return $stmt->errorCode();
 }
 ?>

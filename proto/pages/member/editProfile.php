@@ -16,7 +16,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $userid) {
 include_once("../common/header.php");
 
 try {
-    $user = getAccountByUserId($userid)[0];
+    $user = getAccountByUserId($userid);
 } catch(PDOException $e) {
     saveOnLog("editProfile.php:", $e);
     //TODO
@@ -31,7 +31,6 @@ try {
 
 
 $links = json_decode(getUserLinks($userid)[0]['links']);
-
 $smarty->assign('user', $user);
 $smarty->assign('emails', $emails);
 $smarty->assign('links', $links);

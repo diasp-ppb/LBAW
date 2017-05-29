@@ -26,7 +26,7 @@ var pages = '{$pages}'
                         </div>
                         <div class="list-group">
                             {foreach $users as $user}
-                                {include file="userElem.tpl" username=$user.name id=$user.id}
+                                {include file="admin/userElem.tpl" username=$user.name id=$user.id}
                             {/foreach}
                         </div>
                         <ul id="user-pagination" class="pagination">

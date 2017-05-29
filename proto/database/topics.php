@@ -259,8 +259,18 @@ function timelineGetAnswers($userId) {
 
 function timelineGetComments($userId) {
     global $conn;
-    $stmt=$conn->prepare("SELECT 'comment' AS tablename, comment.postid AS postid, comment.creationdate, post.title, post.posttype FROM comment
+    $stmt=$conn->prepare("SELECT 'comment' AS tablename, comment.postid, post.id AS postid, comment.creationdate, post.title, post.posttype FROM comment
                             JOIN post ON (comment.postid = post.id)
+                            WHERE comment.userid = ? AND post.posttype = 'question'");
+    $stmt->execute(array($userId));
+    return $stmt->fetchAll();
+}
+
+function timelineGetCommentsAnswers($userId) {
+    global $conn;
+    $stmt=$conn->prepare("SELECT 'comment' AS tablename, comment.postid, post2.id AS postid, comment.creationdate, post2.title, post2.posttype FROM comment
+                            JOIN post AS post1 ON (comment.postid = post1.id)
+                            JOIN post AS post2 ON (post1.parentid = post2.id)
                             WHERE comment.userid = ?");
     $stmt->execute(array($userId));
     return $stmt->fetchAll();

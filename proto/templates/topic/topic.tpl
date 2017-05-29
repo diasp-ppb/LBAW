@@ -12,7 +12,7 @@
                 <div class="col-md-10 topic-main panel panel-default">
                     <div class="row topic-header panel-heading">
                         <div>
-                            <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{$userName}</a></strong> <span class="text-muted">postou à {$topicInfo.timeDiff} dias</span>
+                            <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{$userName}</a></strong> <span class="text-muted">postou há {$topicInfo.timeDiff} dias</span>
                             <span class="pull-right">
                                 {if isset($smarty.session.id) && $smarty.session.id!=$topicInfo.userid}
                                     <button type="button" class="upvote btn" onclick="verifyVote('upvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>

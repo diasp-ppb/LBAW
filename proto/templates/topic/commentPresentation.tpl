@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-10 panel panel-default">
         <div class="comment-header panel-heading" id="{$postid}header">
-            <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{getNameById($userId)}</a></strong> <span class="text-muted">comentou à {calculateTimeDiff($id)} dias </span>
+            <strong><a href='../../pages/member/profile.php?id={$topicInfo.userid}' style="color: #303641">{getNameById($userId)}</a></strong> <span class="text-muted">comentou há {calculateTimeDiff($id)} dias </span>
             <span class="pull-right">
                 {if $smarty.session.id!=getUserIdByTopic($postid)}
                 <button type="button" class="upvote btn" onclick="verifyVote('upvote',{$postid})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>

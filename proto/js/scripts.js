@@ -562,7 +562,7 @@ function handleReplies() {
             .done(function(data) {
                 if (data === "success") {
                     html = '<div class="col-md-10 col-md-offset-1 panel-body reply">' +
-                        '<span class="text-muted"><strong>You</strong> commented just now:</span> <span class="reply-text">' + values['content'] + '</span>'
+                        '<span class="text-muted"><strong>Tu</strong> acabaste de comentar:</span> <span class="reply-text">' + values['content'] + '</span>'
                     '</div>';
                     button.parents("div.row").prev("div.row.replies").prepend(
                         $(html).hide().fadeIn('slow')

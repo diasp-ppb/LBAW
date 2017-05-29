@@ -195,11 +195,8 @@ img {
     width: auto;
     line-height: 1.428571429;
     max-width: 100%;
-    moz-transition: all .2s ease-in-out;
-    o-transition: all .2s ease-in-out;
     padding: 2px;
     transition: all .2s ease-in-out;
-    webkit-transition: all .2s ease-in-out;
 }
 
 .editProfile li.brand-nav.active {
@@ -486,7 +483,6 @@ img {
 
 .navbar.navbar-default {
     margin-bottom: 0;
-    box-shadow: black;
     background: #10354b;
     border-radius: 0px;
 }
@@ -544,7 +540,6 @@ a.dropdown-toggle {
 .nav.navbar-nav .dropdown-menu {
     background-color: white;
     border: solid 2px #10354b;
-    border-top-color: white;
 }
 
 .nav.navbar-nav .dropdown-menu a:hover {
@@ -553,7 +548,6 @@ a.dropdown-toggle {
 }
 
 .nav.navbar-nav.navbar-right img {
-    widht: 40px;
     height: 40px;
 }
 
@@ -569,7 +563,6 @@ a.dropdown-toggle {
 .nav.navbar-nav.navbar-right .dropdown-menu {
     background-color: white;
     border: solid 2px #10354b;
-    border-top-color: white;
 }
 
 .nav.navbar-nav.navbar-right .dropdown-menu a {
@@ -833,7 +826,6 @@ div .topic-presentation {
     content: " ";
     border-color: transparent;
     border-style: solid solid outset;
-    pointer-events: none;
 }
 
 .attach-container>.panel>.panel-heading:after {
@@ -892,8 +884,8 @@ pre {
 .createTopic input[type=submit] {
     width: 10em;
     margin: 0 auto;
-    border: solid 2px #10354b;
     background-color: #10354b;
+    transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
@@ -1101,16 +1093,20 @@ body.admin .row h3 {
 }
 
 .social:hover {
+    transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);
 }
 
 .social {
+    transform: scale(0.8);
     -webkit-transform: scale(0.8);
     /* Browser Variations: */
     -moz-transform: scale(0.8);
     -o-transform: scale(0.8);
+
+    transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;

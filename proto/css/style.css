@@ -1250,6 +1250,14 @@ button.rating {
     font-weight: bold;
 }
 
+button.remove {
+    height: 34px;
+}
+
+i.remove-reply {
+    margin-right: 5px;
+}
+
 div.navbar.navbar-bottom {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -1316,7 +1324,7 @@ hr {
   border: 0;
   clear:both;
   display:block;
-  width: 96%;               
+  width: 96%;
   background-color:#FFFF00;
   height: 1px;
 }

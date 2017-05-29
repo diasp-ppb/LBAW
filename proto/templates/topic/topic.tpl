@@ -17,6 +17,9 @@
                                 {if isset($smarty.session.id)}
                                     <button type="button" class="upvote btn" onclick="verifyVote('upvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-up"></i></button>
                                     <button type="button" class="downvote btn" onclick="verifyVote('downvote', {$topicInfo.id})"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                                    {if $smarty.session.usertype == 'admin'}
+                                        <button type="buton" class="remove btn"><i class="glyphicon glyphicon-remove"></i></button>
+                                    {/if}
                                 {/if}
                                 <button type="button" class="rating btn" disabled="disabled">{$topicInfo.rating}</button>
                             </span>
@@ -38,13 +41,13 @@
                         {/if}
                     </div>
                 </div>
-                <script> 
-                    verifyVotesButtons({$topicInfo.id}, {$smarty.session.id}); 
-                </script> 
+                <script>
+                    verifyVotesButtons({$topicInfo.id}, {$smarty.session.id});
+                </script>
             </div>
 
             {include file="topic/replyPresentation.tpl" postid=$topicInfo.id comments=$comments[$topicInfo.id]}
-            
+
             {foreach $answers as $answer}
                 {include file="topic/commentPresentation.tpl" creatorId=$topicInfo.userid userId=$answer.userid rating=$answer.rating content=$answer.content postid=$answer.id comments=$comments[$answer.id]}
             {/foreach}

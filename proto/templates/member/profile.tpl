@@ -6,9 +6,8 @@
           <div class="user-info text-center">
             <img src="{$user.image}" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
             <h3>{$user.name}</h3>
-            <p hidden><i class="glyphicon glyphicon-map-marker"></i> Porto, Portugal</p>
             {foreach from=$emails item=$email}
-            <p><i class="glyphicon glyphicon-envelope"></i>{$email.mail} {$smarty.session.s_token}</p>
+            <p><i class="glyphicon glyphicon-envelope"></i>{$email.mail}</p>
             {/foreach}
             {foreach from=$links item=$link}
             <p><i class="glyphicon glyphicon-globe"></i>{$link}</p>

@@ -71,6 +71,7 @@
                 {include file="topic/commentPresentation.tpl" creatorId=$topicInfo.userid userId=$answer.userid rating=$answer.rating content=$answer.content postid=$answer.id comments=$comments[$answer.id]}
             {/foreach}
         </div>
+        {if isset($smarty.session.id)}
         <hr>
         <div class="col-md-8 col-md-offset-2 main">
             <h3 style="margin-bottom:0">A tua resposta</h3>
@@ -80,6 +81,7 @@
                 <input type="hidden" name="userid" value={$smarty.session.id}>
             </div>
         </div>
+        {/if}
     </div>
 </div>
 

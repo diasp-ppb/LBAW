@@ -20,7 +20,10 @@
                                 {/if}
                                 <button type="button" class="rating btn" disabled="disabled">{$topicInfo.rating}</button>
                                 {if $smarty.session.usertype == 'admin'}
-                                    <button type="buton" class="remove remove-topic btn"><i class="glyphicon glyphicon-remove"></i></button>
+                                    <form class="delete-topic-form" action="../../actions/topic/deleteTopic.php" method="post">
+                                        <input type="hidden" name="id" value="{$topicInfo.id}">
+                                        <button type="submit" class="remove remove-topic btn"><i class="glyphicon glyphicon-remove"></i></button>
+                                    </form>
                                 {/if}
                             </span>
                         </div>

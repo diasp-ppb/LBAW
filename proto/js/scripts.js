@@ -628,7 +628,7 @@ function addDeleteButtons() {
     addDeleteReply();
     addDeleteComment();
     addDeleteTopic();
-}}
+}
 
 function addDeleteReply() {
     $(".remove-reply").click(

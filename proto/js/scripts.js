@@ -73,7 +73,6 @@ function verifyVotesButtons(topicId, userId) {
         data: { topicId: topicId, userId: userId }
     }).done(function(data) {
         var value = JSON.parse(data);
-        console.log("Votes buttons: " + data);
         if (value == 0) {
             tagButton = "#" + topicId + " button.upvote.btn";
             $(tagButton).attr('style', 'background-color:#5cb85c !important');
@@ -91,11 +90,9 @@ function verifyAcceptVotes(topicId) {
         data: { topicId: topicId }
     }).done(function(data) {
         var value = JSON.parse(data);
-        console.log("Accept data: " + data);
         if (value == 0) {
             var tagButton = "#" + topicId + " button.correct.btn";
             var tagHeaderTopic = "#" + topicId + "header";
-            console.log(tagButton);
             $(tagButton).attr('style', 'background-color: #428bca !important');
             $(tagHeaderTopic).attr('style', 'background-color: #5bc0de !important');
         }
@@ -109,7 +106,6 @@ function verifyVote(type, topicId) {
     var tagTopic = "#" + topic + " button.rating.btn";
     var tagButton;
     var tagHeaderTopic;
-    console.log("OLA: " + voteType);
     $.ajax({
         type: "post",
         url: "../../api/topic/validate_vote.php",
@@ -154,13 +150,11 @@ function verifyVote(type, topicId) {
         } else if (value == 3) {
             tagButton = "#" + topicId + " button.correct.btn";
             tagHeaderTopic = "#" + topicId + "header";
-            console.log(tagButton);
             $(tagButton).attr('style', 'background-color: #428bca !important');
             $(tagHeaderTopic).attr('style', 'background-color: #5bc0de !important');
         } else if (value == 4) {
             tagButton = "#" + topicId + " button.correct.btn";
             tagHeaderTopic = "#" + topicId + "header";
-            console.log(tagButton);
             $(tagButton).removeAttr("style");
             $(tagHeaderTopic).removeAttr("style");
         }
@@ -277,16 +271,12 @@ function loadMemberList() {
 
 function createUserCharts() {
     var userId = urlParams['id'];
-    console.log(userId);
     $.ajax({
         type: "post",
         url: "../../api/member/getChartsInfo.php",
         data: ({ id: userId })
     }).done(function(data) {
-        console.log(data);
         var info = JSON.parse(data);
-        console.log(info);
-
         var accept = true;
         var comment = true;
         if (info[0].length < 7 || info[1].length < 7) {
@@ -297,7 +287,7 @@ function createUserCharts() {
             $(".comment-data").hide();
             comment = false;
         }
-        
+
         if (accept == false && comment == false) {
 
             $(".no-data").show();
@@ -581,7 +571,7 @@ function handleReplies() {
             .done(function(data) {
                 if (data === "success") {
                     html = '<div class="col-md-10 col-md-offset-1 panel-body reply">' +
-                        '<span class="text-muted"><strong>You</strong> commented just now:</span> <span class="reply-text">' + values['content'] + '</span>'
+                        '<span class="text-muted"><strong>Tu</strong> acabaste de comentar:</span> <span class="reply-text">' + values['content'] + '</span>'
                     '</div>';
                     button.parents("div.row").prev("div.row.replies").prepend(
                         $(html).hide().fadeIn('slow')

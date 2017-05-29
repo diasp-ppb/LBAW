@@ -36,7 +36,8 @@ try {
     $topicsTimeline = timelineGetTopics($userid);
     $answers = timelineGetAnswers($userid);
     $comments = timelineGetComments($userid);
-    $timeline = array_merge($topicsTimeline, $answers, $comments);
+    $commentsAnswers = timelineGetCommentsAnswers($userid);
+    $timeline = array_merge($topicsTimeline, $answers, $comments, $commentsAnswers);
     usort($timeline, "sortTimeline");
 
     $creationDate = getAccountByUserId($userid)['creationdate'];

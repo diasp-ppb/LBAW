@@ -1,7 +1,7 @@
 <div class="row replies">
     {foreach $comments as $comment}
         <div class="col-md-10 col-md-offset-1 panel-body reply">
-            <span class="text-muted"><strong>{$comment.publisher}</strong> commented {getTimeDiff($comment.creationdate)} days ago:</span>
+            <span class="text-muted"><strong>{$comment.publisher}</strong> comentou há {getTimeDiff($comment.creationdate)} dias:</span>
             <span class="reply-text">
                 {$comment.content}
                 {if isset($smarty.session)}

@@ -15,8 +15,10 @@ if (!isset($_SESSION["usertype"]) || $_SESSION["usertype"] != "admin") {
 
 include_once('../../database/topics.php');
 
+$commentId = htmlspecialchars(trim($_POST["id"]));
+
 try {
-    deleteComment($id);
+    deletePost($commentId);
     die(json_encode(array('message' => 'OK', 'code' => 200)));
 } catch (PDOException $e) {
     saveOnLog("Delete Comment:", $e);

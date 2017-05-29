@@ -142,11 +142,11 @@ function hasAlreadyMade($userId,$topicId,$type) {
     return $stmt->fetch() > 0;
 }
 
-function getTopicVoteType($userId,$topicId){ 
-    global $conn; 
- 
-    $stmt=$conn->prepare("SELECT votetype FROM vote WHERE postid= ? AND userid=?"); 
-    $stmt->execute(array($topicId,$userId)); 
+function getTopicVoteType($userId,$topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("SELECT votetype FROM vote WHERE postid= ? AND userid=?");
+    $stmt->execute(array($topicId,$userId));
     return $stmt->fetchAll();
 }
 
@@ -187,12 +187,12 @@ function insertNewVote($userId, $type, $topicId){
     return $stmt->errorCode();
 }
 
-function deleteVote($userId,$topicId){ 
-    global $conn; 
- 
-    $stmt=$conn->prepare("DELETE FROM vote WHERE userid=? AND postid=?"); 
-    $stmt->execute(array($userId,$topicId)); 
-    return $stmt->errorCode(); 
+function deleteVote($userId,$topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("DELETE FROM vote WHERE userid=? AND postid=?");
+    $stmt->execute(array($userId,$topicId));
+    return $stmt->errorCode();
 }
 
 function deleteAcceptVoteByTopic($topicId){
@@ -259,8 +259,18 @@ function timelineGetAnswers($userId) {
 
 function timelineGetComments($userId) {
     global $conn;
-    $stmt=$conn->prepare("SELECT 'comment' AS tablename, comment.postid AS postid, comment.creationdate, post.title, post.posttype FROM comment
+    $stmt=$conn->prepare("SELECT 'comment' AS tablename, comment.postid, post.id AS postid, comment.creationdate, post.title, post.posttype FROM comment
                             JOIN post ON (comment.postid = post.id)
+                            WHERE comment.userid = ? AND post.posttype = 'question'");
+    $stmt->execute(array($userId));
+    return $stmt->fetchAll();
+}
+
+function timelineGetCommentsAnswers($userId) {
+    global $conn;
+    $stmt=$conn->prepare("SELECT 'comment' AS tablename, comment.postid, post2.id AS postid, comment.creationdate, post2.title, post2.posttype FROM comment
+                            JOIN post AS post1 ON (comment.postid = post1.id)
+                            JOIN post AS post2 ON (post1.parentid = post2.id)
                             WHERE comment.userid = ?");
     $stmt->execute(array($userId));
     return $stmt->fetchAll();
@@ -292,10 +302,16 @@ function createComment($parentid, $userid, $content) {
 }
 
 function deleteReply($replyId) {
-    echo "GIRO";
     global $conn;
     $stmt=$conn->prepare("DELETE FROM comment WHERE id = ?;");
     $stmt->execute(array($replyId));
+    return $stmt->errorCode();
+}
+
+function deletePost($postId) {
+    global $conn;
+    $stmt=$conn->prepare("DELETE FROM post WHERE id = ?;");
+    $stmt->execute(array($postId));
     return $stmt->errorCode();
 }
 ?>

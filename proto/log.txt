@@ -1,0 +1,3 @@
+olaSQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+LINE 1: SELECT votetype FROM vote WHERE postid= '65' AND userid=''
+                                                                ^

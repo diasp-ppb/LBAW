@@ -2,7 +2,7 @@
     include_once('../../config/init.php');
     include_once('../../database/tags.php');
 
-$query = $_GET["query"];
+$query = htmlspecialchars(trim($_GET["query"]));
 
 try{
     $result = getTagsFuzzy($query);

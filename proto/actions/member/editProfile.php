@@ -5,9 +5,9 @@ include_once("../../database/account.php");
 include_once("../../database/email.php");
 
 if(isset($_POST['name'])) {
-	$id = $_POST['id'];
-	$name = $_POST['name'];
-	$location = $_POST['location'];
+	$id = htmlspecialchars(trim($_POST['id']));
+	$name = htmlspecialchars(trim($_POST['name']));
+	$location = htmlspecialchars(trim($_POST['location']));
 	$newEmails = array_filter(array_map('trim', $_POST['email']));
 	$links = array_filter(array_map('trim', $_POST['link']));
 

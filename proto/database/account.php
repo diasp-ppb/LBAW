@@ -48,7 +48,11 @@ function getUserImage($userId){
     $stmt=$conn->prepare("SELECT image FROM account WHERE id= ?");
     $stmt->execute(array($userId));
     $image=$stmt->fetch()["image"];
-    return $image;
+    if($image==null){
+        return "../../resources/images/users/profile_default.png";
+    } else {
+        return $image;
+    }
 }
 
 function updateProfile($userId, $name, $links) {

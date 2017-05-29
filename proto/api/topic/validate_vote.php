@@ -3,8 +3,8 @@ include_once('../../config/init.php');
 include_once('../../database/topics.php');
 include_once('../../api/serverLog/serverLog.php');
 
-$type = $_POST["voteType"];
-$topicId = $_POST["topicId"];
+$type = htmlspecialchars(trim($_POST["voteType"]));
+$topicId = htmlspecialchars(trim($_POST["topicId"]));
 
 if($type=="upvote")
     $inverseType="downvote";

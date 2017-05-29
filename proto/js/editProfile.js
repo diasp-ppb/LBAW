@@ -7,6 +7,7 @@ $(document).ready(function() {
         $('#git_username').prop('disabled',true);
         $('#upload-image').prop('disabled',false);
         $('#submit-image').prop('disabled',true);
+        $('#image-preview').attr('src', '../../resources/images/users/profile_default.png');
     });
 
     $('#github-check').click(function () {
@@ -14,18 +15,18 @@ $(document).ready(function() {
         $('#upload-image').prop('disabled',true);
         $('#git_username').prop('disabled',false);
         $('#submit-image').prop('disabled',true);
+        $('#image-preview').attr('src', '../../resources/images/users/profile_default.png');
     });
 
     $('#git_username').on('focusout',function () {
         if($(this).val().length>0){
             var userURL="https://api.github.com/users/"+$(this).val();
-            console.log(userURL);
             $.ajax({
                 type: "get",
                 url: userURL
             }).done(function(data) {
                 $('#github-image-url').val(data.avatar_url);
-                console.log($('#github-image-url').val());
+                $('#image-preview').attr('src',data.avatar_url);
                 $('#submit-image').removeAttr("disabled");
             }).fail(function () {
                 $('#message').html('<div class="alert alert-warning" role="alert">O utilizador do github que introduziu não existe.</div>');
@@ -64,7 +65,7 @@ $(document).ready(function() {
 });
 
 function noPreview() {
-    $('#image-preview').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/700px-Turkish_Van_Cat.jpg');
+    $('#image-preview').attr('src', '../../resources/images/users/profile_default.png');
     $('#submit-image').prop('disabled',true);
 }
 

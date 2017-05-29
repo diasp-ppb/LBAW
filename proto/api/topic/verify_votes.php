@@ -3,8 +3,8 @@ include_once('../../config/init.php');
 include_once('../../database/topics.php');
 include_once('../../api/serverLog/serverLog.php');
 
-$userId = $_POST["userId"];
-$topicId = $_POST["topicId"];
+$userId = htmlspecialchars(trim($_POST["userId"]));
+$topicId = htmlspecialchars(trim($_POST["topicId"]));
 
 try {
     $type=getTopicVoteType($userId,$topicId)[0]["votetype"];

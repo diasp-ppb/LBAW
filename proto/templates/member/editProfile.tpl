@@ -5,12 +5,12 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <ul class="nav nav-pills brand-pills nav-stacked hidden-xs hidden-sm" role="tablist">
-                        <li role="presentation" class="brand-nav"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> Quem eu sou</a></li>
-                        <li role="presentation" class="brand-nav active"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-picture"></i> Imagem de perfil</a></li>
+                        <li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> Quem eu sou</a></li>
+                        <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-picture"></i> Imagem de perfil</a></li>
                     </ul>
                     <ul class="list-inline text-center hidden-md hidden-lg">
-                        <li role="presentation" class="brand-nav"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> Quem eu sou</a></li>
-                        <li role="presentation" class="brand-nav active"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-picture"></i> Imagem de perfil</a></li>
+                        <li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> Quem eu sou</a></li>
+                        <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-picture"></i> Imagem de perfil</a></li>
                     </ul>
                 </div>
             </div>
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane" id="tab1">
+                        <div role="tabpanel" class="tab-pane active" id="tab1">
                             <form id="editProfile" action="../../actions/member/editProfile.php" method="post">
                                 <input type="hidden" name="id" value="5">
                                 <div class="form-group user name">
@@ -119,9 +119,9 @@
                             </form>
                         </div>
 
-                        <div role="tabpanel" class="tab-pane active" id="tab2">
+                        <div role="tabpanel" class="tab-pane" id="tab2">
                             <div class="row">
-                                <img id="image-preview" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/700px-Turkish_Van_Cat.jpg" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
+                                <img id="image-preview" src="../../resources/images/users/profile_default.png" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
                             </div>
 
                             <form id="form-image" action="../../actions/member/editProfile.php" method="post" enctype="multipart/form-data">

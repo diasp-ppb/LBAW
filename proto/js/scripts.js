@@ -33,6 +33,7 @@ $(document).ready(function() {
 function loadAdmin() {
     createAdminCharts();
     loadMemberList();
+    addDisableButton();
 }
 
 function loadProfile() {
@@ -223,6 +224,16 @@ function createAdminCharts() {
     });
 }
 
+function addDisableButton() {
+    $(".disable-member").click(
+        function() {
+            $.post("../../api/member/disableMember.php", {
+                id: $(this).attr("id")
+            });
+
+            $(this).replaceWith('<span class="pull-right">Disabled</span>')
+        });
+}
 
 function loadMemberList() {
     $('#user-pagination').twbsPagination({
@@ -240,9 +251,10 @@ function loadMemberList() {
                 for (var i = 0; i < data.length; i++) {
                     $('#userlist .list-group').append('<li class="list-group-item"> \
                     <a href="../../pages/member/profile.php?id=' + data[i].id + '">' + data[i].name + '</a> \
-                    <i class="glyphicon glyphicon-remove pull-right"></i> \
+                    <i id="' + data[i].id + '" + class="glyphicon glyphicon-remove pull-right disable-member"></i> \
                     </li>');
                 }
+                addDisableButton();
             });
         }
     });

@@ -1249,6 +1249,10 @@ button.rating {
     font-weight: bold;
 }
 
+li > i.disable-member:hover {
+    cursor: pointer;
+}
+
 button.remove {
     height: 34px;
 }

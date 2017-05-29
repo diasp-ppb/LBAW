@@ -23,7 +23,7 @@ function getAccountByUserId($userId) {
 
 function getUserList($offset) {
     global $conn;
-    $stmt = $conn->prepare("SELECT name, id FROM account ORDER BY name LIMIT 10 OFFSET ?");
+    $stmt = $conn->prepare("SELECT name, id FROM account WHERE status = 'active' ORDER BY name LIMIT 10 OFFSET ?");
     $stmt->execute(array($offset));
     return $stmt->fetchAll();
 }
@@ -61,9 +61,9 @@ function updateProfile($userId, $name, $links) {
     $stmt->execute(array($name, $links, $userId));
 }
 
-function getUserOrderedByName(){
+function getUserOrderedByName() {
     global $conn;
-    $stmt=$conn->prepare("SELECT name, id FROM account ORDER BY name LIMIT 10");
+    $stmt=$conn->prepare("SELECT name, id FROM account WHERE status = 'active' ORDER BY name LIMIT 10");
     $stmt->execute();
     return $stmt->fetchAll();
 }
@@ -72,15 +72,15 @@ function getUsersBySearchInput($input) {
 	global $conn;
 
     $pieces = explode(" ", $input);
- 
+
     $query = $pieces[0];
     for ($i = 1; $i < count($pieces); $i++) {
           $query = $query . " & ". $pieces[$i];
-    }   
+    }
 
     $stmt=$conn->prepare("SELECT * FROM account WHERE  to_tsvector('portuguese', name) @@ to_tsquery('portuguese', ?);");
     $stmt->execute(array($query));
-   
+
     return $stmt->fetchAll();
 }
 
@@ -117,5 +117,11 @@ function countRecentlyActiveUsers() {
     $stmt=$conn->prepare("SELECT COUNT(*) FROM account WHERE lastAccessDate > (NOW() - INTERVAL '2 hour')");
     $stmt->execute();
     return $stmt->fetchAll()[0]['count'];
+}
+
+function disableUser($userId) {
+    global $conn;
+    $stmt=$conn->prepare("UPDATE account SET STATUS = 'disabled' WHERE id = ?;");
+    $stmt->execute(array($userId));
 }
 ?>

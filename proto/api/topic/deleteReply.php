@@ -13,15 +13,15 @@ if (!isset($_SESSION["usertype"]) || $_SESSION["usertype"] != "admin") {
     die(json_encode(array('message' => 'Forbidden', 'code' => 403)));
 }
 
-include_once("../../database/account.php");
+include_once('../../database/topics.php');
 
-$userid = htmlspecialchars(trim($_POST["id"]));
+$replyId = htmlspecialchars(trim($_POST["id"]));
 
 try {
-    disableUser($userid);
+    deleteReply($replyId);
     die(json_encode(array('message' => 'OK', 'code' => 200)));
 } catch (PDOException $e) {
-    saveOnLog("Disable Member: ", $e);
+    saveOnLog("Delete Comment:", $e);
     die(json_encode(array('message' => 'Internal Server Error', 'code' => 500)));
 }
 ?>

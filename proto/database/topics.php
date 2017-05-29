@@ -60,7 +60,7 @@ function createTopic($userId, $title, $content, $sectionId, $tags) {
 								COMMIT;");
     $stmt->execute(array($userId, $title, $content, $sectionId, to_pg_array($tags),to_pg_array($tags)));
     $topicId = $conn->lastInsertId('post_id_seq');
-   
+
     $conn->commit();
 
     return $topicId;
@@ -77,7 +77,7 @@ function getFeaturedTagsTopic($topicId) {
 }
 function getTopicWithTitle($title) {
     global $conn;
-    
+
     $pieces = explode(" ", $title);
     $query = $pieces[0];
     for ($i = 1; $i < count($pieces); $i++) {
@@ -136,22 +136,22 @@ function getTopicAnswers($topicId) {
 }
 
 function hasAlreadyMade($userId,$topicId,$type) {
-    global $conn; 
-    $stmt=$conn->prepare("SELECT * FROM vote WHERE postid= ? AND userid=? AND voteType=?"); 
-    $stmt->execute(array($topicId,$userId,$type)); 
-    return $stmt->fetch() > 0; 
+    global $conn;
+    $stmt=$conn->prepare("SELECT * FROM vote WHERE postid= ? AND userid=? AND voteType=?");
+    $stmt->execute(array($topicId,$userId,$type));
+    return $stmt->fetch() > 0;
 }
 
-function getTopicVoteType($userId,$topicId){ 
-    global $conn; 
- 
-    $stmt=$conn->prepare("SELECT votetype FROM vote WHERE postid= ? AND userid=?"); 
-    $stmt->execute(array($topicId,$userId)); 
-    return $stmt->fetchAll(); 
-    $stmt=$conn->prepare("SELECT * FROM vote WHERE postid = ? AND  userid= ?"); 
-    $stmt->execute(array($topicId, $userId)); 
-    return $stmt->fetch() == 0; 
-} 
+function getTopicVoteType($userId,$topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("SELECT votetype FROM vote WHERE postid= ? AND userid=?");
+    $stmt->execute(array($topicId,$userId));
+    return $stmt->fetchAll();
+    $stmt=$conn->prepare("SELECT * FROM vote WHERE postid = ? AND  userid= ?");
+    $stmt->execute(array($topicId, $userId));
+    return $stmt->fetch() == 0;
+}
 
 function insertNewVote($userId, $type, $topicId){
     global $conn;
@@ -161,13 +161,13 @@ function insertNewVote($userId, $type, $topicId){
     return $stmt->errorCode();
 }
 
-function deleteVote($userId,$topicId){ 
-    global $conn; 
- 
-    $stmt=$conn->prepare("DELETE FROM vote WHERE userid=? AND postid=?"); 
-    $stmt->execute(array($userId,$topicId)); 
-    return $stmt->errorCode(); 
-} 
+function deleteVote($userId,$topicId){
+    global $conn;
+
+    $stmt=$conn->prepare("DELETE FROM vote WHERE userid=? AND postid=?");
+    $stmt->execute(array($userId,$topicId));
+    return $stmt->errorCode();
+}
 
 
 
@@ -197,14 +197,14 @@ function countTopics() {
 function getAllTopicComments($topicId) {
     global $conn;
 
-    $stmt=$conn->prepare("SELECT comment.postid, comment.id, comment.content, comment.creationdate, comment.userid, account.name AS publisher FROM comment 
+    $stmt=$conn->prepare("SELECT comment.postid, comment.id, comment.content, comment.creationdate, comment.userid, account.name AS publisher FROM comment
                             JOIN post ON (comment.postid = post.id)
                             JOIN account ON (comment.userid = account.id)
                             WHERE (parentid = ? OR post.id = ?)
                             ORDER BY comment.creationdate DESC;");
 
     $stmt->execute(array($topicId, $topicId));
-    return $stmt->fetchAll(PDO::FETCH_GROUP);   
+    return $stmt->fetchAll(PDO::FETCH_GROUP);
 }
 
 
@@ -227,7 +227,7 @@ function timelineGetAnswers($userId) {
 function timelineGetComments($userId) {
     global $conn;
     $stmt=$conn->prepare("SELECT 'comment' AS tablename, comment.postid AS postid, comment.creationdate, post.title, post.posttype FROM comment
-                            JOIN post ON (comment.postid = post.id) 
+                            JOIN post ON (comment.postid = post.id)
                             WHERE comment.userid = ?");
     $stmt->execute(array($userId));
     return $stmt->fetchAll();
@@ -258,4 +258,11 @@ function createComment($parentid, $userid, $content) {
     return $stmt->fetch();
 }
 
+function deleteReply($replyId) {
+    echo "GIRO";
+    global $conn;
+    $stmt=$conn->prepare("DELETE FROM comment WHERE id = ?;");
+    $stmt->execute(array($replyId));
+    return $stmt->errorCode();
+}
 ?>

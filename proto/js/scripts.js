@@ -60,9 +60,8 @@ function loadTopic() {
     handleReplies();
     runTextEditor();
     handleComments();
+    addDeleteButtons();
 }
-
-
 
 function verifyVotesButtons(topicId, userId) {
     var tagButton;
@@ -232,7 +231,8 @@ function addDisableButton() {
             });
 
             $(this).replaceWith('<span class="pull-right">Disabled</span>')
-        });
+        }
+    );
 }
 
 function loadMemberList() {
@@ -610,6 +610,33 @@ function handleComments() {
     });
 }
 
+function addDeleteButtons() {
+    addDeleteReply();
+    addDeleteComment();
+    addDeleteTopic();
+}
+
+function addDeleteReply() {
+    $(".remove-reply").click(
+        function() {
+            var replyId = $(this).attr("id").substring(5);
+
+            $.post("../../api/topic/deleteReply.php", {
+                id: replyId
+            });
+
+            $(this).parent().parent().remove();
+        }
+    );
+}
+
+function addDeleteComment() {
+
+}
+
+function addDeleteTopic() {
+
+}
 
 function handleTimeline() {
     if (typeof handleTimeline.showLimit == 'undefined') {

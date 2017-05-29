@@ -65,40 +65,39 @@ function loadTopic() {
     addDeleteButtons();
 }
 
-function verifyVotesButtons(topicId, userId){ 
+function verifyVotesButtons(topicId, userId) {
     var tagButton;
-    $.ajax({ 
-        type: "post", 
-        url: "../../api/topic/verify_votes.php", 
-        data: { topicId: topicId, userId: userId } 
-    }).done(function(data){ 
-        var value=JSON.parse(data);
-        console.log("Votes buttons: "+data);
-        if(value==0){
-            tagButton="#"+topicId+" button.upvote.btn";
-            $(tagButton).attr('style','background-color:#5cb85c !important');
-        }else if(value==1){
-            tagButton="#"+topicId+" button.downvote.btn";
-            $(tagButton).attr('style','background-color:#d9534f !important');
-        }else if(value==2){
-        }
+    $.ajax({
+        type: "post",
+        url: "../../api/topic/verify_votes.php",
+        data: { topicId: topicId, userId: userId }
+    }).done(function(data) {
+        var value = JSON.parse(data);
+        console.log("Votes buttons: " + data);
+        if (value == 0) {
+            tagButton = "#" + topicId + " button.upvote.btn";
+            $(tagButton).attr('style', 'background-color:#5cb85c !important');
+        } else if (value == 1) {
+            tagButton = "#" + topicId + " button.downvote.btn";
+            $(tagButton).attr('style', 'background-color:#d9534f !important');
+        } else if (value == 2) {}
     });
 }
 
-function verifyAcceptVotes(topicId){
+function verifyAcceptVotes(topicId) {
     $.ajax({
         type: "post",
         url: "../../api/topic/verify_accept.php",
         data: { topicId: topicId }
-    }).done(function(data){
-        var value=JSON.parse(data);
-        console.log("Accept data: "+data);
-        if(value==0){
-            var tagButton="#"+topicId+" button.correct.btn";
-            var tagHeaderTopic="#"+topicId+"header";
+    }).done(function(data) {
+        var value = JSON.parse(data);
+        console.log("Accept data: " + data);
+        if (value == 0) {
+            var tagButton = "#" + topicId + " button.correct.btn";
+            var tagHeaderTopic = "#" + topicId + "header";
             console.log(tagButton);
-            $(tagButton).attr('style','background-color: #428bca !important');
-            $(tagHeaderTopic).attr('style','background-color: #5bc0de !important');
+            $(tagButton).attr('style', 'background-color: #428bca !important');
+            $(tagHeaderTopic).attr('style', 'background-color: #5bc0de !important');
         }
     });
 }
@@ -110,7 +109,7 @@ function verifyVote(type, topicId) {
     var tagTopic = "#" + topic + " button.rating.btn";
     var tagButton;
     var tagHeaderTopic;
-    console.log("OLA: "+voteType);
+    console.log("OLA: " + voteType);
     $.ajax({
         type: "post",
         url: "../../api/topic/validate_vote.php",
@@ -152,15 +151,15 @@ function verifyVote(type, topicId) {
                 $(tagButton).attr('style', 'background-color:#d9534f !important');
                 $(tagTopic).text(parseInt($(tagTopic).text()) - 1);
             }
-        } else if (value == 3){
-            tagButton="#"+topicId+" button.correct.btn";
-            tagHeaderTopic="#"+topicId+"header";
+        } else if (value == 3) {
+            tagButton = "#" + topicId + " button.correct.btn";
+            tagHeaderTopic = "#" + topicId + "header";
             console.log(tagButton);
-            $(tagButton).attr('style','background-color: #428bca !important');
-            $(tagHeaderTopic).attr('style','background-color: #5bc0de !important');
-        } else if(value == 4){
-            tagButton="#"+topicId+" button.correct.btn";
-            tagHeaderTopic="#"+topicId+"header";
+            $(tagButton).attr('style', 'background-color: #428bca !important');
+            $(tagHeaderTopic).attr('style', 'background-color: #5bc0de !important');
+        } else if (value == 4) {
+            tagButton = "#" + topicId + " button.correct.btn";
+            tagHeaderTopic = "#" + topicId + "header";
             console.log(tagButton);
             $(tagButton).removeAttr("style");
             $(tagHeaderTopic).removeAttr("style");
@@ -287,10 +286,20 @@ function createUserCharts() {
         console.log(data);
         var info = JSON.parse(data);
         console.log(info);
-        if (info[0].length < 7 || info[1].length < 7 || info[2].length < 7 || info[3].length < 7) {
-            console.log("not engouth data");
+
+        var accept = true;
+        var comment = true;
+        if (info[0].length < 7 || info[1].length < 7) {
             $(".accepted-data").hide();
+            accept = false;
+        }
+        if (info[2].length < 7 || info[3].length < 7) {
             $(".comment-data").hide();
+            comment = false;
+        }
+        
+        if (accept == false && comment == false) {
+
             $(".no-data").show();
         }
         var ctx = document.getElementById("accepted-answers").getContext('2d');

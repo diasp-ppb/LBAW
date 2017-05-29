@@ -68,17 +68,23 @@
               <h4>Onde comento:</h4>
               <canvas id="where-i-comment"></canvas>
             </div>
-            <div hidden class="no-data">
-              <p> Ainda não tens actividade suficiente na comunidade :( </p> 
+            <div hidden  class="no-data alert alert-info">
+                    <p> Ainda não actividade para mostrar estatísticas! </p>
             </div>
           </div>
           <div class="row" id="my-topics">
             <div class="page-header">
               <h2>Os meus tópicos</h2>
             </div>
+            {if $topics|@count > 1}
             {foreach $topics as $topic1 }
                 {include file="common/topicPresentation.tpl" votes=$topic1.rating answers=10 visua=$topic1.visualizations topicId=$topic1.id topic=$topic1.title  tags=$topic1.tags  author=$topic1.author}
             {/foreach}
+            {else}
+               <div class="alert alert-info">
+                    <p> Ainda não publicas-te nenhum tópico!  </p>
+               </div>
+            {/if}
           </div>
         </div>
       </div>

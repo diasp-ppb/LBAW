@@ -70,7 +70,7 @@
                                 <div class="user text-center">
                                     <a href='../../pages/member/profile.php?id={$profile.id}' style="color: #303641">
                                         <img src={getUserImage($profile.id)} class="img-thumbnail" style="height: 80px; width: 80px" alt="Profile Picture">
-                                        <h4>{$profile.name}</h4>
+                                        <h4><a href="../member/profile.php?id={$profile.id}">{$profile.name}</a></h4>
                                     </a>
                                 </div>
                             </div>

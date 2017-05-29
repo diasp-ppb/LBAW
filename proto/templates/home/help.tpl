@@ -13,6 +13,13 @@
       </div>
       <br>
     {/if}
+
+    {if $status != "OK" && $status != "MISS"} 
+      <div id="messages"  class="alert alert-info">
+        <p> Mensagem será enviada com o email {$smarty.SESSION.email}! </p>
+      </div>
+      <br>
+    {/if}
     </div>
     <div class="row">
         <div class="col-md-offset-2 col-md-8 form text-center">
@@ -26,6 +33,7 @@
                     <input type="text" class="form-control" id="title" name="title" required="required" placeholder="Assunto"/>
                     <br>
                     <textarea style="height: 25em;" name="text" class="form-control" placeholder="Insira aqui a sua mensagem..."></textarea>
+                    <br>
                     <button type="submit" class="btn btn-primary new-reply">Enviar</button>
                 </div>
                

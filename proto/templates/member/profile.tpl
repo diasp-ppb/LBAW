@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
           <div class="user-info text-center">
-            <img src="{$user.image}" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
+            <img src="{getUserImage($user.id)}" class="img-circle img-thumbnail" style="height: 200px; width: 200px" alt="Profile Picture">
             <h3>{$user.name}</h3>
             {foreach from=$emails item=$email}
             <p><i class="glyphicon glyphicon-envelope"></i>{$email.mail}</p>

@@ -19,14 +19,12 @@ try {
     $user = getAccountByUserId($userid);
 } catch(PDOException $e) {
     saveOnLog("editProfile.php:", $e);
-    //TODO
 }
 
 try {
     $emails = getUserEmailList($userid);
 } catch(PDOException $e) {
     saveOnLog("editProfile.php:", $e);
-    //TODO
 }
 
 

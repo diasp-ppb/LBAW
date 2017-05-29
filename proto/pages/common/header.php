@@ -1,7 +1,8 @@
 <?php
     include_once('../../config/init.php');
     include_once('../../database/account.php');
-    
+    include_once("../../api/serverLog/serverLog.php");
+
     $userImg=getUserImage($_SESSION["id"]);
     $smarty->assign("title", pathinfo(basename($_SERVER['PHP_SELF']), PATHINFO_FILENAME));
     $smarty->assign("image",$userImg);

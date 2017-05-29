@@ -4,7 +4,6 @@ include_once("../common/header.php");
 include_once("../../database/topics.php");
 include_once("../../database/account.php");
 include_once("../../database/tags.php");
-include_once("../../api/serverLog/serverLog.php");
 
 try {
     $tags = getTags();
@@ -58,7 +57,6 @@ try {
 
 } catch(PDOException $e) {
     saveOnLog("home.php:", $e);
-    //TODO
 }
 
 $smarty->assign('tags',$tags);

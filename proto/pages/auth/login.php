@@ -22,7 +22,7 @@ if ($userDb) {
     $_SESSION['id'] = $r['id'];
     $_SESSION['usertype'] = 'member';
   } catch (PDOException $e) {
-    print_r($e->getMessage());
+    saveOnLog("login.php",$e->getMessage());
   }
 }
 

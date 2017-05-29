@@ -8,7 +8,6 @@ include_once("../../database/account.php");
 include_once("../../database/email.php");
 include_once("../../database/topics.php");
 include_once("../../utils.php");
-include_once("../../api/serverLog/serverLog.php");
 
 $userid = htmlspecialchars(trim($_GET["id"]));
 
@@ -17,7 +16,6 @@ try {
 } catch(PDOException $e) {
     saveOnLog("profile.php:", $e);
     header("Location: ../common/error.php?msg=" . $e->getMessage());
-    //TODO
 }
 
 
@@ -43,7 +41,6 @@ try {
     $creationDate = getAccountByUserId($userid)['creationdate'];
 } catch(PDOException $e) {
     saveOnLog("profile.php:", $e->getMessage());
-    //TODO
 }
 
 $smarty->assign('user', $user);

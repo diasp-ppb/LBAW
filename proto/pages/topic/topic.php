@@ -15,7 +15,6 @@ try{
     $topicInfo = getTopicInfo($topicId)[0];
 } catch(PDOException $e) {
     saveOnLog("topic.php:", $e);
-    //TODO
 }
 
 if (!isset($topicInfo)) {
@@ -31,7 +30,6 @@ try {
     $comments = getAllTopicComments($topicId);
 } catch(PDOException $e) {
     saveOnLog("topic.php:", $e);
-    //TODO
 }
 
 $topicInfo['timeDiff'] = getTimeDiff($topicInfo["creationdate"]);
@@ -49,7 +47,5 @@ $smarty->assign('userImage', $userImage);
 $smarty->assign('userName', $userName);
 $smarty->assign('answers', $answers);
 $smarty->assign('comments', $comments);
-
-
 $smarty->display('topic/topic.tpl');
 ?>

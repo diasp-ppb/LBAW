@@ -11,7 +11,6 @@ include_once("../common/header.php");
 include_once("../../database/topics.php");
 include_once("../../database/account.php");
 include_once("../../database/tags.php");
-include_once("../../api/serverLog/serverLog.php");
 
 try {
      global $smarty;
@@ -96,7 +95,6 @@ try {
 
 } catch(PDOException $e) {
     saveOnLog("search.php:", $e);
-    //TODO
 }      
    $smarty->assign('result',$result);
     $smarty->assign('result2',$result2);
